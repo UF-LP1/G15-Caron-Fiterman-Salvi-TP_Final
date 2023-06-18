@@ -1,36 +1,40 @@
 #ifndef CPACIENTE_H
 #define CPACIENTE_H
-#include"cpersona.h"
+#include "cpersona.h" //librerias ya incluidas en persona.h
+#include "cprotesis.h"
 #include <string>
 #include <iostream>
-#include <string>
 #include <list>
-#include <vector>
-#include <queue>
-#include <stack>
-#include <ctime>
-#include <cstdlib>
-#include <QDateTime>
 using namespace std;
 
 class cPaciente: public cPersona
 {
 public:
-    cPaciente(string nombre,string apellido, string dni,QDateTime fechaNac,string telefono,list <string> alergias, string hospitalatentido, float radiomiembro, bool permisoprotesis, cProtesis protesis);
+    cPaciente(string nombre, string apellido, string dni, QDateTime fechaNac, string telefono, list <string> alergias, string HospitAlatentido, float RadioMiembro, bool PermisoProtesis, cProtesis Protesis);
+
     void set_telefono(string telefono);
+    const string get_telefono();
+
     void set_alergias(list<string> alergias);
+    const list <string> get_alergias();
+
     void set_hospitalatendido(string hospitalatendido);
+    const string get_hospitalatendido();
+
     void set_radio(float radio);
-    void set_permisoprotesis(bool permiso);
-    const QDateTime get_fechanac();
-    string get_telefono();
-    list <string> get_alergias();
-    string get_hospitalatendido();
     const float get_radiomiembro();
+
+    void set_permisoprotesis(bool permiso);
     const bool get_permisoprotesis();
+
+    const QDateTime get_fechanac();
+
     const string  to_string();
     void imprimir();
-     ~cPaciente();
+
+    ~cPaciente();
+
+
 protected:
     const QDateTime FechaNac;
     string Telefono;

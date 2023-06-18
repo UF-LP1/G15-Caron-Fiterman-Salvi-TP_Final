@@ -1,24 +1,27 @@
 #include "cmedico.h"
 
-cMedico::cMedico(string nombre,string apellido, string dni, string matricula)
-{
-}
-const string cMedico::get_matricula(string matricula){
-    this->Matricula=matricula;
-    return;
-}
-void cMedico::dar_permiso_protesis(cliente,protesis){
+cMedico::cMedico(string nombre,string apellido, string dni, string matricula): cPersona(nombre,apellido,dni), Matricula(matricula) {}
 
+const string cMedico::get_matricula(){
+    return this->Matricula;
 }
-bool cMedico::solicitar_protesis_fabricante(protesis){
 
+void cMedico::dar_permiso_protesis(cPaciente paciente, cProtesis prote){
+ //HACER CODIGO
 }
-const cMedico::string to_string(){
 
+
+bool cMedico::solicitar_protesis_fabricante(cProtesis prote){
+     //HACER CODIGO
+    return true;
 }
+const string cMedico::to_string(){
+    //HACER CODIGO
+}
+
 void cMedico::imprimir(){
-
+    //HACER CODIGO
 }
-cMedico::~cMedico(){
 
-}
+
+cMedico::~cMedico(){}
