@@ -56,13 +56,35 @@ const QDateTime cPaciente::get_fechanac(){
     return this->FechaNac;
 }
 
+const string cPaciente::ListarAlergias(){
+    list<string>::iterator it = Alergias.begin();
+    stringstream salidaLista;
+
+    while (it != Alergias.end()) {
+        salidaLista << *it << endl; //imprime la alergia
+        ++it;
+    } //recorro toda la lista
+
+    return salidaLista.str();
+}
 
 const string cPaciente::to_string(){
-    //HACER CODIGO
+    stringstream salida;
+    salida << cPersona::to_string()<<endl //usa el to_string de cPersona
+           << "Fecha Nacimiento: "<< this->get_fechanac().toString().toStdString()<<endl
+           << "Telefono: " << this->get_telefono()<<endl
+           << "Alergias: " << this->ListarAlergias()<<endl //lista todas las alergias
+           << "Hospital Atendido: " << this->get_hospitalatendido()<<endl
+           << "Radio Miembro: " << this->get_radiomiembro()<<endl
+           << "Permiso Protesis: "<< this->get_permisoprotesis() <<endl
+           << "Protesis: " << this->Protesis.to_string()<<endl; //usa el to_string de protesis
+
+    return salida.str();
 }
 
 void cPaciente::imprimir(){
-    //HACER CODIGO
+    cout << this->to_string() << endl;
+    return;
 }
 
 cPaciente::~cPaciente(){}

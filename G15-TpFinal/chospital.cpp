@@ -38,7 +38,7 @@ const string cHospital::ListarMedicos(){
     stringstream salidaLista;
 
     while (it != ListaMedicos.end()) {
-        salidaLista << (*it)->to_string(); //usa el to_string de cMedico
+        salidaLista << (*it)->to_string()<<endl; //usa el to_string de cMedico
         ++it;
     } //recorro toda la lista de medicos
 
@@ -51,7 +51,7 @@ const string cHospital::ListarPacientes(){
     stringstream salidaLista;
 
     while (it != ListaPacientes.end()) {
-        salidaLista << (*it)->to_string(); //usa el to_string de paciente
+        salidaLista << (*it)->to_string()<<endl; //usa el to_string de paciente
         ++it;
     } //recorro toda la lista de pacientes
 

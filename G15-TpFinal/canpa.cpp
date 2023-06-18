@@ -42,7 +42,7 @@ const string cANPA::ListarRegistros(){
     stringstream salidaLista;
 
     while (it != ListaRegistros.end()) {
-        salidaLista << (*it)->to_string();
+        salidaLista << (*it)->to_string()<<endl;
         ++it;
     }
 

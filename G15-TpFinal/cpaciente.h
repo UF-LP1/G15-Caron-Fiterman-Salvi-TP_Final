@@ -26,6 +26,7 @@ public:
 
     const QDateTime get_fechanac();
 
+    const string ListarAlergias();
     const string to_string();
     void imprimir();
 

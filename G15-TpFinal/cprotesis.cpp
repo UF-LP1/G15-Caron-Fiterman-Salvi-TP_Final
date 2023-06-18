@@ -75,5 +75,21 @@ void cProtesis::set_material(string Material){
     return;
 }
 
+const string cProtesis::to_string(){
+    stringstream salida;
+    salida << "Largo Protesis: "<< this->get_largo() <<endl
+           << "Radio: "<<this->get_radio()<<endl
+           << "Fecha Fabricacion: " << this->get_fechaFabricacion().toString().toStdString()<<endl
+           << "Informacion Protesis: " << this->get_tipoProtesis()<<endl
+           << "Material Protesis: " << this->get_material()<<endl;
+
+    return salida.str();
+
+}
+
+void cProtesis::imprimir(){
+    cout << this->to_string() << endl;
+    return;
+}
 
 cProtesis::~cProtesis(){}
