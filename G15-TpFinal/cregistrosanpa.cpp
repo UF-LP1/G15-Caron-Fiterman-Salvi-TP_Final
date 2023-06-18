@@ -73,11 +73,24 @@ void cRegistrosANPA::set_EstadoProtesis(EstadoProtesis estado){
 }
 
 const string cRegistrosANPA:: to_string(){
-    //HACER CODIGO
+    stringstream salidaLista;
+    salidaLista << "DNI Paciente: " << this->get_DNIPaciente() << endl
+                << "Hospital: " << this->get_Hospital()<<endl
+                << "Medico: " << this->get_Medico()<<endl
+                << "Fecha Solicitud: " << this->get_FechaSolicitud().toString().toStdString() << endl
+                << "Fecha Entrega: " << this->get_FechaEntrega().toString().toStdString() << endl
+                << "Fecha Entrega Estimada: " << this->get_FechaEntregaEstimada().toString().toStdString() << endl
+                << "Estado Protesis"<< this->get_EstadoProtesis()<<endl;
+             /*
+             * método toString() de la clase QDate convierte fecha a string
+             * toStdString() convierte a std::string (tipo que usa  el stringstream)
+             *
+             */
+    return salidaLista.str();
 }
 
 void cRegistrosANPA::imprimir(){
-    //HACER CODIGO
+    cout << this->to_string() << endl;
 }
 
 

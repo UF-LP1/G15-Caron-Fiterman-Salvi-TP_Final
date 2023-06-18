@@ -42,18 +42,7 @@ const string cANPA::ListarRegistros(){
     stringstream salidaLista;
 
     while (it != ListaRegistros.end()) {
-        salidaLista << "DNI Paciente: " << (*it)->get_DNIPaciente() << endl
-                    << "Hospital: " << (*it)->get_Hospital()<<endl
-                    << "Medico: " << (*it)->get_Medico()<<endl
-                    << "Fecha Solicitud: " << (*it)->get_FechaSolicitud().toString().toStdString() << endl
-                    << "Fecha Entrega: " << (*it)->get_FechaEntrega().toString().toStdString() << endl
-                    << "Fecha Entrega Estimada: " << (*it)->get_FechaEntregaEstimada().toString().toStdString() << endl;
-            /*
-             * método toString() de la clase QDate convierte fecha a string
-             * toStdString() convierte a std::string (tipo que usa  el stringstream
-             *
-             */
-
+        salidaLista << (*it)->to_string();
         ++it;
     }
 

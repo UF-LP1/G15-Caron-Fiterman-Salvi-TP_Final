@@ -17,11 +17,16 @@ bool cMedico::solicitar_protesis_fabricante(cProtesis prote){
 }
 
 const string cMedico::to_string(){
-    //HACER CODIGO
+    stringstream salida;
+    salida << cPersona::to_string()<<endl
+           << "Matricula Medico: " << this->get_matricula()<<endl;
+
+    return salida.str();
 }
 
 void cMedico::imprimir(){
-    //HACER CODIGO
+    cout << this->to_string() << endl;
+    return;
 }
 
 

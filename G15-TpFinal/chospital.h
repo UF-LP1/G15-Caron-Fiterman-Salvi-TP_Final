@@ -23,6 +23,9 @@ class cHospital
         void set_ListaPacientes(list<cPaciente*> ListaPacientes);
         const list<cPaciente*> get_ListaPacientes();
 
+        const string ListarMedicos();
+        const string ListarPacientes();
+
         const string to_string();
         void imprimir();
 

@@ -16,12 +16,17 @@ string cFabricante::get_NroHabilitacion(){
     return this->numeroHabilitacion;
 }
 const string cFabricante::to_string(){
-    //hacer codigo
-    return "hola";
+    stringstream salida;
+
+    salida << "Nombre Fabricante: "<< this->get_nombre()<<endl
+           << "Direccion: " << this->get_direccion()<<endl
+           << "Numero Habilitacion: " << this->get_NroHabilitacion()<<endl;
+
+    return salida.str();
 }
 
 void cFabricante::imprimir(){
-    //hacer codigo
+    cout << this->to_string() << endl;
 }
 
 

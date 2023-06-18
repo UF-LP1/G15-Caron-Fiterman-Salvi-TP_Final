@@ -18,11 +18,17 @@ const string cPersona::get_DNI(){
 }
 
 const string cPersona::to_string(){
-    //HACER CODIGO
+    stringstream salida;
+    salida << "Nombre Paciente: " << this->get_nombre()<<endl
+           << "Apellido Paciente: "<< this->get_apellido()<<endl
+           << "DNI Paciente: " << this->get_DNI()<<endl;
+
+    return salida.str();
 }
 
 void cPersona::imprimir(){
-    //HACER CODIGO
+    cout << this->to_string() << endl;
+    return;
 
 }
 

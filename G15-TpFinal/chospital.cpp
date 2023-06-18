@@ -32,12 +32,42 @@ const list<cPaciente*> cHospital:: get_ListaPacientes(){
     return this->ListaPacientes;
 }
 
+const string cHospital::ListarMedicos(){
+
+    list<cMedico*>::iterator it = ListaMedicos.begin();
+    stringstream salidaLista;
+
+    while (it != ListaMedicos.end()) {
+        salidaLista << (*it)->to_string(); //usa el to_string de cMedico
+        ++it;
+    } //recorro toda la lista de medicos
+
+    return salidaLista.str();
+}
+
+const string cHospital::ListarPacientes(){
+
+    list<cPaciente*>::iterator it = ListaPacientes.begin();
+    stringstream salidaLista;
+
+    while (it != ListaPacientes.end()) {
+        salidaLista << (*it)->to_string(); //usa el to_string de paciente
+        ++it;
+    } //recorro toda la lista de pacientes
+
+    return salidaLista.str();
+}
 
 const string cHospital::to_string(){
-    //HACER CODIGO
+    stringstream salida;
+
+    salida << "Nombre Fabricante: "<< this->get_Nombre() <<endl
+           << "Direccion: " << this->get_Direccion() <<endl
+           << "Lista Medicos: " << this->ListarMedicos() <<endl //toda la lista
+           << "Lista Pacientes: " << this->ListarPacientes() <<endl; //idem
 }
 void cHospital::imprimir(){
-    //HACER CODIGO
+    cout << this->to_string() << endl;
 }
 
 cHospital::~cHospital(){}
