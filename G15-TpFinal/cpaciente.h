@@ -29,7 +29,7 @@ public:
 
     const QDateTime get_fechanac();
 
-    const string  to_string();
+    const string to_string();
     void imprimir();
 
     ~cPaciente();

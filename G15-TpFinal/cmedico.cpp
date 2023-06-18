@@ -7,7 +7,7 @@ const string cMedico::get_matricula(){
 }
 
 void cMedico::dar_permiso_protesis(cPaciente paciente, cProtesis prote){
- //HACER CODIGO
+    //HACER CODIGO
 }
 
 
@@ -15,6 +15,7 @@ bool cMedico::solicitar_protesis_fabricante(cProtesis prote){
      //HACER CODIGO
     return true;
 }
+
 const string cMedico::to_string(){
     //HACER CODIGO
 }

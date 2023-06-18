@@ -12,6 +12,7 @@ class cFabricante
         string get_nombre();
         string get_direccion();
         string get_NroHabilitacion();
+
         const string to_string();
         void imprimir();
 

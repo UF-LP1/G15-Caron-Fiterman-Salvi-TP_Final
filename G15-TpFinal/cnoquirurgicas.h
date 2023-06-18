@@ -15,6 +15,8 @@ class cNoQuirurgicas : public cProtesis
         cNoQuirurgicas(const cNoQuirurgicas &copia); //constructor por copia
         const string get_material();
         void set_material(string Material);
+
+
         ~cNoQuirurgicas();
 
 

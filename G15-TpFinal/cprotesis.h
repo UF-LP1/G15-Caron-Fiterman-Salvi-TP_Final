@@ -31,6 +31,9 @@ class cProtesis
         virtual const string get_material();
         virtual void set_material(string Material);
 
+        const string to_string();
+        void imprimir();
+
         ~cProtesis();
 
     protected:
