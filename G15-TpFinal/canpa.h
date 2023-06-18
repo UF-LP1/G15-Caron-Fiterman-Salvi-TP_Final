@@ -3,9 +3,10 @@
 #include <string>
 #include <iostream>
 #include <list>
+#include <sstream>
 using namespace std;
+
 #include "cregistrosanpa.h"
-#include "cpaciente.h"
 #include "chospital.h"
 
 
@@ -23,6 +24,7 @@ class cANPA
         cPaciente BuscarPacXProtesis(cProtesis protesisPaciente); //usa sobrecarga del ==
         cPaciente BuscarPacXHospital(cHospital hospitalPaciente); //usa sobrecarga del ==
 
+        const string ListarRegistros();
         const string to_string();
         void imprimir();
 

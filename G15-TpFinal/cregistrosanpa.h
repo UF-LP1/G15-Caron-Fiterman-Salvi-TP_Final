@@ -4,6 +4,7 @@
 #include <iostream>
 #include <list>
 #include <QDate>
+#include <sstream>
 using namespace std;
 
 enum EstadoProtesis {Entregada = 1, Solicitada};

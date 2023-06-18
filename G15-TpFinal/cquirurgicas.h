@@ -2,10 +2,6 @@
 #define CQUIRURGICAS_H
 
 #include "cprotesis.h"
-#include <string>
-#include <iostream>
-#include <list>
-using namespace std;
 
 class cQuirurgicas : public cProtesis
 {

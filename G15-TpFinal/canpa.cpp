@@ -36,13 +36,41 @@ cPaciente cANPA::BuscarPacXHospital(cHospital hospitalPaciente){ //usa sobrecarg
 
 }
 
-const string cANPA::to_string(){
+const string cANPA::ListarRegistros(){
 
-    //HACER CODIGO
+    list<cRegistrosANPA*>::iterator it = ListaRegistros.begin();
+    stringstream salidaLista;
+
+    while (it != ListaRegistros.end()) {
+        salidaLista << "DNI Paciente: " << (*it)->get_DNIPaciente() << endl
+                    << "Hospital: " << (*it)->get_Hospital()<<endl
+                    << "Medico: " << (*it)->get_Medico()<<endl
+                    << "Fecha Solicitud: " << (*it)->get_FechaSolicitud().toString().toStdString() << endl
+                    << "Fecha Entrega: " << (*it)->get_FechaEntrega().toString().toStdString() << endl
+                    << "Fecha Entrega Estimada: " << (*it)->get_FechaEntregaEstimada().toString().toStdString() << endl;
+            /*
+             * método toString() de la clase QDate convierte fecha a string
+             * toStdString() convierte a std::string (tipo que usa  el stringstream
+             *
+             */
+
+        ++it;
+    }
+
+    return salidaLista.str();
+}
+
+const string cANPA::to_string(){
+    stringstream salida;
+    salida << "Direccion ANPA:"<< this->direccion<<endl
+           << this->ListarRegistros()<<endl;
+
+    return salida.str();
 }
 
 void cANPA::imprimir(){
-    //HACER CODIGO
+    cout << this->to_string() << endl;
+    return;
 }
 
 

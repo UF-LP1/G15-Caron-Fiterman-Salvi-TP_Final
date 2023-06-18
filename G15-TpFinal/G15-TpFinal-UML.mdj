@@ -4058,7 +4058,7 @@
 											"top": 158,
 											"width": 257.61328125,
 											"height": 13,
-											"text": "-DNIPaciente: string",
+											"text": "-DNIPaciente: const string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -9410,63 +9410,6 @@
 				},
 				{
 					"_type": "UMLClass",
-					"_id": "AAAAAAGIcx0j8fKhNwg=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "cListaPacientes",
-					"attributes": [
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAGIl6CfqkWI88o=",
-							"_parent": {
-								"$ref": "AAAAAAGIcx0j8fKhNwg="
-							},
-							"name": "List",
-							"type": ""
-						}
-					]
-				},
-				{
-					"_type": "UMLClass",
-					"_id": "AAAAAAGIcx1UaPLLNnE=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "cListaMedicos",
-					"attributes": [
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAGIl6C4l0eyAkU=",
-							"_parent": {
-								"$ref": "AAAAAAGIcx1UaPLLNnE="
-							},
-							"name": "List",
-							"type": ""
-						}
-					]
-				},
-				{
-					"_type": "UMLClass",
-					"_id": "AAAAAAGIc4DUdvNNplc=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "cListaProtesis",
-					"attributes": [
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAGIl6DNBEmHFUk=",
-							"_parent": {
-								"$ref": "AAAAAAGIc4DUdvNNplc="
-							},
-							"name": "List",
-							"type": ""
-						}
-					]
-				},
-				{
-					"_type": "UMLClass",
 					"_id": "AAAAAAGIc4LAl/OWZC8=",
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
@@ -9708,7 +9651,7 @@
 							},
 							"name": "DNIPaciente",
 							"visibility": "private",
-							"type": "string"
+							"type": "const string"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10058,34 +10001,6 @@
 					]
 				},
 				{
-					"_type": "UMLClass",
-					"_id": "AAAAAAGIc6pDyPQlYIk=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "stock",
-					"attributes": [
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAGIc6pg6PRY+Ik=",
-							"_parent": {
-								"$ref": "AAAAAAGIc6pDyPQlYIk="
-							},
-							"name": "nombreProte",
-							"type": "string"
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAGIc6qKzfRfdzk=",
-							"_parent": {
-								"$ref": "AAAAAAGIc6pDyPQlYIk="
-							},
-							"name": "cantidadProte",
-							"type": "int"
-						}
-					]
-				},
-				{
 					"_type": "UMLEnumeration",
 					"_id": "AAAAAAGIc7KO0/TVS6o=",
 					"_parent": {
@@ -10150,25 +10065,6 @@
 								"$ref": "AAAAAAGIkruarZ7gTuc="
 							},
 							"name": "entregada"
-						}
-					]
-				},
-				{
-					"_type": "UMLClass",
-					"_id": "AAAAAAGIku2ewaGU7xk=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "cListaOrtopedias",
-					"attributes": [
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAGIl6D1aFL/Zcw=",
-							"_parent": {
-								"$ref": "AAAAAAGIku2ewaGU7xk="
-							},
-							"name": "List",
-							"type": ""
 						}
 					]
 				}

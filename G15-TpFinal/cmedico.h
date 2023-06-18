@@ -1,11 +1,8 @@
 #ifndef CMEDICO_H
 #define CMEDICO_H
-#include "cpaciente.h" //librerias ya incluidas en persona.h
-#include"cprotesis.h"
-#include <string>
-#include <iostream>
-#include <list>
-using namespace std;
+#include "cpaciente.h"
+#include "cprotesis.h"
+
 
 class cMedico:public cPersona
 {

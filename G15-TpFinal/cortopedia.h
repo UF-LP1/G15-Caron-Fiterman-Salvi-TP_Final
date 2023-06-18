@@ -1,9 +1,7 @@
 #ifndef CORTOPEDIA_H
 #define CORTOPEDIA_H
-#include <string>
-#include <iostream>
-#include <list>
 using namespace std;
+
 #include "cprotesis.h"
 
 class cOrtopedia

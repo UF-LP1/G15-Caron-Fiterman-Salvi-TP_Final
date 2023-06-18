@@ -1,12 +1,14 @@
 #ifndef CHOSPITAL_H
 #define CHOSPITAL_H
-#include "cmedico.h"
-#include "cpaciente.h"
 #include <string>
 #include <iostream>
 #include <list>
 #include <QDateTime>
+#include <sstream>
 using namespace std;
+
+#include "cmedico.h"
+#include "cpaciente.h"
 
 class cHospital
 {

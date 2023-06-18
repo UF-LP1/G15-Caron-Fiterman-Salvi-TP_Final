@@ -2,10 +2,7 @@
 #define CPACIENTE_H
 #include "cpersona.h" //librerias ya incluidas en persona.h
 #include "cprotesis.h"
-#include <string>
-#include <iostream>
-#include <list>
-using namespace std;
+
 
 class cPaciente: public cPersona
 {

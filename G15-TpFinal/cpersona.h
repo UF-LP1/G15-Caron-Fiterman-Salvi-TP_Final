@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 #include <list>
+#include <sstream>
 #include <QDateTime>
 using namespace std;
 
