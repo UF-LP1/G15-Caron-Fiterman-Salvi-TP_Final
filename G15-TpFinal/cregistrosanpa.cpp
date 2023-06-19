@@ -12,11 +12,11 @@ cRegistrosANPA::cRegistrosANPA(string DNI, string hospital, string medico, QDate
     this->estadoProtesis = estado;
 }
 
-const string cRegistrosANPA::get_DNIPaciente(){
+const string cRegistrosANPA::get_DNIPaciente() const {
     return this->DNIPaciente;
 }
 
-const string cRegistrosANPA::get_Hospital(){
+const string cRegistrosANPA::get_Hospital() const{
     return this->Hospital;
 }
 void cRegistrosANPA::set_Hospital(string hospital){
@@ -24,7 +24,7 @@ void cRegistrosANPA::set_Hospital(string hospital){
     return;
 }
 
-const string cRegistrosANPA::get_Medico(){
+const string cRegistrosANPA::get_Medico() const{
     return this->Medico;
 }
 void cRegistrosANPA::set_Medico(string medico){
@@ -33,7 +33,7 @@ void cRegistrosANPA::set_Medico(string medico){
 }
 
 
-const string cRegistrosANPA::get_PiezaOrtopedica(){
+const string cRegistrosANPA::get_PiezaOrtopedica()const{
     return this->piezaOrtopedica;
 }
 void cRegistrosANPA::set_PiezaOrtopedica(string pieza){
@@ -41,14 +41,14 @@ void cRegistrosANPA::set_PiezaOrtopedica(string pieza){
     return;
 }
 
-const QDate cRegistrosANPA::get_FechaSolicitud(){
+const QDate cRegistrosANPA::get_FechaSolicitud() const{
     return this->FechaSolicitud;
 }
 void cRegistrosANPA::set_FechaSolicitud(QDate solicitud){
     this->FechaSolicitud = solicitud;
 }
 
-const QDate cRegistrosANPA::get_FechaEntrega(){
+const QDate cRegistrosANPA::get_FechaEntrega() const{
     return this->FechaEntrega;
 }
 void cRegistrosANPA::set_FechaEntrega(QDate entrega){
@@ -56,7 +56,7 @@ void cRegistrosANPA::set_FechaEntrega(QDate entrega){
     return;
 }
 
-const QDate cRegistrosANPA::get_FechaEntregaEstimada(){
+const QDate cRegistrosANPA::get_FechaEntregaEstimada() const{
     return this->FechaEntregaEstimada;
 }
 void cRegistrosANPA::set_FechaEntregaEstimada(QDate entregaEstimada){
@@ -64,7 +64,7 @@ void cRegistrosANPA::set_FechaEntregaEstimada(QDate entregaEstimada){
     return;
 }
 
-const EstadoProtesis cRegistrosANPA::get_EstadoProtesis(){
+const EstadoProtesis cRegistrosANPA::get_EstadoProtesis() const{
     return this->estadoProtesis;
 }
 void cRegistrosANPA::set_EstadoProtesis(EstadoProtesis estado){
@@ -72,10 +72,10 @@ void cRegistrosANPA::set_EstadoProtesis(EstadoProtesis estado){
     return;
 }
 
-const string cRegistrosANPA:: to_string(){
+const string cRegistrosANPA:: to_string() const {
     stringstream salidaLista;
-    salidaLista << "DNI Paciente: " << this->get_DNIPaciente() << endl
-                << "Hospital: " << this->get_Hospital()<<endl
+    salidaLista << "DNI Paciente: " << this->DNIPaciente << endl
+                << "Hospital: " << this->Hospital<<endl
                 << "Medico: " << this->get_Medico()<<endl
                 << "Fecha Solicitud: " << this->get_FechaSolicitud().toString().toStdString() << endl
                 << "Fecha Entrega: " << this->get_FechaEntrega().toString().toStdString() << endl
@@ -115,3 +115,11 @@ bool cRegistrosANPA::operator==(const cRegistrosANPA &RegistroAComparar){
 
     return iguales;
 }
+
+
+ostream& operator<<(ostream& os, const cRegistrosANPA& registroImprimir){
+    os<< registroImprimir.to_string()<<endl;
+    return os;
+}
+
+

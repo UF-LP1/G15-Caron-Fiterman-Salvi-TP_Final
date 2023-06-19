@@ -15,34 +15,35 @@ class cRegistrosANPA
         cRegistrosANPA(string DNI, string hospital, string medico, QDate FSolicitud, QDate FEntrega, QDate FEntregaEstimada, string pieza, EstadoProtesis estado);
         ~cRegistrosANPA();
 
-        const string get_DNIPaciente();
+        const string get_DNIPaciente() const;
 
-        const string get_Hospital();
+        const string get_Hospital() const;
         void set_Hospital(string hospital);
 
-        const string get_Medico();
+        const string get_Medico() const;
         void set_Medico(string medico);
 
 
-        const string get_PiezaOrtopedica();
+        const string get_PiezaOrtopedica() const;
         void set_PiezaOrtopedica(string pieza);
 
-        const QDate get_FechaSolicitud();
+        const QDate get_FechaSolicitud() const;
         void set_FechaSolicitud(QDate solicitud);
 
-        const QDate get_FechaEntrega();
+        const QDate get_FechaEntrega() const;
         void set_FechaEntrega(QDate entrega);
 
-        const QDate get_FechaEntregaEstimada();
+        const QDate get_FechaEntregaEstimada() const;
         void set_FechaEntregaEstimada(QDate entregaEstimada);
 
-        const EstadoProtesis get_EstadoProtesis();
+        const EstadoProtesis get_EstadoProtesis() const;
         void set_EstadoProtesis(EstadoProtesis estado);
 
-        const string to_string();
+        const string to_string() const;
         void imprimir();
 
         bool operator==(const cRegistrosANPA &RegistroAComparar);
+        friend ostream& operator<<(ostream& os, const cRegistrosANPA& registro);
 
     private:
         const string DNIPaciente;
@@ -55,5 +56,7 @@ class cRegistrosANPA
         EstadoProtesis estadoProtesis;
 
 };
+
+ostream& operator<<(ostream& os, const cRegistrosANPA& registro);
 
 #endif // CREGISTROSANPA_H
