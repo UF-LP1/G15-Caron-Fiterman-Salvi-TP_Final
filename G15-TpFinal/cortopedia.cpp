@@ -32,5 +32,17 @@ void cOrtopedia::imprimir(){
 
 cOrtopedia::~cOrtopedia(){}
 
+//STATIC STOCK
 
-//FALTAN LOS STATIC STOCK!!
+unsigned int cOrtopedia::StockSupIzqQ = 10;
+unsigned int cOrtopedia::StockSupDerQ = 18;
+unsigned int cOrtopedia::StockInfIzqQ = 23;
+unsigned int cOrtopedia::StockInfDerQ = 12;
+unsigned int cOrtopedia::StockSupIzqNQ = 2;
+unsigned int cOrtopedia::StockSupDerNQ = 1;
+unsigned int cOrtopedia::StockInfIzqNQ = 0;
+unsigned int cOrtopedia::StockInfDerNQ = 4;
+
+
+//para aumentar: cOrtopedia::StockInfDerNQ++;
+//para decrementar: cOrtopedia::StockInfDerNQ--;

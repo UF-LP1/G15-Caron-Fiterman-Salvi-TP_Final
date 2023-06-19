@@ -80,10 +80,12 @@ const string cRegistrosANPA:: to_string(){
                 << "Fecha Solicitud: " << this->get_FechaSolicitud().toString().toStdString() << endl
                 << "Fecha Entrega: " << this->get_FechaEntrega().toString().toStdString() << endl
                 << "Fecha Entrega Estimada: " << this->get_FechaEntregaEstimada().toString().toStdString() << endl
-                << "Estado Protesis"<< this->get_EstadoProtesis()<<endl;
+                << "Estado Protesis"<< this->get_EstadoProtesis()<<endl
+                << "Protesis: "<< this->get_PiezaOrtopedica()<<endl;
+
              /*
-             * método toString() de la clase QDate convierte fecha a string
-             * toStdString() convierte a std::string (tipo que usa  el stringstream)
+             * método toString() de la clase QDate convierte fecha a string,
+             * toStdString() convierte a std::string (tipo que usa el stringstream)
              *
              */
     return salidaLista.str();
@@ -95,3 +97,21 @@ void cRegistrosANPA::imprimir(){
 
 
 cRegistrosANPA::~cRegistrosANPA(){}
+
+bool cRegistrosANPA::operator==(const cRegistrosANPA &RegistroAComparar){
+    bool iguales = false;
+
+    if(this->DNIPaciente == RegistroAComparar.DNIPaciente &&
+       this->Hospital == RegistroAComparar.Hospital &&
+       this->Medico == RegistroAComparar.Medico &&
+       this->FechaSolicitud.toString() == RegistroAComparar.FechaSolicitud.toString() &&
+       this->FechaEntrega.toString() == RegistroAComparar.FechaEntrega.toString() &&
+       this->FechaEntregaEstimada.toString() == RegistroAComparar.FechaEntregaEstimada.toString() &&
+       this->piezaOrtopedica == RegistroAComparar.piezaOrtopedica &&
+       this->estadoProtesis == RegistroAComparar.estadoProtesis){ //si son iguales todos los atributos
+
+        iguales = true;
+    }
+
+    return iguales;
+}

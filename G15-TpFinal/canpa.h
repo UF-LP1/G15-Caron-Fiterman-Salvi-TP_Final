@@ -19,8 +19,11 @@ class cANPA
         list<cRegistrosANPA*> get_ListaRegistros();
         const string get_direccion();
 
-        void Entregar_Protesis(cPaciente paciente, cProtesis protesisPaciente); //le entrega la protesis al paciente, usa la sobrecarga del = para asignarle la protesis
-        void AgregarPaciente(cPaciente pacienteNuevo); //usa sobrecarga del +
+        void Entregar_Protesis(cPaciente paciente, cProtesis protesisPaciente);
+        // le entrega la protesis al paciente, usa la sobrecarga del = para asignarle la protesis
+        // Se debe utilizar la sobrecarga del operador "==" para verificar si la prótesis en stock
+        // es la que el paciente necesita.
+        void AgregarRegistroPaciente(cRegistrosANPA pacienteNuevo); //usa sobrecarga del +
         cPaciente BuscarPacXProtesis(cProtesis protesisPaciente); //usa sobrecarga del ==
         cPaciente BuscarPacXHospital(cHospital hospitalPaciente); //usa sobrecarga del ==
 
@@ -28,8 +31,12 @@ class cANPA
         const string to_string();
         void imprimir();
 
-        ~cANPA();
+        void operator+(cRegistrosANPA &registroNuevo);
+        void operator-(cRegistrosANPA &registroBorrar);
 
+
+        ~cANPA();
+//Imprimir un listado de pacientes y prótesis.
 
     private:
         string direccion;

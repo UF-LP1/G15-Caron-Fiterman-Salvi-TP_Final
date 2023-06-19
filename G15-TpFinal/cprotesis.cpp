@@ -75,6 +75,34 @@ void cProtesis::set_material(string Material){
     return;
 }
 
+bool cProtesis::operator==(const cProtesis &ProtesisAComparar){
+    bool iguales = false;
+
+    if(this->Largo == ProtesisAComparar.Largo &&
+       this->Radio == ProtesisAComparar.Radio &&
+       this->fechaFabricacion.toString() == ProtesisAComparar.fechaFabricacion.toString() &&
+       this->Fabricante == ProtesisAComparar.Fabricante &&
+       this->InfoProtesis == ProtesisAComparar.InfoProtesis &&
+       this->Material == ProtesisAComparar.Material){
+
+        iguales = true;
+    }
+
+    return iguales;
+}
+
+
+void cProtesis::operator=(const cProtesis& protesis){
+    this->Largo= protesis.Largo;
+    this->Radio = protesis.Radio;
+    this->fechaFabricacion = protesis.fechaFabricacion;
+    this->Fabricante = protesis.Fabricante;
+    this->InfoProtesis = protesis.InfoProtesis;
+    this->Material = protesis.Material; //asigno todos los valores
+
+    return;
+}
+
 const string cProtesis::to_string(){
     stringstream salida;
     salida << "Largo Protesis: "<< this->get_largo() <<endl

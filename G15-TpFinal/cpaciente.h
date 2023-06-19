@@ -26,9 +26,12 @@ public:
 
     const QDateTime get_fechanac();
 
-    const string ListarAlergias();
+    string ListarAlergias() const;
     const string to_string();
     void imprimir();
+
+    bool operator==(const cPaciente &PacienteAComparar);
+
 
     ~cPaciente();
 
@@ -38,7 +41,7 @@ protected:
     string Telefono;
     list <string> Alergias;
     string HospitalAtendido;
-    float RadioMiembro;
+    float RadioMiembro; // 0 si no tiene nada amputado
     bool PermisoProtesis;
     cProtesis Protesis;
 

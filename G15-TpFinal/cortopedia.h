@@ -18,14 +18,15 @@ class cOrtopedia
 
         ~cOrtopedia();
 
-        static int StockSupIzqQ;
-        static int StockSupDerQ;
-        static int StockInfIzqQ;
-        static int StockInfDerQ;
-        static int StockSupIzqNQ;
-        static int StockSupDerNQ;
-        static int StockInfIzqNQ;
-        static int StockInfDerNQ; //son publicos para que las otras clases puedan acceder
+        static unsigned int StockSupIzqQ;
+        static unsigned int StockSupDerQ;
+        static unsigned int StockInfIzqQ;
+        static unsigned int StockInfDerQ;
+        static unsigned int StockSupIzqNQ;
+        static unsigned int StockSupDerNQ;
+        static unsigned int StockInfIzqNQ;
+        static unsigned int StockInfDerNQ; //son publicos para que las otras clases puedan acceder y modificarlos
+                                           //ej: cuando le asignan la protesis a un paciente se tiene que restar
 
     private:
         const string Nombre;
@@ -33,7 +34,6 @@ class cOrtopedia
         list <cProtesis*> ListadoProtesis;
 
 
-        //FALTA STOCK!!!!!!!!!!
 
 };
 

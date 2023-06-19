@@ -18,23 +18,37 @@ const string cANPA::get_direccion(){
 void cANPA::Entregar_Protesis(cPaciente paciente, cProtesis protesisPaciente){ //le entrega la protesis al paciente, usa la sobrecarga del = para asignarle la protesis
     //HACER CODIGO
 
+    // "Se debe utilizar la sobrecarga del operador "==" para verificar si la prótesis en stock
+    // es la que el paciente necesita." consigna
+
 }
 
-void cANPA::AgregarPaciente(cPaciente pacienteNuevo){ //usa sobrecarga del +
-    //HACER CODIGO
-}
+void cANPA::AgregarRegistroPaciente(cRegistrosANPA pacienteNuevo){ //usa sobrecarga del + y del ==
+    list<cRegistrosANPA*>::iterator it = this->ListaRegistros.begin();
+    bool encontrado = false;
 
+    while(it!= this->ListaRegistros.end()){
+        if(pacienteNuevo == *(*it)) //sobrecarga del == de cRegistrosANPA
+            encontrado = true;
+        it++;
+    }
+
+    if(encontrado == false) //si el paciente no esta en la lista previamente
+        this->ListaRegistros.push_back(&pacienteNuevo);
+
+    return;
+}
 
 cPaciente cANPA::BuscarPacXProtesis(cProtesis protesisPaciente){ //usa sobrecarga del ==
     //HACER CODIGO
 
-}
+}//Buscar pacientes que ya poseen prótesis según la prótesis o el hospital.
 
 
 cPaciente cANPA::BuscarPacXHospital(cHospital hospitalPaciente){ //usa sobrecarga del ==
     //HACER CODIGO
 
-}
+}//Buscar pacientes que ya poseen prótesis según la prótesis o el hospital.
 
 const string cANPA::ListarRegistros(){
 
@@ -62,5 +76,30 @@ void cANPA::imprimir(){
     return;
 }
 
-
 cANPA::~cANPA(){}
+
+
+void cANPA::operator+(cRegistrosANPA &registroNuevo){
+    this->AgregarRegistroPaciente(registroNuevo);
+    return;
+}
+
+
+void cANPA::operator-(cRegistrosANPA &registroBorrar){
+    list<cRegistrosANPA*>::iterator it= this->ListaRegistros.begin();
+    bool encontrado = false;
+
+    while(it != this->ListaRegistros.end()){
+        if(*(*it)==registroBorrar){ //sobrecarga del ==
+            encontrado = true;
+            break;
+        }
+
+        it++;
+    }
+
+    if(encontrado == true)
+        this->ListaRegistros.erase(it);
+
+    return;
+}

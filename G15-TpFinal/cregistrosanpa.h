@@ -42,6 +42,8 @@ class cRegistrosANPA
         const string to_string();
         void imprimir();
 
+        bool operator==(const cRegistrosANPA &RegistroAComparar);
+
     private:
         const string DNIPaciente;
         string Hospital;

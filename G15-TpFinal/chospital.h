@@ -29,7 +29,15 @@ class cHospital
         const string to_string();
         void imprimir();
 
+        void operator+(cPaciente &pacienteNuevo);
+        void operator-(cPaciente &pacienteBorrar);
+
+        void operator+(cMedico &medicoNuevo);
+        void operator-(cMedico &medicoBorrar);
+
         ~cHospital();
+
+
 
     private:
         const string Nombre;

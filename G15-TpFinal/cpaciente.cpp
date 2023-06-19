@@ -56,8 +56,8 @@ const QDateTime cPaciente::get_fechanac(){
     return this->FechaNac;
 }
 
-const string cPaciente::ListarAlergias(){
-    list<string>::iterator it = Alergias.begin();
+ string cPaciente::ListarAlergias() const{
+    list<string>::const_iterator it = Alergias.begin();
     stringstream salidaLista;
 
     while (it != Alergias.end()) {
@@ -85,6 +85,29 @@ const string cPaciente::to_string(){
 void cPaciente::imprimir(){
     cout << this->to_string() << endl;
     return;
+}
+
+
+bool cPaciente::operator==(const cPaciente &PacienteAComparar){
+    bool iguales = false;
+
+    if(this->Nombre == PacienteAComparar.Nombre &&
+       this->Apellido == PacienteAComparar.Apellido &&
+       this->DNI == PacienteAComparar.DNI &&
+       this->FechaNac.toString() == PacienteAComparar.FechaNac.toString() &&
+       this->Telefono == PacienteAComparar.Telefono &&
+       this->HospitalAtendido == PacienteAComparar.HospitalAtendido &&
+       this->RadioMiembro == PacienteAComparar.RadioMiembro &&
+       this->PermisoProtesis == PacienteAComparar.PermisoProtesis &&
+       this->Protesis == PacienteAComparar.Protesis &&//usa la sobrearga de == de cProtesis
+       this->ListarAlergias() == PacienteAComparar.ListarAlergias()
+       )
+    {
+        iguales = true;
+
+    }
+
+    return iguales;
 }
 
 cPaciente::~cPaciente(){}

@@ -32,6 +32,10 @@ class cProtesis
         virtual const string get_material();
         virtual void set_material(string Material);
 
+        bool operator==(const cProtesis &ProtesisAComparar); //sobrecarga del ==
+        void operator=(const cProtesis& protesis); //sobrecarga del =
+
+
         const string to_string();
         void imprimir();
 

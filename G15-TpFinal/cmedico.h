@@ -17,6 +17,9 @@ public:
     const string to_string();
     void imprimir();
 
+    bool operator==(const cMedico &MedicoAComparar);
+
+
     ~cMedico();
 
 

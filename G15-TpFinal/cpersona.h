@@ -14,8 +14,10 @@ class cPersona
         const string get_nombre();
         const string get_apellido();
         const string get_DNI();
+
         virtual const string to_string();
         virtual void imprimir();
+
         ~cPersona();
 
     protected:
