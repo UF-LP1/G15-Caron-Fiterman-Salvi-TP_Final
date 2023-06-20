@@ -18,10 +18,12 @@ class cHospital
         const string get_Direccion() const;
 
         void set_ListaMedicos(list<cMedico*> ListaMedicos);
-        const list<cMedico*> get_ListaMedicos() const;
+        const list<cMedico*>& get_ListaMedicos() const;
 
         void set_ListaPacientes(list<cPaciente*> ListaPacientes);
-        const list<cPaciente*> get_ListaPacientes() const;
+        const list<cPaciente*>& get_ListaPacientes() const;
+        list<cPaciente*>::iterator get_BeginListaPacientes();
+        list<cPaciente*>::iterator get_EndListaPacientes();
 
         const string ListarMedicos() const;
         const string ListarPacientes() const;

@@ -160,10 +160,32 @@ void cANPA::AgregarRegistroPaciente(cRegistrosANPA pacienteNuevo){ //usa sobreca
 
 
 
-cPaciente cANPA::BuscarPacXHospital(cHospital hospitalPaciente){ //usa sobrecarga del ==
-    //HACER CODIGO
+cPaciente cANPA::BuscarPacXHospital(string DNIPaciente){ //usa sobrecarga del ==
+    list<cHospital*>:: iterator it = ListaHospitales.begin();
+    list <cRegistrosANPA*>:: iterator itRegistros = ListaRegistros.begin();
+    bool encontrado = false;
+    list<cPaciente*>:: iterator itPacientes;
 
-}//Buscar pacientes que ya poseen prótesis según la prótesis o el hospital.
+    while(it!= ListaHospitales.end() && itRegistros != ListaRegistros.end()){
+        if((*it)->get_Nombre() == (*itRegistros)->get_Hospital()){ //si son el mismo hospital
+            itPacientes = (*it)->get_BeginListaPacientes(); //recorro la lista de pacientes del hospital
+
+            while(itPacientes!= (*it)->get_EndListaPacientes()){
+                if(DNIPaciente == (*itPacientes)->get_DNI()){ // si es el mismo DNI
+                    encontrado = true;
+                    break;
+                }
+            }
+
+        }
+    }
+
+    if(encontrado == false){
+        throw new PacNoEncontrado;
+    }
+
+    return *(*itPacientes);
+}//Buscar pacientes que ya poseen prótesis según el hospital.
 
 const string cANPA::ListarRegistros() const{
 

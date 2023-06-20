@@ -22,7 +22,8 @@ class cANPA
         void Entregar_Protesis(cPaciente paciente, cProtesis &protesisPaciente);
         void AgregarRegistroPaciente(cRegistrosANPA pacienteNuevo); //usa sobrecarga del +
 
-        cPaciente BuscarPacXHospital(cHospital hospitalPaciente); //usa sobrecarga del ==
+        cPaciente BuscarPacXHospital(string DNIPaciente); //usa sobrecarga del ==
+        cPaciente BuscarPacXProtesis(string DNIPaciente); //usa sobrecarga del ==
 
         const string ListarRegistros() const;
         const string ListarHospitales() const;
@@ -45,8 +46,7 @@ class cANPA
         const string direccion;
         list<cRegistrosANPA*> ListaRegistros;
         list<cHospital*> ListaHospitales;
-        list<cRegistrosANPA*> ListaRegistrosProtesisEntregadas;
-        list<cRegistrosANPA*> ListaRegistrosProtesisSolicitadas;
+
 
 
 };

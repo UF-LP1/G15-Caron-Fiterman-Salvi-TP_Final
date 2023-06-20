@@ -19,7 +19,7 @@ void cHospital::set_ListaMedicos(list<cMedico*> ListaMedicos){
     return;
 }
 
-const list<cMedico*> cHospital::get_ListaMedicos() const{
+const list<cMedico*>& cHospital::get_ListaMedicos() const{
     return this->ListaMedicos;
 }
 
@@ -28,8 +28,16 @@ void cHospital::set_ListaPacientes(list<cPaciente*> ListaPacientes){
     return;
 }
 
-const list<cPaciente*> cHospital:: get_ListaPacientes() const{
+const list<cPaciente*>& cHospital:: get_ListaPacientes() const{
     return this->ListaPacientes;
+}
+
+list<cPaciente*>::iterator cHospital::get_BeginListaPacientes(){
+    return this->ListaPacientes.begin();
+}
+
+list<cPaciente*>::iterator cHospital::get_EndListaPacientes(){
+    return this->ListaPacientes.end();
 }
 
 const string cHospital::ListarMedicos() const{

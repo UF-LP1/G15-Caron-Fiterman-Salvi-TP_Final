@@ -14,4 +14,9 @@ public:
     const char* what() const throw();
 };
 
+class PacNoEncontrado: public exception{
+public:
+    const char* what() const throw();
+};
+
 #endif // CUSTOMEXCEPTIONS_H
