@@ -6,11 +6,11 @@ cHospital::cHospital()
 
 }
 
-const string cHospital::get_Nombre(){
+const string cHospital::get_Nombre() const{
     return this->Nombre;
 }
 
-const string cHospital::get_Direccion(){
+const string cHospital::get_Direccion() const{
     return this->Direccion;
 }
 
@@ -19,7 +19,7 @@ void cHospital::set_ListaMedicos(list<cMedico*> ListaMedicos){
     return;
 }
 
-const list<cMedico*> cHospital::get_ListaMedicos(){
+const list<cMedico*> cHospital::get_ListaMedicos() const{
     return this->ListaMedicos;
 }
 
@@ -28,13 +28,13 @@ void cHospital::set_ListaPacientes(list<cPaciente*> ListaPacientes){
     return;
 }
 
-const list<cPaciente*> cHospital:: get_ListaPacientes(){
+const list<cPaciente*> cHospital:: get_ListaPacientes() const{
     return this->ListaPacientes;
 }
 
-const string cHospital::ListarMedicos(){
+const string cHospital::ListarMedicos() const{
 
-    list<cMedico*>::iterator it = ListaMedicos.begin();
+    list<cMedico*>::const_iterator it = ListaMedicos.begin();
     stringstream salidaLista;
 
     while (it != ListaMedicos.end()) {
@@ -45,9 +45,9 @@ const string cHospital::ListarMedicos(){
     return salidaLista.str();
 }
 
-const string cHospital::ListarPacientes(){
+const string cHospital::ListarPacientes() const{
 
-    list<cPaciente*>::iterator it = ListaPacientes.begin();
+    list<cPaciente*>::const_iterator it = ListaPacientes.begin();
     stringstream salidaLista;
 
     while (it != ListaPacientes.end()) {
@@ -58,7 +58,7 @@ const string cHospital::ListarPacientes(){
     return salidaLista.str();
 }
 
-const string cHospital::to_string(){
+const string cHospital::to_string() const{
     stringstream salida;
 
     salida << "Nombre Fabricante: "<< this->get_Nombre() <<endl
@@ -144,4 +144,24 @@ void cHospital::operator-(cMedico &medicoBorrar){
     return;
 }
 
+bool cHospital::operator==(const cHospital &HospitalAComparar){
+    bool iguales = false;
+
+    if(this->Nombre == HospitalAComparar.Nombre &&
+       this->Direccion == HospitalAComparar.Direccion &&
+       this->ListaMedicos == HospitalAComparar.ListaMedicos &&
+       this->ListaPacientes == HospitalAComparar.ListaPacientes
+       ){
+        iguales = true;
+    }
+
+    return iguales;
+}
+
 cHospital::~cHospital(){}
+
+ostream& operator<<(ostream& os, const cHospital& Hospital){
+    os<< Hospital.to_string()<<endl;
+    return os;
+}
+

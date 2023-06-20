@@ -3,6 +3,7 @@
 using namespace std;
 
 #include "cprotesis.h"
+#include "chospital.h"
 
 class cOrtopedia
 {
@@ -32,6 +33,7 @@ class cOrtopedia
         const string Nombre;
         const string Direccion;
         list <cProtesis*> ListadoProtesis;
+        list <cHospital*> ListadoHospitales;
 
 
 
