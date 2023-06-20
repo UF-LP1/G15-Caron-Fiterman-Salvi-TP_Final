@@ -11,11 +11,11 @@ class cPersona
 {
     public:
         cPersona(string nombre,string apellido,string dni);
-        const string get_nombre();
-        const string get_apellido();
-        const string get_DNI();
+        const string get_nombre() const;
+        const string get_apellido() const;
+        const string get_DNI() const;
 
-        virtual const string to_string();
+        virtual const string to_string() const;
         virtual void imprimir();
 
         ~cPersona();

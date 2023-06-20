@@ -5,19 +5,19 @@ cPersona::cPersona(string nombre,string apellido,string dni):Nombre(nombre),Apel
 
 }
 
-const string cPersona::get_nombre(){
+const string cPersona::get_nombre()const{
     return this->Nombre;
 }
 
-const string cPersona::get_apellido(){
+const string cPersona::get_apellido()const{
     return this->Apellido;
 }
 
-const string cPersona::get_DNI(){
+const string cPersona::get_DNI() const{
     return this->DNI;
 }
 
-const string cPersona::to_string(){
+const string cPersona::to_string() const{
     stringstream salida;
     salida << "Nombre Paciente: " << this->get_nombre()<<endl
            << "Apellido Paciente: "<< this->get_apellido()<<endl

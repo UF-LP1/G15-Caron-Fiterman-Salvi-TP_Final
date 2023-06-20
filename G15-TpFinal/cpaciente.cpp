@@ -13,7 +13,7 @@ void cPaciente::set_telefono(string telefono){
     this->Telefono = telefono;
     return;
 }
-const string cPaciente::get_telefono(){
+const string cPaciente::get_telefono()const{
     return this->Telefono;
 }
 
@@ -22,7 +22,7 @@ void cPaciente::set_alergias(list<string> alergias){
     this->Alergias=alergias;
     return;
 }
-const list <string> cPaciente::get_alergias(){
+const list <string> cPaciente::get_alergias() const{
     return this->Alergias;
 }
 
@@ -30,7 +30,7 @@ void cPaciente::set_hospitalatendido(string HospitalAtendido){
     this->HospitalAtendido = HospitalAtendido;
     return;
 }
-const string cPaciente::get_hospitalatendido(){
+const string cPaciente::get_hospitalatendido()const{
     return this->HospitalAtendido;
 }
 
@@ -39,7 +39,7 @@ void cPaciente::set_radio(float radio){
     this->RadioMiembro = radio;
     return;
 }
-const float cPaciente::get_radiomiembro(){
+const float cPaciente::get_radiomiembro() const{
     return this->RadioMiembro;
 }
 
@@ -48,11 +48,11 @@ void cPaciente::set_permisoprotesis(bool permiso){
     this->PermisoProtesis = permiso;
     return;
 }
-const bool cPaciente::get_permisoprotesis(){
+const bool cPaciente::get_permisoprotesis() const{
     return this->PermisoProtesis;
 }
 
-const QDateTime cPaciente::get_fechanac(){
+const QDateTime cPaciente::get_fechanac() const{
     return this->FechaNac;
 }
 
@@ -68,7 +68,7 @@ const QDateTime cPaciente::get_fechanac(){
     return salidaLista.str();
 }
 
-const string cPaciente::to_string(){
+const string cPaciente::to_string() const{
     stringstream salida;
     salida << cPersona::to_string()<<endl //usa el to_string de cPersona
            << "Fecha Nacimiento: "<< this->get_fechanac().toString().toStdString()<<endl
@@ -108,6 +108,31 @@ bool cPaciente::operator==(const cPaciente &PacienteAComparar){
     }
 
     return iguales;
+}
+
+ostream& operator<<(ostream& os, const cPaciente& PacienteImprimir){
+    os<< PacienteImprimir.to_string()<<endl;
+    return os;
+}
+
+void cPaciente::operator+(string &AlergiaNueva){
+    list<string>::iterator it = this->Alergias.begin();
+    bool encontrado = false;
+
+    while(it != this->Alergias.end()){
+        if(AlergiaNueva == *it)
+            encontrado = true; //ya existe esa alergia en la lista
+        it++;
+    }
+
+    if(encontrado == false) //si el paciente no esta en la lista previamente, lo agrego
+        this->Alergias.push_back(&AlergiaNueva);
+
+    return;
+}
+
+void cPaciente::operator-(string &AlergiaBorrar){
+
 }
 
 cPaciente::~cPaciente(){}

@@ -14,29 +14,29 @@ class cProtesis
     public:
         cProtesis(float largo, float radio, QDate fechaFabricacion, string fabricante, TipoProtesis infoProtesis, string material);
         cProtesis(const cProtesis &copia); //constructor por copia
-        const float get_largo();
+        const float get_largo() const;
         void set_largo(float Largo);
 
-        const float get_radio();
+        const float get_radio() const;
         void set_radio(float Radio);
 
-        const QDate get_fechaFabricacion();
+        const QDate get_fechaFabricacion() const;
         void set_fechaFabricacion(QDate fecha);
 
-        const string get_fabricante();
+        const string get_fabricante() const;
         void set_fabricante(string fabricante);
 
-        const TipoProtesis get_tipoProtesis();
+        const TipoProtesis get_tipoProtesis() const;
         void set_tipoProtesis(TipoProtesis tipo);
 
-        virtual const string get_material();
+        virtual const string get_material() const;
         virtual void set_material(string Material);
 
         bool operator==(const cProtesis &ProtesisAComparar); //sobrecarga del ==
         void operator=(const cProtesis& protesis); //sobrecarga del =
 
 
-        const string to_string();
+        const string to_string() const;
         void imprimir();
 
         ~cProtesis();

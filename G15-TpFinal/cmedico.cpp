@@ -2,7 +2,7 @@
 
 cMedico::cMedico(string nombre,string apellido, string dni, string matricula): cPersona(nombre,apellido,dni), Matricula(matricula) {}
 
-const string cMedico::get_matricula(){
+const string cMedico::get_matricula() const{
     return this->Matricula;
 }
 
@@ -16,7 +16,7 @@ bool cMedico::solicitar_protesis_fabricante(cProtesis prote){
     return true;
 } //El médico debe poder solicitar prótesis al fabricante en caso de que no haya stock en las ortopedias.
 
-const string cMedico::to_string(){
+const string cMedico::to_string() const{
     stringstream salida;
     salida << cPersona::to_string()<<endl
            << "Matricula Medico: " << this->get_matricula()<<endl;
@@ -42,4 +42,11 @@ bool cMedico::operator==(const cMedico &MedicoAComparar){
     return iguales;
 }
 
+ostream& operator<<(ostream& os, const cMedico& MedicoImprimir){
+    os<< MedicoImprimir.to_string()<<endl;
+    return os;
+}
+
+
 cMedico::~cMedico(){}
+

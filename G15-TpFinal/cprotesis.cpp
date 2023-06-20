@@ -20,7 +20,7 @@ cProtesis::cProtesis(const cProtesis &copia){
     this->InfoProtesis = copia.InfoProtesis;
 }
 
-const float cProtesis::get_largo(){
+const float cProtesis::get_largo() const{
     return this->Largo;
 }
 
@@ -29,7 +29,7 @@ void cProtesis::set_largo(float Largo){
     return;
 }
 
-const float cProtesis::get_radio(){
+const float cProtesis::get_radio() const{
     return this->Radio;
 
 }
@@ -39,7 +39,7 @@ void cProtesis::set_radio(float Radio){
     return;
 }
 
-const QDate cProtesis::get_fechaFabricacion(){
+const QDate cProtesis::get_fechaFabricacion()const{
     return this->fechaFabricacion;
 }
 
@@ -48,7 +48,7 @@ void cProtesis::set_fechaFabricacion(QDate fecha){
     return;
 }
 
-const string cProtesis::get_fabricante(){
+const string cProtesis::get_fabricante()const{
     return this->Fabricante;
 }
 
@@ -57,7 +57,7 @@ void cProtesis:: set_fabricante(string fabricante){
     return;
 }
 
-const TipoProtesis cProtesis::get_tipoProtesis(){
+const TipoProtesis cProtesis::get_tipoProtesis()const{
     return this->InfoProtesis;
 }
 
@@ -66,7 +66,7 @@ void cProtesis::set_tipoProtesis(TipoProtesis tipo){
     return;
 }
 
-const string cProtesis::get_material(){
+const string cProtesis::get_material()const{
     return this->Material;
 }
 
@@ -103,7 +103,7 @@ void cProtesis::operator=(const cProtesis& protesis){
     return;
 }
 
-const string cProtesis::to_string(){
+const string cProtesis::to_string()const{
     stringstream salida;
     salida << "Largo Protesis: "<< this->get_largo() <<endl
            << "Radio: "<<this->get_radio()<<endl

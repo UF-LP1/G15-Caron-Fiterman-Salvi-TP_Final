@@ -23,7 +23,7 @@ void cANPA::Entregar_Protesis(cPaciente paciente, cProtesis protesisPaciente){ /
 
 }
 
-void cANPA::AgregarRegistroPaciente(cRegistrosANPA pacienteNuevo){ //usa sobrecarga del + y del ==
+void cANPA::AgregarRegistroPaciente(cRegistrosANPA pacienteNuevo){ //usa sobrecarga del ==, se usa en la sobrecarga del +
     list<cRegistrosANPA*>::iterator it = this->ListaRegistros.begin();
     bool encontrado = false;
 

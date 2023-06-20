@@ -5,7 +5,7 @@ cQuirurgicas::cQuirurgicas(float largo, float radio, QDate fechaFabricacion, str
 
 cQuirurgicas::cQuirurgicas(const cQuirurgicas &copia):cProtesis(copia){} //constructor por copia
 
-const string cQuirurgicas::get_material(){
+const string cQuirurgicas::get_material()const{
     return this->Material;
 }
 
