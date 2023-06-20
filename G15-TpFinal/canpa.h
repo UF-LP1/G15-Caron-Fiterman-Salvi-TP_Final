@@ -23,7 +23,7 @@ class cANPA
         void AgregarRegistroPaciente(cRegistrosANPA pacienteNuevo); //usa sobrecarga del +
 
         cPaciente BuscarPacXHospital(string DNIPaciente); //usa sobrecarga del ==
-        cPaciente BuscarPacXProtesis(string DNIPaciente); //usa sobrecarga del ==
+        cPaciente BuscarPacXProtesis(cProtesis protesisPaciente); //usa sobrecarga del ==
 
         const string ListarRegistros() const;
         const string ListarHospitales() const;

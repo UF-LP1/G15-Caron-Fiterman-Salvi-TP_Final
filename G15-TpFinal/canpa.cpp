@@ -178,6 +178,8 @@ cPaciente cANPA::BuscarPacXHospital(string DNIPaciente){ //usa sobrecarga del ==
             }
 
         }
+
+        it++;
     }
 
     if(encontrado == false){
@@ -186,6 +188,43 @@ cPaciente cANPA::BuscarPacXHospital(string DNIPaciente){ //usa sobrecarga del ==
 
     return *(*itPacientes);
 }//Buscar pacientes que ya poseen prótesis según el hospital.
+
+cPaciente cANPA::BuscarPacXProtesis(cProtesis protesisPaciente){
+    list <cRegistrosANPA*>:: iterator itRegistros = ListaRegistros.begin();
+    bool encontrado = false;
+    string auxDNI;
+    cPaciente* auxPac = nullptr;
+
+
+    while(itRegistros != ListaRegistros.end()){
+        if( (*itRegistros)->get_PiezaOrtopedica() == protesisPaciente){ //si la protesis que se busca es la del paciente
+            encontrado = true;
+            auxDNI = (*itRegistros)->get_DNIPaciente(); //me guardo el DNI porque lo tengo que buscar en la lista de hospitales para tener el cPaciente
+            break;
+        }
+        itRegistros++;
+    }
+
+    if(encontrado){
+        try {
+            auxPac = new cPaciente(BuscarPacXHospital(auxDNI));
+        } catch (PacNoEncontrado* e) {
+            delete auxPac; //lo borro porque como se lanzo una excepcion no se va a usar
+            throw *e; // Relanzo la excepción
+        }
+
+    }
+    else{
+
+       throw new PacNoEncontrado;
+    }
+
+    cPaciente pacienteEncontrado = *auxPac; // creo un cPaciente a partir del puntero
+    delete auxPac; //libero memoria
+
+    return pacienteEncontrado;
+}
+
 
 const string cANPA::ListarRegistros() const{
 

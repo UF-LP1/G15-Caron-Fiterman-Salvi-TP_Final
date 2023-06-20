@@ -15,7 +15,6 @@ int main()
 {
     cout<<"hola"<<endl;
 
-
     cProtesis protesisPrueba(10.5, 3.2, QDate(2023, 6, 18), "Fabricante A", TipoProtesis::SuperiorIzquierda, "Material X");
 
     cout<<protesisPrueba<<endl;
