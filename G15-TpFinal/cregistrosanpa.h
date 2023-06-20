@@ -6,13 +6,14 @@
 #include <QDate>
 #include <sstream>
 using namespace std;
+#include "cprotesis.h"
 
 enum EstadoProtesis {Entregada = 1, Solicitada};
 
 class cRegistrosANPA
 {
     public:
-        cRegistrosANPA(string DNI, string hospital, string medico, QDate FSolicitud, QDate FEntrega, QDate FEntregaEstimada, string pieza, EstadoProtesis estado);
+        cRegistrosANPA(string DNI, string hospital, string medico, QDate FSolicitud, QDate FEntrega, QDate FEntregaEstimada, cProtesis pieza, EstadoProtesis estado);
         ~cRegistrosANPA();
 
         const string get_DNIPaciente() const;
@@ -24,8 +25,8 @@ class cRegistrosANPA
         void set_Medico(string medico);
 
 
-        const string get_PiezaOrtopedica() const;
-        void set_PiezaOrtopedica(string pieza);
+        const cProtesis get_PiezaOrtopedica() const;
+        void set_PiezaOrtopedica(cProtesis pieza);
 
         const QDate get_FechaSolicitud() const;
         void set_FechaSolicitud(QDate solicitud);
@@ -52,7 +53,7 @@ class cRegistrosANPA
         QDate FechaSolicitud;
         QDate FechaEntrega;
         QDate FechaEntregaEstimada;
-        string piezaOrtopedica;
+        cProtesis piezaOrtopedica;
         EstadoProtesis estadoProtesis;
 
 };

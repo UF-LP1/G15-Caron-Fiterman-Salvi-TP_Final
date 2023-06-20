@@ -1,14 +1,13 @@
 #include "cregistrosanpa.h"
 
-cRegistrosANPA::cRegistrosANPA(string DNI, string hospital, string medico, QDate FSolicitud, QDate FEntrega, QDate FEntregaEstimada, string pieza, EstadoProtesis estado)
-    : DNIPaciente(DNI)
+cRegistrosANPA::cRegistrosANPA(string DNI, string hospital, string medico, QDate FSolicitud, QDate FEntrega, QDate FEntregaEstimada, cProtesis pieza, EstadoProtesis estado)
+    : DNIPaciente(DNI), piezaOrtopedica(pieza)
 {
     this->Hospital = hospital;
     this->Medico = medico;
     this->FechaSolicitud = FSolicitud;
     this->FechaEntrega = FEntrega;
     this->FechaEntregaEstimada = FEntregaEstimada;
-    this->piezaOrtopedica = pieza;
     this->estadoProtesis = estado;
 }
 
@@ -33,10 +32,10 @@ void cRegistrosANPA::set_Medico(string medico){
 }
 
 
-const string cRegistrosANPA::get_PiezaOrtopedica()const{
+const cProtesis cRegistrosANPA::get_PiezaOrtopedica()const{
     return this->piezaOrtopedica;
 }
-void cRegistrosANPA::set_PiezaOrtopedica(string pieza){
+void cRegistrosANPA::set_PiezaOrtopedica(cProtesis pieza){
     this->piezaOrtopedica = pieza;
     return;
 }
@@ -81,7 +80,7 @@ const string cRegistrosANPA:: to_string() const {
                 << "Fecha Entrega: " << this->get_FechaEntrega().toString().toStdString() << endl
                 << "Fecha Entrega Estimada: " << this->get_FechaEntregaEstimada().toString().toStdString() << endl
                 << "Estado Protesis"<< this->get_EstadoProtesis()<<endl
-                << "Protesis: "<< this->get_PiezaOrtopedica()<<endl;
+                << "Protesis: "<< this->piezaOrtopedica.to_string();
 
              /*
              * método toString() de la clase QDate convierte fecha a string,
