@@ -6,6 +6,8 @@ cANPA::cANPA(string direccion, list<cRegistrosANPA*> listaRegistros, list<cHospi
     this->ListaHospitales = listaHospitales;
 }
 
+cANPA::cANPA(string direccion): direccion(direccion){}
+
 list<cRegistrosANPA*> cANPA::get_ListaRegistros() const{
     return this->ListaRegistros;
 }

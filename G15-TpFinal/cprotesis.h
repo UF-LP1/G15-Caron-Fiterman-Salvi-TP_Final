@@ -43,7 +43,7 @@ class cProtesis
         const string to_string() const;
         void imprimir();
 
-        ~cProtesis();
+        virtual ~cProtesis();
 
     protected:
         float Largo;

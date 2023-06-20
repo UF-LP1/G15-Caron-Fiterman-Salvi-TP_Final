@@ -21,6 +21,7 @@ SOURCES += \
     cquirurgicas.cpp \
     cregistrosanpa.cpp \
     customexceptions.cpp \
+    funcionesmain.cpp \
     main.cpp
 
 HEADERS += \
@@ -35,7 +36,8 @@ HEADERS += \
     cprotesis.h \
     cquirurgicas.h \
     cregistrosanpa.h \
-    customexceptions.h
+    customexceptions.h \
+    funcionesmain.h
 
 FORMS +=
 

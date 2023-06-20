@@ -1,10 +1,8 @@
 
 #include "chospital.h"
 
-cHospital::cHospital()
-{
-
-}
+cHospital::cHospital(string Nombre, string direccion) : Nombre(Nombre), Direccion(direccion)
+{}
 
 const string cHospital::get_Nombre() const{
     return this->Nombre;

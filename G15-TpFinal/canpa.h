@@ -11,8 +11,9 @@
 class cANPA
 {
     public:
-    cANPA(string direccion, list<cRegistrosANPA*> listaRegistros, list<cHospital*> listaHospitales); //constructor
+        cANPA(string direccion, list<cRegistrosANPA*> listaRegistros, list<cHospital*> listaHospitales); //constructor
 
+        cANPA(string direccion); // otro constructor
         list<cRegistrosANPA*> get_ListaRegistros() const;
         list<cHospital*> get_ListaHospitales() const;
         const string get_direccion() const;

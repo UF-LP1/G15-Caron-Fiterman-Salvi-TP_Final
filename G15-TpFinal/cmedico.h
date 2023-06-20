@@ -10,7 +10,7 @@ public:
 
     const string get_matricula() const;
 
-    void dar_permiso_protesis(cPaciente paciente, cProtesis& protesis);
+    void dar_permiso_protesis(cPaciente paciente);
 
     const string to_string() const;
     void imprimir();

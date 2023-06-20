@@ -13,7 +13,7 @@ using namespace std;
 class cHospital
 {
     public:
-        cHospital();
+        cHospital(string Nombre, string direccion);
         const string get_Nombre() const;
         const string get_Direccion() const;
 

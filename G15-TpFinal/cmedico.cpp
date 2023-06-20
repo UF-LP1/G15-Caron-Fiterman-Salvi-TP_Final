@@ -6,7 +6,7 @@ const string cMedico::get_matricula() const{
     return this->Matricula;
 }
 
-void cMedico::dar_permiso_protesis(cPaciente paciente, cProtesis& protesis){
+void cMedico::dar_permiso_protesis(cPaciente paciente){
 
     if(paciente.get_radiomiembro() != 0){ //si necesita una protesis
         paciente.set_permisoprotesis(true); //le da permiso al pac para hacerse una protesis

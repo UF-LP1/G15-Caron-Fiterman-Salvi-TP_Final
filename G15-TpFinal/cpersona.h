@@ -18,7 +18,7 @@ class cPersona
         virtual const string to_string() const;
         virtual void imprimir();
 
-        ~cPersona();
+       virtual ~cPersona();
 
     protected:
         const string Nombre;
