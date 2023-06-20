@@ -7,8 +7,8 @@
 #include <sstream>
 using namespace std;
 
-#include "cmedico.h"
 #include "cpaciente.h"
+#include "cmedico.h"
 
 class cHospital
 {

@@ -1,7 +1,8 @@
 #ifndef CPACIENTE_H
 #define CPACIENTE_H
 #include "cpersona.h" //librerias ya incluidas en persona.h
-#include "cprotesis.h"
+#include "cnoquirurgicas.h"
+#include "cquirurgicas.h"
 
 
 class cPaciente: public cPersona
@@ -23,6 +24,9 @@ public:
 
     void set_permisoprotesis(bool permiso);
     const bool get_permisoprotesis() const;
+
+    void set_protesis(cProtesis protesis);
+    const cProtesis get_protesis() const;
 
     const QDateTime get_fechanac() const;
 

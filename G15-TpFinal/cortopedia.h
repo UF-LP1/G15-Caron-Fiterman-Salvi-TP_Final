@@ -1,9 +1,8 @@
 #ifndef CORTOPEDIA_H
 #define CORTOPEDIA_H
 using namespace std;
-
-#include "cprotesis.h"
-#include "chospital.h"
+#include "cnoquirurgicas.h"
+#include "cquirurgicas.h"
 
 class cOrtopedia
 {

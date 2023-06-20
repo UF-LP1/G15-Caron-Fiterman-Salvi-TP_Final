@@ -52,9 +52,22 @@ const bool cPaciente::get_permisoprotesis() const{
     return this->PermisoProtesis;
 }
 
+void cPaciente::set_protesis(cProtesis protesis){
+    try{
+        this->Protesis = protesis; //usa la sobrecarga del = de cProtesis
+    } catch(ErrorIgual *e){
+        throw e;
+    }
+    return;
+}
+const cProtesis cPaciente::get_protesis() const{
+    return this->Protesis;
+}
+
 const QDateTime cPaciente::get_fechanac() const{
     return this->FechaNac;
 }
+
 
  string cPaciente::ListarAlergias() const{
     list<string>::const_iterator it = Alergias.begin();
@@ -132,7 +145,19 @@ void cPaciente::operator+(string &AlergiaNueva){
 }
 
 void cPaciente::operator-(string &AlergiaBorrar){
+    list<string>::iterator it = this->Alergias.begin();
+    bool encontrado = false;
 
+    while(it != this->Alergias.end()){
+        if(AlergiaBorrar == *it)
+            encontrado = true; //ya existe esa alergia en la lista
+        it++;
+    }
+
+    if(encontrado == true)
+        this->Alergias.erase(it);
+
+    return;
 }
 
 cPaciente::~cPaciente(){}

@@ -6,7 +6,8 @@
 #include <QDate>
 #include <sstream>
 using namespace std;
-#include "cprotesis.h"
+#include "cnoquirurgicas.h"
+#include "cquirurgicas.h"
 
 enum EstadoProtesis {Entregada = 1, Solicitada};
 
@@ -37,7 +38,7 @@ class cRegistrosANPA
         const QDate get_FechaEntregaEstimada() const;
         void set_FechaEntregaEstimada(QDate entregaEstimada);
 
-        const EstadoProtesis get_EstadoProtesis() const;
+        const string get_EstadoProtesis() const;
         void set_EstadoProtesis(EstadoProtesis estado);
 
         const string to_string() const;

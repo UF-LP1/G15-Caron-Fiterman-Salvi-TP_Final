@@ -5,6 +5,7 @@
 #include <list>
 #include <QDate>
 #include <sstream>
+#include <customexceptions.h>
 using namespace std;
 
  enum TipoProtesis {SuperiorIzquierda = 1, SuperiorDerecha, InferiorIzquierda, InferiorDerecha};
@@ -26,7 +27,8 @@ class cProtesis
         const string get_fabricante() const;
         void set_fabricante(string fabricante);
 
-        const TipoProtesis get_tipoProtesis() const;
+        const string get_tipoProtesis() const; //devuelve como string
+        const TipoProtesis get_TipoProtesisTipo() const; //devuelve el int
         void set_tipoProtesis(TipoProtesis tipo);
 
         virtual const string get_material() const;

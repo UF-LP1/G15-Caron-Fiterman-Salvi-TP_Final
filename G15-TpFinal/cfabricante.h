@@ -4,6 +4,7 @@
 #include <iostream>
 #include <list>
 #include <sstream>
+#include <QRandomGenerator> //libreria random QT
 using namespace std;
 
 class cFabricante
@@ -16,6 +17,8 @@ class cFabricante
 
         const string to_string();
         void imprimir();
+
+        bool darRtaSobreProtesis();
 
         ~cFabricante();
 

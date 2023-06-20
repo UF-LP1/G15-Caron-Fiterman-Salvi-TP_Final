@@ -29,5 +29,11 @@ void cFabricante::imprimir(){
     cout << this->to_string() << endl;
 }
 
+bool cFabricante::darRtaSobreProtesis(){
+    bool rta = QRandomGenerator::global()->bounded(2);
+    //genera número aleatorio dentro del rango [0, 2), osea 0 o 1
+
+    return rta;
+}
 
 cFabricante::~cFabricante(){}

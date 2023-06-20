@@ -1,8 +1,7 @@
 #ifndef CMEDICO_H
 #define CMEDICO_H
+#include "cpersona.h" //librerias ya incluidas en persona.h
 #include "cpaciente.h"
-#include "cprotesis.h"
-
 
 class cMedico:public cPersona
 {
@@ -11,8 +10,7 @@ public:
 
     const string get_matricula() const;
 
-    void dar_permiso_protesis(cPaciente paciente, cProtesis prote);
-    bool solicitar_protesis_fabricante(cProtesis prote);
+    void dar_permiso_protesis(cPaciente paciente, cProtesis& protesis);
 
     const string to_string() const;
     void imprimir();

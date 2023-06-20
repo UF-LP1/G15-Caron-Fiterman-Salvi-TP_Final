@@ -57,7 +57,26 @@ void cProtesis:: set_fabricante(string fabricante){
     return;
 }
 
-const TipoProtesis cProtesis::get_tipoProtesis()const{
+const string cProtesis::get_tipoProtesis()const{
+    switch (this->InfoProtesis) {
+    case SuperiorIzquierda:
+        return "Superior Izquierda";
+
+    case SuperiorDerecha:
+        return "Superior Derecha";
+
+    case InferiorIzquierda:
+        return "Inferior Izquierda";
+
+    case InferiorDerecha:
+        return "Inferior Derecha";
+
+    default:
+        return "Tipo protesis Desconocida";
+    }
+}
+
+const TipoProtesis cProtesis::get_TipoProtesisTipo() const{
     return this->InfoProtesis;
 }
 
@@ -82,7 +101,7 @@ bool cProtesis::operator==(const cProtesis &ProtesisAComparar){
        this->Radio == ProtesisAComparar.Radio &&
        this->fechaFabricacion.toString() == ProtesisAComparar.fechaFabricacion.toString() &&
        this->Fabricante == ProtesisAComparar.Fabricante &&
-       this->InfoProtesis == ProtesisAComparar.InfoProtesis &&
+       this->get_tipoProtesis() == ProtesisAComparar.get_tipoProtesis() && //me devuelve un string en vez de un int
        this->Material == ProtesisAComparar.Material){
 
         iguales = true;
@@ -100,6 +119,15 @@ void cProtesis::operator=(const cProtesis& protesis){
     this->InfoProtesis = protesis.InfoProtesis;
     this->Material = protesis.Material; //asigno todos los valores
 
+    if(this->Largo != protesis.Largo ||
+       this->Radio != protesis.Radio ||
+       this->fechaFabricacion != protesis.fechaFabricacion ||
+       this->Fabricante != protesis.Fabricante ||
+       this->InfoProtesis != protesis.InfoProtesis ||
+       this->Material != protesis.Material){ //si algo no se copio correctamente
+
+        throw new ErrorIgual();
+    }
     return;
 }
 

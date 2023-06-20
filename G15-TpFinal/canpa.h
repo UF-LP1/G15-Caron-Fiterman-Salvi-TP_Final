@@ -3,6 +3,8 @@
 
 #include "cregistrosanpa.h"
 #include "chospital.h"
+#include "cfabricante.h"
+#include "cortopedia.h"
 
 
 
@@ -14,15 +16,17 @@ class cANPA
         list<cRegistrosANPA*> get_ListaRegistros() const;
         list<cHospital*> get_ListaHospitales() const;
         const string get_direccion() const;
+        bool chequearStockProtesis(cProtesis& protesis);
+        bool solicitar_protesis_fabricante(); //le pide al fabricante que haga la protesis
 
 
 
-        void Entregar_Protesis(cPaciente paciente, cProtesis protesisPaciente);
+        void Entregar_Protesis(cPaciente paciente, cProtesis &protesisPaciente);
         // le entrega la protesis al paciente, usa la sobrecarga del = para asignarle la protesis
         // Se debe utilizar la sobrecarga del operador "==" para verificar si la prótesis en stock
         // es la que el paciente necesita.
         void AgregarRegistroPaciente(cRegistrosANPA pacienteNuevo); //usa sobrecarga del +
-       // cProtesis BuscarProtesisXOrtopedia(cOrtopedia protesisPaciente); //usa sobrecarga del ==
+
         cPaciente BuscarPacXHospital(cHospital hospitalPaciente); //usa sobrecarga del ==
 
         const string ListarRegistros() const;
@@ -37,14 +41,17 @@ class cANPA
         void operator+(cHospital &HospitalNuevo);
         void operator-(cHospital &HospitalBorrar);
 
+        friend bool cFabricante::darRtaSobreProtesis();
 
         ~cANPA();
-//Imprimir un listado de pacientes y prótesis.
+        //Imprimir un listado de pacientes y prótesis.
 
     private:
         const string direccion;
         list<cRegistrosANPA*> ListaRegistros;
         list<cHospital*> ListaHospitales;
+        list<cRegistrosANPA*> ListaRegistrosProtesisEntregadas;
+        list<cRegistrosANPA*> ListaRegistrosProtesisSolicitadas;
 
 
 };

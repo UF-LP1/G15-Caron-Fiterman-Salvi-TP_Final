@@ -18,12 +18,96 @@ const string cANPA::get_direccion() const{
     return this->direccion;
 }
 
+bool cANPA::chequearStockProtesis(cProtesis& protesis){
+    TipoProtesis tipo = protesis.get_TipoProtesisTipo();
+    bool hayStock = false;
 
-void cANPA::Entregar_Protesis(cPaciente paciente, cProtesis protesisPaciente){ //le entrega la protesis al paciente, usa la sobrecarga del = para asignarle la protesis
-    //HACER CODIGO
+    cNoQuirurgicas *aux_NoQ = dynamic_cast<cNoQuirurgicas*> (&protesis);
+    cQuirurgicas *aux_Q = dynamic_cast<cQuirurgicas*> (&protesis);
 
-    // "Se debe utilizar la sobrecarga del operador "==" para verificar si la prótesis en stock
-    // es la que el paciente necesita." consigna
+    if(aux_NoQ){ //si es No Quirurgica
+
+        switch (tipo) {
+        case SuperiorIzquierda:
+            if (cOrtopedia::StockSupIzqNQ > 0) {
+                hayStock = true;
+            }
+            break;
+
+        case SuperiorDerecha:
+            if (cOrtopedia::StockSupDerNQ > 0) {
+                hayStock = true;
+            }
+            break;
+
+        case InferiorIzquierda:
+            if (cOrtopedia::StockInfIzqNQ > 0) {
+                hayStock = true;
+            }
+            break;
+
+        case InferiorDerecha:
+            if (cOrtopedia::StockInfDerNQ > 0) {
+                hayStock = true;
+            }
+            break;
+
+        default:
+            hayStock = false;
+        }
+    }
+
+    else if(aux_Q){ //si es Quirurgica
+
+        switch (tipo) {
+        case SuperiorIzquierda:
+            if (cOrtopedia::StockSupIzqQ > 0) {
+                hayStock = true;
+            }
+            break;
+
+        case SuperiorDerecha:
+            if (cOrtopedia::StockSupDerQ > 0) {
+                hayStock = true;
+            }
+            break;
+
+        case InferiorIzquierda:
+            if (cOrtopedia::StockInfIzqQ > 0) {
+                hayStock = true;
+            }
+            break;
+
+        case InferiorDerecha:
+            if (cOrtopedia::StockInfDerQ > 0) {
+                hayStock = true;
+            }
+            break;
+
+        default:
+            hayStock = false;
+        }
+
+    }
+
+    return hayStock;
+
+}
+
+
+bool cANPA::solicitar_protesis_fabricante(){
+    bool estadoSolicitud= false;
+    cFabricante *fabricante = new cFabricante("Protesis101", "Av Santa Fe 2350", "235743463");
+
+    estadoSolicitud = fabricante->darRtaSobreProtesis();
+
+    delete fabricante; //libero memoria
+    return estadoSolicitud;
+}
+
+
+void cANPA::Entregar_Protesis(cPaciente paciente, cProtesis &protesisPaciente){ //le entrega la protesis al paciente, usa la sobrecarga del = para asignarle la protesis
+
 
 }
 
@@ -43,10 +127,6 @@ void cANPA::AgregarRegistroPaciente(cRegistrosANPA pacienteNuevo){ //usa sobreca
     return;
 }
 
-//cPaciente cANPA::BuscarPacXProtesis(cProtesis protesisPaciente){ //usa sobrecarga del ==
-    //HACER CODIGO
-
-//}//Buscar pacientes que ya poseen prótesis según la prótesis o el hospital.
 
 
 cPaciente cANPA::BuscarPacXHospital(cHospital hospitalPaciente){ //usa sobrecarga del ==

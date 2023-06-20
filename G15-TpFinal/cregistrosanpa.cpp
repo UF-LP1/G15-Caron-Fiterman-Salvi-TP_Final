@@ -63,8 +63,18 @@ void cRegistrosANPA::set_FechaEntregaEstimada(QDate entregaEstimada){
     return;
 }
 
-const EstadoProtesis cRegistrosANPA::get_EstadoProtesis() const{
-    return this->estadoProtesis;
+const string cRegistrosANPA::get_EstadoProtesis() const{
+    switch (this->estadoProtesis) {
+    case Entregada:
+        return "Entregada";
+
+    case Solicitada:
+        return "Solicitada";
+
+    default:
+        return "Estado Protesis Desconocido";
+    }
+
 }
 void cRegistrosANPA::set_EstadoProtesis(EstadoProtesis estado){
     this->estadoProtesis = estado;
