@@ -126,7 +126,7 @@ void cPaciente::operator+(string &AlergiaNueva){
     }
 
     if(encontrado == false) //si el paciente no esta en la lista previamente, lo agrego
-        this->Alergias.push_back(&AlergiaNueva);
+        this->Alergias.push_back(AlergiaNueva);
 
     return;
 }
