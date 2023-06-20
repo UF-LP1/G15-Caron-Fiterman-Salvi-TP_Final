@@ -35,6 +35,8 @@ class cProtesis
         bool operator==(const cProtesis &ProtesisAComparar); //sobrecarga del ==
         void operator=(const cProtesis& protesis); //sobrecarga del =
 
+        friend ostream& operator<<(ostream& os, const cProtesis& ProtesisImprimir);
+
 
         const string to_string() const;
         void imprimir();
@@ -49,5 +51,7 @@ class cProtesis
         TipoProtesis InfoProtesis;
         string Material;
 };
+
+ostream& operator<<(ostream& os, const cProtesis& ProtesisImprimir);
 
 #endif // CPROTESIS_H

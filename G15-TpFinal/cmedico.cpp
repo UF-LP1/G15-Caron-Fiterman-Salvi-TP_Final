@@ -8,6 +8,9 @@ const string cMedico::get_matricula() const{
 
 void cMedico::dar_permiso_protesis(cPaciente paciente, cProtesis prote){
     //HACER CODIGO
+    if(paciente.get_radiomiembro() != 0){ //si necesita una protesis
+
+    }
 }
 
 

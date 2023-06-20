@@ -61,7 +61,7 @@ const string cANPA::ListarRegistros() const{
 
     while (it != ListaRegistros.end()) {
         salidaLista << *it <<endl; //sobrecarga <<
-        ++it;
+        it++;
     }
 
     return salidaLista.str();
@@ -73,7 +73,7 @@ const string cANPA::ListarHospitales() const{
 
     while (it != ListaHospitales.end()) {
         salidaLista << *it <<endl; //sobrecarga <<
-        ++it;
+        it++;
     }
 
     return salidaLista.str();

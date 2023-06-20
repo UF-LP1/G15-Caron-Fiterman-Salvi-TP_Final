@@ -14,6 +14,10 @@ class cOrtopedia
         const list <cProtesis*> get_ListaProtesis();
         void set_ListaProtesis(list <cProtesis*> listaNueva);
 
+        void operator+(cProtesis &ProtesisNueva);
+        void operator-(cProtesis &ProtesisBorrar);
+        const string ListarProtesis() const;
+
         const string to_string();
         void imprimir();
 
@@ -33,9 +37,6 @@ class cOrtopedia
         const string Nombre;
         const string Direccion;
         list <cProtesis*> ListadoProtesis;
-        list <cHospital*> ListadoHospitales;
-
-
 
 };
 

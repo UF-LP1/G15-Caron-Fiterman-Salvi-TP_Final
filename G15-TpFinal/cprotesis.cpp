@@ -121,3 +121,8 @@ void cProtesis::imprimir(){
 }
 
 cProtesis::~cProtesis(){}
+
+ostream& operator<<(ostream& os, const cProtesis& ProtesisImprimir){
+    os<< ProtesisImprimir.to_string()<<endl;
+    return os;
+}

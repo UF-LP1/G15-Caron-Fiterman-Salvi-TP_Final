@@ -92,6 +92,7 @@ void cHospital::operator+(cPaciente &pacienteNuevo){
 void cHospital::operator-(cPaciente &pacienteBorrar){
     list<cPaciente*>::iterator it= this->ListaPacientes.begin();
     bool encontrado = false;
+
     while(it != this->ListaPacientes.end()){
         if(*(*it)==pacienteBorrar){ //sobrecarga del ==
             encontrado = true;

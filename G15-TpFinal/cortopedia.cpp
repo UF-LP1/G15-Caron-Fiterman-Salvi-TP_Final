@@ -22,12 +22,78 @@ void cOrtopedia::set_ListaProtesis(list <cProtesis*> listaNueva){
     return;
 }
 
+void cOrtopedia::operator+(cProtesis &ProtesisNueva){
+    list<cProtesis*>::iterator it = this->ListadoProtesis.begin();
+    bool encontrado = false;
+
+    while(it != this->ListadoProtesis.end()){
+        if(ProtesisNueva == *(*it)) //sobrecarga del ==
+            encontrado = true; //ya existe ese paciente en la lista
+        it++;
+    }
+
+    if(encontrado == false) //si la protesis no esta en la lista previamente, lo agrego
+        this->ListadoProtesis.push_back(&ProtesisNueva);
+
+    return;
+
+}
+
+void cOrtopedia::operator-(cProtesis &ProtesisBorrar){
+    list<cProtesis*>::iterator it = this->ListadoProtesis.begin();
+    bool encontrado = false;
+
+    while(it != this->ListadoProtesis.end()){
+        if(*(*it)==ProtesisBorrar){ //sobrecarga del ==
+            encontrado = true;
+            break;
+        }
+
+        it++;
+    }
+
+    if(encontrado == true)
+        this->ListadoProtesis.erase(it);
+
+    return;
+
+}
+
+
+const string cOrtopedia::ListarProtesis() const{
+    list<cProtesis*>::const_iterator it = ListadoProtesis.begin();
+    stringstream salidaLista;
+
+    while (it != ListadoProtesis.end()) {
+        salidaLista << *it <<endl; //sobrecarga <<
+        it++;
+    }
+
+    return salidaLista.str();
+
+}
+
+
 const string cOrtopedia:: to_string(){
-    //HACER CODIGO
+    stringstream salida;
+    salida << "Nombre Ortopedia: " << this->Nombre <<endl
+           << "Direccion: " << this->Direccion <<endl
+           << "listado protesis: " << this->ListarProtesis()<<endl
+           << "Stock Protesis Quirurgicas Superiores Izquierdas: " << cOrtopedia::StockSupIzqQ <<endl
+           << "Stock Protesis Quirurgicas Superiores Derechas: " << cOrtopedia::StockSupDerQ<<endl
+           << "Stock Protesis Quirurgicas Inferiores Izquierdas: " << cOrtopedia::StockInfIzqQ<<endl
+           << "Stock Protesis Quirurgicas Inferiores Derechas: " << cOrtopedia::StockInfDerQ<<endl
+           << "Stock Protesis No Quirurgicas Superiores Izquierdas: " << cOrtopedia::StockSupIzqNQ <<endl
+           << "Stock Protesis No Quirurgicas Superiores Derechas: " << cOrtopedia::StockSupDerNQ<<endl
+           << "Stock Protesis No Quirurgicas Inferiores Izquierdas: " << cOrtopedia::StockInfIzqNQ<<endl
+           << "Stock Protesis No Quirurgicas Inferiores Derechas: " << cOrtopedia::StockInfDerNQ<<endl;
+
+    return salida.str();
 }
 
 void cOrtopedia::imprimir(){
-     //HACER CODIGO
+    cout << this->to_string() << endl;
+    return;
 }
 
 cOrtopedia::~cOrtopedia(){}
