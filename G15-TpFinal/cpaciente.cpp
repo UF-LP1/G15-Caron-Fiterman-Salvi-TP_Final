@@ -1,8 +1,9 @@
 #include "cpaciente.h"
 
-cPaciente::cPaciente(string nombre, string apellido, string dni, QDateTime fechaNac, string telefono, list <string> alergias, string HospitAlatentido, float RadioMiembro, bool PermisoProtesis, cProtesis Protesis)
+cPaciente::cPaciente(string nombre, string apellido, string dni, QDate fechaNac, string telefono, string Medico, list <string> alergias, string HospitAlatentido, float RadioMiembro, bool PermisoProtesis, cProtesis Protesis)
     : cPersona(nombre,apellido,dni), FechaNac(fechaNac), Protesis(Protesis){
     this->Telefono = telefono;
+    this->Medico = Medico;
     this->Alergias = alergias;
     this->HospitalAtendido = HospitAlatentido;
     this->RadioMiembro = RadioMiembro;
@@ -17,6 +18,13 @@ const string cPaciente::get_telefono()const{
     return this->Telefono;
 }
 
+void cPaciente::set_Medico(string Medico){
+    this->Medico = Medico;
+    return;
+}
+const string cPaciente::get_Medico()const{
+    return this->Medico;
+}
 
 void cPaciente::set_alergias(list<string> alergias){
     this->Alergias=alergias;
@@ -64,7 +72,7 @@ const cProtesis cPaciente::get_protesis() const{
     return this->Protesis;
 }
 
-const QDateTime cPaciente::get_fechanac() const{
+const QDate cPaciente::get_fechanac() const{
     return this->FechaNac;
 }
 
@@ -86,6 +94,7 @@ const string cPaciente::to_string() const{
     salida << cPersona::to_string()<<endl //usa el to_string de cPersona
            << "Fecha Nacimiento: "<< this->get_fechanac().toString().toStdString()<<endl
            << "Telefono: " << this->get_telefono()<<endl
+           << "Medico:" << this->get_Medico()<<endl
            << "Alergias: " << this->ListarAlergias()<<endl //lista todas las alergias
            << "Hospital Atendido: " << this->get_hospitalatendido()<<endl
            << "Radio Miembro: " << this->get_radiomiembro()<<endl

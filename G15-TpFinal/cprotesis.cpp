@@ -94,7 +94,7 @@ void cProtesis::set_material(string Material){
     return;
 }
 
-bool cProtesis::operator==(const cProtesis &ProtesisAComparar){
+bool cProtesis::operator==(const cProtesis &ProtesisAComparar)const{
     bool iguales = false;
 
     if(this->Largo == ProtesisAComparar.Largo &&

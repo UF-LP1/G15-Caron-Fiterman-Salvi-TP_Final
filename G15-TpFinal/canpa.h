@@ -1,10 +1,10 @@
 #ifndef CANPA_H
 #define CANPA_H
-
 #include "cregistrosanpa.h"
 #include "chospital.h"
 #include "cfabricante.h"
 #include "cortopedia.h"
+#include "cprotesis.h"
 
 
 
@@ -19,12 +19,7 @@ class cANPA
         bool chequearStockProtesis(cProtesis& protesis);
         bool solicitar_protesis_fabricante(); //le pide al fabricante que haga la protesis
 
-
-
         void Entregar_Protesis(cPaciente paciente, cProtesis &protesisPaciente);
-        // le entrega la protesis al paciente, usa la sobrecarga del = para asignarle la protesis
-        // Se debe utilizar la sobrecarga del operador "==" para verificar si la prótesis en stock
-        // es la que el paciente necesita.
         void AgregarRegistroPaciente(cRegistrosANPA pacienteNuevo); //usa sobrecarga del +
 
         cPaciente BuscarPacXHospital(cHospital hospitalPaciente); //usa sobrecarga del ==

@@ -8,7 +8,7 @@
 #include <customexceptions.h>
 using namespace std;
 
- enum TipoProtesis {SuperiorIzquierda = 1, SuperiorDerecha, InferiorIzquierda, InferiorDerecha};
+enum TipoProtesis {SuperiorIzquierda = 1, SuperiorDerecha, InferiorIzquierda, InferiorDerecha};
 
 class cProtesis
 {
@@ -34,7 +34,7 @@ class cProtesis
         virtual const string get_material() const;
         virtual void set_material(string Material);
 
-        bool operator==(const cProtesis &ProtesisAComparar); //sobrecarga del ==
+        bool operator==(const cProtesis &ProtesisAComparar) const; //sobrecarga del ==
         void operator=(const cProtesis& protesis); //sobrecarga del =
 
         friend ostream& operator<<(ostream& os, const cProtesis& ProtesisImprimir);

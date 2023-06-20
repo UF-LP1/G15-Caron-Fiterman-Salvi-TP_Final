@@ -8,10 +8,13 @@
 class cPaciente: public cPersona
 {
 public:
-    cPaciente(string nombre, string apellido, string dni, QDateTime fechaNac, string telefono, list <string> alergias, string HospitAlatentido, float RadioMiembro, bool PermisoProtesis, cProtesis Protesis);
+    cPaciente(string nombre, string apellido, string dni, QDate fechaNac, string telefono, string Medico, list <string> alergias, string HospitAlatentido, float RadioMiembro, bool PermisoProtesis, cProtesis Protesis);
 
     void set_telefono(string telefono);
     const string get_telefono() const;
+
+    void set_Medico(string Medico);
+    const string get_Medico()const;
 
     void set_alergias(list<string> alergias);
     const list <string> get_alergias() const;
@@ -28,7 +31,7 @@ public:
     void set_protesis(cProtesis protesis);
     const cProtesis get_protesis() const;
 
-    const QDateTime get_fechanac() const;
+    const QDate get_fechanac() const;
 
     string ListarAlergias() const;
     const string to_string() const;
@@ -44,8 +47,9 @@ public:
 
 
 protected:
-    const QDateTime FechaNac;
+    const QDate FechaNac;
     string Telefono;
+    string Medico;
     list <string> Alergias;
     string HospitalAtendido;
     float RadioMiembro; // 0 si no tiene nada amputado

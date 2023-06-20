@@ -105,9 +105,40 @@ bool cANPA::solicitar_protesis_fabricante(){
     return estadoSolicitud;
 }
 
-
 void cANPA::Entregar_Protesis(cPaciente paciente, cProtesis &protesisPaciente){ //le entrega la protesis al paciente, usa la sobrecarga del = para asignarle la protesis
+    list<cRegistrosANPA*>:: iterator it = ListaRegistros.begin();
 
+    while (it != ListaRegistros.end()){
+        if(paciente.get_permisoprotesis()){ //si el paciente tiene permiso para hacerse la protesis
+            if(paciente.get_protesis() == protesisPaciente){ //si son la misma protesis
+                if(chequearStockProtesis(protesisPaciente)){//si hay stock de la protesis
+                    try{
+                        paciente.set_protesis(protesisPaciente);
+                        (*it)->set_FechaEntrega(QDate::currentDate()); //la fecha de entrega es la de hoy
+                    }catch(ErrorIgual *e){
+                        cout<<e->what()<<endl;
+                        delete e;
+                    }
+                }
+                else if(solicitar_protesis_fabricante()){ //si no hay stock le pido al fabricante, si me dijo que me lo hace:
+                    try{
+                        paciente.set_protesis(protesisPaciente);
+                        (*it)->set_FechaEntrega(QDate::currentDate());
+                    }catch(ErrorIgual *e){
+                        cout<<e->what()<<endl;
+                        delete e;
+                    }
+                }
+                else{
+                    throw new NoPermiso;
+                }
+            }
+        }
+
+        it++;
+    }
+
+    return;
 
 }
 
