@@ -139,22 +139,22 @@ int main()
     /////////// PRUEBO FUNCIONES ///////////
 
     //funciones ANPA
-    bool stock;
+    bool aux;
     try{
-        stock=ANPA->chequearStockProtesis(*Protesis3);
-        cout<<"Stock: "<<stock<<endl;
+        aux=ANPA->chequearStockProtesis(*Protesis3);
+        cout<<"Stock: "<<aux<<endl;
 
-        stock=ANPA->chequearStockProtesis(*Protesis4);
-        cout<<"Stock: "<<stock<<endl; //es un bool, imprime 0 o 1
+        aux=ANPA->chequearStockProtesis(*Protesis4);
+        cout<<"Stock: "<<aux<<endl; //es un bool, imprime 0 o 1
 
         ANPA->Entregar_Protesis(*Paciente2,*Protesis1); //si no tira exception esta ok
         ANPA->imprimir();
 
-        cout<<"PAC 5"<<endl;
+        cout<<"EN PAC 5"<<endl;
         cPaciente *Paciente5 = new cPaciente(ANPA->BuscarPacXHospital("54289637"));
         cout<<*Paciente5<<endl;
 
-        cout<<"PAC 6"<<endl;
+        cout<<"EN PAC 6"<<endl;
         cPaciente *Paciente6 = new cPaciente(ANPA->BuscarPacXHospital("83745129"));
         cout<<*Paciente6<<endl;
 
@@ -167,6 +167,36 @@ int main()
     //funciones medico
     Medico1->dar_permiso_protesis(*Paciente2);
     Medico3->dar_permiso_protesis(*Paciente1);
+    Medico4->imprimir();
+
+    //funciones fabricante
+    Fabricante1->imprimir();
+    aux=Fabricante2->darRtaSobreProtesis();
+    cout<< "rta protesis:"<<aux<<endl;
+
+    //funciones hospital
+    *Hospital1-(*Medico4); //elimino el medico4 de la lista de medicos en hosp
+    *Hospital1-(*Paciente2); //idem pero para paciente
+        if(Hospital1==Hospital2){
+            cout<<"hospitales son iguales"<<endl;
+        }
+        else
+            cout<<"hospitales no iguales"<<endl;
+
+
+    //funciones protesis
+        try{
+             *Protesis2 = *Protesis4;
+        }catch(ErrorIgual *e){
+             cout<<e->what()<<endl;
+             delete e;
+        }
+
+
+
+
+
+    /////////// BORRO MEM DINAMICA ///////////
 
 
     delete Protesis1;
@@ -178,6 +208,8 @@ int main()
     delete Paciente2;
     delete Paciente3;
     delete Paciente4;
+    //delete Paciente5;
+    //delete Paciente5;
 
 
 

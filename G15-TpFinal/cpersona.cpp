@@ -19,9 +19,9 @@ const string cPersona::get_DNI() const{
 
 const string cPersona::to_string() const{
     stringstream salida;
-    salida << "Nombre Paciente: " << this->get_nombre()<<endl
-           << "Apellido Paciente: "<< this->get_apellido()<<endl
-           << "DNI Paciente: " << this->get_DNI()<<endl;
+    salida << "Nombre: " << this->get_nombre()<<endl
+           << "Apellido: "<< this->get_apellido()<<endl
+           << "DNI: " << this->get_DNI()<<endl;
 
     return salida.str();
 }
