@@ -29,7 +29,9 @@ public:
 
     static string ArrDNI[10];
 
-    static string ArrMatricula [10];
+    static string ArrMatricula[10];
+
+    static string ArrNroHabilitacion[10];
 
     static string ArrDire[10];
 
@@ -54,8 +56,11 @@ public:
 
     static cMedico crearMedico();
 
-    static cRegistrosANPA crearRegistro(cProtesis piezaOrtopedica, EstadoProtesis estadoProtesis);
+    static cRegistrosANPA crearRegistro(cProtesis piezaOrtopedica);
 
+    static cOrtopedia crearOrtopedia();
+
+    static cFabricante crearfabricante();
 
 
 };

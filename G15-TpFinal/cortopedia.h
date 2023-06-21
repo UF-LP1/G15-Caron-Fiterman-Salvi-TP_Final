@@ -8,6 +8,7 @@ class cOrtopedia
 {
     public:
         cOrtopedia(string nombre, string direccion, list<cProtesis*> ListaProtesis);
+        cOrtopedia(string nombre, string direccion);
         const string get_nombre();
         const string get_direccion();
         const list <cProtesis*> get_ListaProtesis();

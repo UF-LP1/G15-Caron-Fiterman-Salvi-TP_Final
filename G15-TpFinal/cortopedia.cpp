@@ -5,6 +5,8 @@ cOrtopedia::cOrtopedia(string nombre, string direccion, list<cProtesis*> ListaPr
     this->ListadoProtesis = ListaProtesis;
 }
 
+cOrtopedia::cOrtopedia(string nombre, string direccion): Nombre(nombre), Direccion(direccion)
+{}
 const string cOrtopedia::get_nombre(){
     return this->Nombre;
 }

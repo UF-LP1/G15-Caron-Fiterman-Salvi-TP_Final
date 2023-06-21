@@ -9,6 +9,7 @@ string FuncionesMain:: ArrNombres[10]={"Pampa", "Ezequiel", "Cindy", "Fran", "So
 string FuncionesMain:: ArrApellido [10]= {"Perez", "Lopez", "Martinez", "Guitierrez", "Fernandez", "Sanchez", "Allende", "Leal", "Salinas", "Michelli"};
 string FuncionesMain:: ArrDNI[10]={"83745129", "54289637", "91037462", "65829317", "42678193", "75392048", "61938475", "28475931", "16523948", "48329657"};
 string FuncionesMain:: ArrMatricula [10]= {"A8X2F6G4", "B3Y9H2K7", "C6Z5J1M3", "D9V4N7P2", "E2R6Q8S1", "F7U3T9W5", "G4X1V3Y9", "H1Z5W7R4", "I5M3K9N2", "J8L2P6Q9"};
+string FuncionesMain:: ArrNroHabilitacion[10]= {"A8X2F6G4", "B3Y9H2K7", "C6Z5J1M3", "D9V4N7P2", "E2R6Q8S1", "F7U3T9W5", "G4X1V3Y9", "H1Z5W7R4", "I5M3K9N2", "J8L2P6Q9"};
 string FuncionesMain:: ArrDire[10]= {"Calle Primavera 123", "Avenida del Bosque 456", "Calle Rosa Blanca 789", "Calle del Sol 321", "Avenida Principal 654", "Calle del Lago 987", "Avenida del Parque 234", "Calle del Roble 567", "Avenida del Mar 890", "Calle del Arco Iris 432"};
 float FuncionesMain:: ArrLargo[15]= {0.0, 20.0, 20.5, 22.0, 22.5, 24.0, 24.5, 26.0, 26.5, 28.0, 28.5, 30.0, 30.5, 32.0, 32.5};
 string FuncionesMain:: ArrHospitales [4] = {"Hospital Favaloro", "Hospital Italiano","Hospital Aleman", "Hospital Britanico"};
@@ -74,8 +75,6 @@ cQuirurgicas FuncionesMain:: crearProtesisQ(){
 }
 
 
-
-
 cHospital FuncionesMain::crearHospital(){
 
     int randHospital=QRandomGenerator::global()->bounded(4);
@@ -85,4 +84,54 @@ cHospital FuncionesMain::crearHospital(){
 
     return *Hospital1;
 
+}
+
+
+cMedico FuncionesMain::crearMedico(){
+
+    int randNombre= QRandomGenerator::global()->bounded(10);
+    int randApe= QRandomGenerator::global()->bounded(10);
+    int randDNI= QRandomGenerator::global()->bounded(10);
+    int randMatricula= QRandomGenerator::global()->bounded(10);
+
+    cMedico *Medico1 = new cMedico(ArrNombres[randNombre],ArrApellido[randApe], ArrDNI[randDNI],ArrMatricula[randMatricula]);
+
+    return *Medico1;
+
+}
+
+cRegistrosANPA FuncionesMain::crearRegistro(cProtesis piezaOrtopedica){
+
+    int randDNI = QRandomGenerator::global()->bounded(10);
+    int randHos = QRandomGenerator::global()->bounded(10);
+    int randMed = QRandomGenerator::global()->bounded(10);
+    int randFecha1 = QRandomGenerator::global()->bounded(10);
+    int randFecha2 = QRandomGenerator::global()->bounded(10);
+    int randFecha3 = QRandomGenerator::global()->bounded(10);
+    int randEstadoProte = QRandomGenerator::global()->bounded(5);
+
+    EstadoProtesis estadoProtesis = static_cast<EstadoProtesis>(randEstadoProte);
+
+    cRegistrosANPA *Registro1= new cRegistrosANPA(ArrDNI[randDNI], ArrHospitales[randHos], ArrNombres[randMed], ArrFecha[randFecha1],ArrFecha[randFecha2], ArrFecha[randFecha3],piezaOrtopedica ,estadoProtesis );
+
+    return *Registro1;
+}
+
+cOrtopedia FuncionesMain::crearOrtopedia(){
+    int randOrto=QRandomGenerator::global()->bounded(3);
+    int randDire=QRandomGenerator::global()->bounded(10);
+
+    cOrtopedia* Ortopedia1=new cOrtopedia(ArrOrto[randOrto],ArrDire[randDire]);
+
+    return *Ortopedia1;
+}
+
+cFabricante FuncionesMain:: crearfabricante(){
+    int randFabri=QRandomGenerator::global()->bounded(3);
+    int randDire=QRandomGenerator::global()->bounded(10);
+    int randN_Habi=QRandomGenerator::global()->bounded(10);
+
+    cFabricante* Fabricante1=new cFabricante(ArrFabri[randFabri],ArrDire[randDire],ArrNroHabilitacion[randN_Habi]);
+
+    return *Fabricante1;
 }
