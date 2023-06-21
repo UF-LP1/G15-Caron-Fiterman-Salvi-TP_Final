@@ -18,51 +18,84 @@ int main()
 
     //prot 1
     cNoQuirurgicas *Protesis1 = new cNoQuirurgicas(FuncionesMain::crearProtesisNQ());
-
+        if(Protesis1==nullptr){
+            return 1;
+        }
     //prot 2
     cQuirurgicas *Protesis2 = new cQuirurgicas(FuncionesMain::crearProtesisQ());
-
+        if(Protesis2==nullptr){
+            return 1;
+        }
     //prot 3
     cNoQuirurgicas *Protesis3 = new cNoQuirurgicas(FuncionesMain::crearProtesisNQ());
-
+        if(Protesis3==nullptr){
+            return 1;
+        }
 
     //prot 4
     cQuirurgicas *Protesis4 = new cQuirurgicas(FuncionesMain::crearProtesisQ());
+        if(Protesis4==nullptr){
+            return 1;
+        }
+
 
     /////////// CREO PACIENTES ///////////
 
     //pac 1
     cPaciente *Paciente1 = new cPaciente(FuncionesMain::crearPaciente(*Protesis1));
+        if(Paciente1==nullptr){
+            return 1;
+        }
 
     //pac 2
     cPaciente *Paciente2 = new cPaciente(FuncionesMain::crearPaciente(*Protesis2));
+        if(Paciente2==nullptr){
+            return 1;
+        }
 
     //pac 3
     cPaciente *Paciente3 = new cPaciente(FuncionesMain::crearPaciente(*Protesis3));
+        if(Paciente3==nullptr){
+            return 1;
+        }
 
     //pac 4
     cPaciente *Paciente4 = new cPaciente(FuncionesMain::crearPaciente(*Protesis4));
-
+        if(Paciente4==nullptr){
+            return 1;
+        }
 
 
     /////////// CREO MEDICOS ///////////
     //Med 1
     cMedico *Medico1 = new cMedico(FuncionesMain::crearMedico());
+        if(Medico1==nullptr){
+             return 1;;
+        }
 
     //Med 2
     cMedico *Medico2 = new cMedico(FuncionesMain::crearMedico());
-
+        if(Medico2==nullptr){
+             return 1;;
+        }
     //Med 3
     cMedico *Medico3 = new cMedico(FuncionesMain::crearMedico());
-
+        if(Medico3==nullptr){
+             return 1;;
+        }
     //Med 4
     cMedico *Medico4 = new cMedico(FuncionesMain::crearMedico());
-
+        if(Medico4==nullptr){
+             return 1;;
+        }
 
     /////////// CREO HOSPITALES ///////////
 
     //Hosp 1
     cHospital *Hospital1 = new cHospital(FuncionesMain::crearHospital());
+        if(Hospital1==nullptr){
+             return 1;;
+        }
 
     *Hospital1+(*Paciente1); //agrego los pac a la lista
     *Hospital1+(*Paciente3);
@@ -74,6 +107,9 @@ int main()
 
     //Hosp 2
     cHospital *Hospital2 = new cHospital(FuncionesMain::crearHospital());
+    if(Hospital2==nullptr){
+             return 1;;
+    }
 
     *Hospital2+(*Paciente1);
     *Hospital2+(*Paciente3);
@@ -105,10 +141,15 @@ int main()
     cRegistrosANPA *RegistroANPA3 = new cRegistrosANPA("91037462", "Hospital Italiano","F7U3T9W5", QDate(2022, 7, 15),QDate(2022, 7, 15), QDate(2022, 7, 11),*Protesis1, EstadoProtesis::Entregada);
     cRegistrosANPA *RegistroANPA4 = new cRegistrosANPA("75392048", "Hospital Aleman","H1Z5W7R4", QDate(2021, 10, 31),QDate(2022, 7, 15), QDate(2023, 4, 2),*Protesis1, EstadoProtesis::Entregada);
 
-
+    if(RegistroANPA1==nullptr ||RegistroANPA2==nullptr || RegistroANPA3==nullptr || RegistroANPA4==nullptr){
+             return 1;;
+    }
     /////////// CREO ANPA ///////////
 
     cANPA* ANPA = new cANPA("Acoyte 2456");
+    if(ANPA==nullptr){
+             return 1;;
+    }
 
     *ANPA+(*RegistroANPA1); //agrego todos los registros
     *ANPA+(*RegistroANPA2);
@@ -122,18 +163,26 @@ int main()
 
     //ortopedia 1
     cOrtopedia *Ortopedia1 = new cOrtopedia(FuncionesMain::crearOrtopedia());
-
+    if(Ortopedia1==nullptr){
+             return 1;;
+    }
     //ortopedia 2
     cOrtopedia *Ortopedia2 = new cOrtopedia(FuncionesMain::crearOrtopedia());
-
+    if(Ortopedia2==nullptr){
+             return 1;;
+    }
     /////////// CREO FABRICANTE ///////////
 
     //fabri 1
      cFabricante *Fabricante1 = new cFabricante(FuncionesMain::crearfabricante());
-
+    if(Fabricante1==nullptr){
+             return 1;;
+    }
     //fabri 2
     cFabricante *Fabricante2 = new cFabricante(FuncionesMain::crearfabricante());
-
+    if(Fabricante2==nullptr){
+             return 1;;
+    }
 
 
     /////////// PRUEBO FUNCIONES ///////////
@@ -180,9 +229,9 @@ int main()
         if(Hospital1==Hospital2){
             cout<<"hospitales son iguales"<<endl;
         }
-        else
+        else{
             cout<<"hospitales no iguales"<<endl;
-
+        }
 
     //funciones protesis
         try{
@@ -192,9 +241,22 @@ int main()
              delete e;
         }
 
+        Protesis1->imprimir();
 
 
 
+
+    //Funciones paciente
+    Paciente3->imprimir(); //usa el de la protesis tambien
+
+
+    //funciones RegANPA
+    if(RegistroANPA1 == RegistroANPA3){
+        cout<<"los registros son iguales"<<endl;
+    }
+    else{
+         cout<<"los registros no son iguales"<<endl;
+    }
 
     /////////// BORRO MEM DINAMICA ///////////
 
