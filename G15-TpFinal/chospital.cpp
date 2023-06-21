@@ -38,43 +38,40 @@ list<cPaciente*>::iterator cHospital::get_EndListaPacientes(){
     return this->ListaPacientes.end();
 }
 
-const string cHospital::ListarMedicos() const{
+void cHospital::ListarMedicos() const{
 
     list<cMedico*>::const_iterator it = ListaMedicos.begin();
-    stringstream salidaLista;
 
     while (it != ListaMedicos.end()) {
-        salidaLista << *it <<endl; //usa la sobrecarga de << del medico
+        cout << *it <<endl; //usa la sobrecarga de << del medico
         ++it;
     } //recorro toda la lista de medicos
 
-    return salidaLista.str();
+    return;
 }
 
-const string cHospital::ListarPacientes() const{
+void cHospital::ListarPacientes() const{
 
     list<cPaciente*>::const_iterator it = ListaPacientes.begin();
-    stringstream salidaLista;
-
     while (it != ListaPacientes.end()) {
-        salidaLista << *it <<endl; //usa la sobrecarga de << del paciente
+        cout << *it <<endl; //usa la sobrecarga de << del paciente
         ++it;
     } //recorro toda la lista de pacientes
 
-    return salidaLista.str();
+    return;
 }
 
 const string cHospital::to_string() const{
     stringstream salida;
 
     salida << "Nombre Fabricante: "<< this->get_Nombre() <<endl
-           << "Direccion: " << this->get_Direccion() <<endl
-           << "Lista Medicos: " << this->ListarMedicos() <<endl //toda la lista
-           << "Lista Pacientes: " << this->ListarPacientes() <<endl; //idem
+           << "Direccion: " << this->get_Direccion() <<endl;
     return salida.str();
 }
 void cHospital::imprimir(){
     cout << this->to_string() << endl;
+    this->ListarMedicos();
+    this->ListarPacientes();
 }
 
 

@@ -210,7 +210,7 @@ cPaciente cANPA::BuscarPacXProtesis(cProtesis protesisPaciente){
     if(encontrado){
         try {
             auxPac = new cPaciente(BuscarPacXHospital(auxDNI));
-        } catch (PacNoEncontrado* e) {
+        } catch (PacNoEncontrado *e) {
             delete auxPac; //lo borro porque como se lanzo una excepcion no se va a usar
             throw *e; // Relanzo la excepción
         }
@@ -228,7 +228,7 @@ cPaciente cANPA::BuscarPacXProtesis(cProtesis protesisPaciente){
 }
 
 
-const string cANPA::ListarRegistros() const{
+void cANPA::ListarRegistros() const{
 
     list<cRegistrosANPA*>::const_iterator it = ListaRegistros.begin();
     stringstream salidaLista;
@@ -238,34 +238,33 @@ const string cANPA::ListarRegistros() const{
         it++;
     }
 
-    return salidaLista.str();
+    return;
 }
 
-const string cANPA::ListarHospitales() const{
+void cANPA::ListarHospitales() const{
     list<cHospital*>::const_iterator it = ListaHospitales.begin();
-    stringstream salidaLista;
 
     while (it != ListaHospitales.end()) {
-        salidaLista << *it <<endl; //sobrecarga <<
+        cout << *it <<endl; //sobrecarga <<
         it++;
     }
 
-    return salidaLista.str();
+    return;
 
 }
 
 
 const string cANPA::to_string() const{
     stringstream salida;
-    salida << "Direccion ANPA:"<< this->direccion<<endl
-           << this->ListarRegistros()<<endl
-           << this->ListarHospitales()<<endl;
+    salida << "Direccion ANPA:"<< this->direccion<<endl;
 
     return salida.str();
 }
 
 void cANPA::imprimir(){
     cout << this->to_string() << endl;
+    this->ListarRegistros();
+    this->ListarHospitales();
     return;
 }
 

@@ -31,7 +31,7 @@ int main()
 
     /////////// CREO PACIENTES ///////////
 
-    //pac
+    //pac 1
     cPaciente *Paciente1 = new cPaciente(FuncionesMain::crearPaciente(*Protesis1));
 
     //pac 2
@@ -42,6 +42,7 @@ int main()
 
     //pac 4
     cPaciente *Paciente4 = new cPaciente(FuncionesMain::crearPaciente(*Protesis4));
+
 
 
     /////////// CREO MEDICOS ///////////
@@ -88,16 +89,21 @@ int main()
      /////////// CREO REGISTROS ANPA ///////////
 
     //Reg 1
-    cRegistrosANPA *RegistroANPA1 = new cRegistrosANPA(FuncionesMain::crearRegistro(*Protesis1));
+   //cRegistrosANPA *RegistroANPA1 = new cRegistrosANPA(FuncionesMain::crearRegistro(*Protesis1));
 
     //Reg 2
-    cRegistrosANPA *RegistroANPA2 = new cRegistrosANPA(FuncionesMain::crearRegistro(*Protesis2));
+   // cRegistrosANPA *RegistroANPA2 = new cRegistrosANPA(FuncionesMain::crearRegistro(*Protesis2));
 
     //Reg 3
-    cRegistrosANPA *RegistroANPA3 = new cRegistrosANPA(FuncionesMain::crearRegistro(*Protesis3));
+   // cRegistrosANPA *RegistroANPA3 = new cRegistrosANPA(FuncionesMain::crearRegistro(*Protesis3));
 
     //Reg 4
-    cRegistrosANPA *RegistroANPA4 = new cRegistrosANPA(FuncionesMain::crearRegistro(*Protesis4));
+   // cRegistrosANPA *RegistroANPA4 = new cRegistrosANPA(FuncionesMain::crearRegistro(*Protesis4));
+
+    cRegistrosANPA *RegistroANPA1 = new cRegistrosANPA("83745129", "Hospital Favaloro","A8X2F6G4",  QDate(2022, 2, 13),QDate(2023, 6, 27), QDate(2022, 7, 11),*Protesis1, EstadoProtesis::Entregada);
+    cRegistrosANPA *RegistroANPA2 = new cRegistrosANPA("65829317", "Hospital Italiano","D9V4N7P2", QDate(2021, 10, 31),QDate(2022, 7, 15), QDate(2023, 4, 2),*Protesis1, EstadoProtesis::Entregada);
+    cRegistrosANPA *RegistroANPA3 = new cRegistrosANPA("91037462", "Hospital Italiano","F7U3T9W5", QDate(2022, 7, 15),QDate(2022, 7, 15), QDate(2022, 7, 11),*Protesis1, EstadoProtesis::Entregada);
+    cRegistrosANPA *RegistroANPA4 = new cRegistrosANPA("75392048", "Hospital Aleman","H1Z5W7R4", QDate(2021, 10, 31),QDate(2022, 7, 15), QDate(2023, 4, 2),*Protesis1, EstadoProtesis::Entregada);
 
 
     /////////// CREO ANPA ///////////
@@ -129,7 +135,39 @@ int main()
     cFabricante *Fabricante2 = new cFabricante(FuncionesMain::crearfabricante());
 
 
-    //HACER FUNCIONES PROBANDOOOO
+
+    /////////// PRUEBO FUNCIONES ///////////
+
+    //funciones ANPA
+    bool stock;
+    try{
+        stock=ANPA->chequearStockProtesis(*Protesis3);
+        cout<<"Stock: "<<stock<<endl;
+
+        stock=ANPA->chequearStockProtesis(*Protesis4);
+        cout<<"Stock: "<<stock<<endl; //es un bool, imprime 0 o 1
+
+        ANPA->Entregar_Protesis(*Paciente2,*Protesis1); //si no tira exception esta ok
+        ANPA->imprimir();
+
+        cout<<"PAC 5"<<endl;
+        cPaciente *Paciente5 = new cPaciente(ANPA->BuscarPacXHospital("54289637"));
+        cout<<*Paciente5<<endl;
+
+        cout<<"PAC 6"<<endl;
+        cPaciente *Paciente6 = new cPaciente(ANPA->BuscarPacXHospital("83745129"));
+        cout<<*Paciente6<<endl;
+
+    }catch(PacNoEncontrado *e){
+        cout<<e->what()<<endl;
+        delete e;
+    }
+
+
+    //funciones medico
+    Medico1->dar_permiso_protesis(*Paciente2);
+    Medico3->dar_permiso_protesis(*Paciente1);
+
 
     delete Protesis1;
     delete Protesis2;
@@ -140,6 +178,8 @@ int main()
     delete Paciente2;
     delete Paciente3;
     delete Paciente4;
+
+
 
     delete Medico1;
     delete Medico2;

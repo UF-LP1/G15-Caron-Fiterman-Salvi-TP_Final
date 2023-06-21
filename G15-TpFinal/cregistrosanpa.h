@@ -9,7 +9,7 @@ using namespace std;
 #include "cnoquirurgicas.h"
 #include "cquirurgicas.h"
 
-enum EstadoProtesis {Entregada = 1, Solicitada};
+enum EstadoProtesis {Entregada = 0, Solicitada};
 
 class cRegistrosANPA
 {

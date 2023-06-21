@@ -56,7 +56,7 @@ public:
 
     static cMedico crearMedico();
 
-    static cRegistrosANPA crearRegistro(cProtesis piezaOrtopedica);
+    static cRegistrosANPA crearRegistro(cProtesis &piezaOrtopedica);
 
     static cOrtopedia crearOrtopedia();
 
