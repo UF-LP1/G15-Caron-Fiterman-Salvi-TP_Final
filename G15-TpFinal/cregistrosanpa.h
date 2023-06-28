@@ -59,6 +59,5 @@ class cRegistrosANPA
 
 };
 
-ostream& operator<<(ostream& os, const cRegistrosANPA& registro);
 
 #endif // CREGISTROSANPA_H

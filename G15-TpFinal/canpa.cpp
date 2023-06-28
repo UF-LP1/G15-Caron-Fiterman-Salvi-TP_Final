@@ -20,14 +20,15 @@ const string cANPA::get_direccion() const{
     return this->direccion;
 }
 
-bool cANPA::chequearStockProtesis(cProtesis& protesis){
+bool cANPA::chequearStockProtesis(cProtesis &protesis){
+
     TipoProtesis tipo = protesis.get_TipoProtesisTipo();
     bool hayStock = false;
 
     cNoQuirurgicas *aux_NoQ = dynamic_cast<cNoQuirurgicas*> (&protesis);
     cQuirurgicas *aux_Q = dynamic_cast<cQuirurgicas*> (&protesis);
 
-    if(aux_NoQ){ //si es No Quirurgica
+    if(aux_NoQ != nullptr){ //si es No Quirurgica
 
         switch (tipo) {
         case SuperiorIzquierda:
@@ -59,7 +60,7 @@ bool cANPA::chequearStockProtesis(cProtesis& protesis){
         }
     }
 
-    else if(aux_Q){ //si es Quirurgica
+    else if(aux_Q != nullptr){ //si es Quirurgica
 
         switch (tipo) {
         case SuperiorIzquierda:
@@ -228,7 +229,7 @@ cPaciente cANPA::BuscarPacXProtesis(cProtesis protesisPaciente){
 }
 
 
-void cANPA::ListarRegistros() const{
+/*void cANPA::ListarRegistros() const{
 
     list<cRegistrosANPA*>::const_iterator it = ListaRegistros.begin();
     stringstream salidaLista;
@@ -251,7 +252,7 @@ void cANPA::ListarHospitales() const{
 
     return;
 
-}
+}*/
 
 
 const string cANPA::to_string() const{
@@ -263,8 +264,7 @@ const string cANPA::to_string() const{
 
 void cANPA::imprimir(){
     cout << this->to_string() << endl;
-    this->ListarRegistros();
-    this->ListarHospitales();
+
     return;
 }
 

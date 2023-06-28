@@ -54,6 +54,5 @@ class cProtesis
         string Material;
 };
 
-ostream& operator<<(ostream& os, const cProtesis& ProtesisImprimir);
 
 #endif // CPROTESIS_H

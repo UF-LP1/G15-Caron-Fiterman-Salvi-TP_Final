@@ -201,11 +201,11 @@ int main()
 
         cout<<"EN PAC 5"<<endl;
         cPaciente *Paciente5 = new cPaciente(ANPA->BuscarPacXHospital("54289637"));
-        cout<<*Paciente5<<endl;
+        cout<<Paciente5<<endl;
 
         cout<<"EN PAC 6"<<endl;
         cPaciente *Paciente6 = new cPaciente(ANPA->BuscarPacXHospital("83745129"));
-        cout<<*Paciente6<<endl;
+        cout<<Paciente6<<endl;
 
     }catch(PacNoEncontrado *e){
         cout<<e->what()<<endl;
@@ -272,8 +272,6 @@ int main()
     delete Paciente4;
     //delete Paciente5;
     //delete Paciente5;
-
-
 
     delete Medico1;
     delete Medico2;

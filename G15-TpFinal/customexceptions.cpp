@@ -11,3 +11,8 @@ const char* NoPermiso:: what() const throw(){
 const char* PacNoEncontrado:: what() const throw(){
     return "No se encontro el paciente que se buscaba";
 }
+
+const char* DatoEsNullptr:: what() const throw(){
+    return "El objeto apunta a un Nullptr";
+}
+

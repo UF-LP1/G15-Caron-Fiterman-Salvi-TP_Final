@@ -19,4 +19,9 @@ public:
     const char* what() const throw();
 };
 
+class DatoEsNullptr: public exception{
+public:
+    const char* what() const throw();
+};
+
 #endif // CUSTOMEXCEPTIONS_H

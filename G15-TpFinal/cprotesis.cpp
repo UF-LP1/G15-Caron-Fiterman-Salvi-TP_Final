@@ -95,19 +95,12 @@ void cProtesis::set_material(string Material){
 }
 
 bool cProtesis::operator==(const cProtesis &ProtesisAComparar)const{
-    bool iguales = false;
-
-    if(this->Largo == ProtesisAComparar.Largo &&
-       this->Radio == ProtesisAComparar.Radio &&
-       this->fechaFabricacion.toString() == ProtesisAComparar.fechaFabricacion.toString() &&
-       this->Fabricante == ProtesisAComparar.Fabricante &&
-       this->get_tipoProtesis() == ProtesisAComparar.get_tipoProtesis() && //me devuelve un string en vez de un int
-       this->Material == ProtesisAComparar.Material){
-
-        iguales = true;
-    }
-
-    return iguales;
+    return(this->Largo == ProtesisAComparar.Largo &&
+     this->Radio == ProtesisAComparar.Radio &&
+     this->fechaFabricacion.toString() == ProtesisAComparar.fechaFabricacion.toString() &&
+     this->Fabricante == ProtesisAComparar.Fabricante &&
+     this->get_tipoProtesis() == ProtesisAComparar.get_tipoProtesis() &&
+     this->Material == ProtesisAComparar.Material);
 }
 
 

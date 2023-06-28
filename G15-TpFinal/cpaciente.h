@@ -33,7 +33,7 @@ public:
 
     const QDate get_fechanac() const;
 
-    string ListarAlergias() const;
+   // string ListarAlergias() const;
     const string to_string() const;
     void imprimir();
 
@@ -58,7 +58,6 @@ protected:
 
 };
 
-ostream& operator<<(ostream& os, const cPaciente& PacienteImprimir);
 
 
 #endif // CPACIENTE_H

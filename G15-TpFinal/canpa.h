@@ -26,8 +26,6 @@ class cANPA
         cPaciente BuscarPacXHospital(string DNIPaciente); //usa sobrecarga del ==
         cPaciente BuscarPacXProtesis(cProtesis protesisPaciente); //usa sobrecarga del ==
 
-        void ListarRegistros() const;
-        void ListarHospitales() const;
 
         const string to_string() const;
         void imprimir();

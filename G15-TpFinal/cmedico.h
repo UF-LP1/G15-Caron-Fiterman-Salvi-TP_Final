@@ -25,7 +25,6 @@ protected:
     const string Matricula;
 };
 
-ostream& operator<<(ostream& os, const cMedico& MedicoImprimir);
 
 #endif // CMEDICO_H
 
