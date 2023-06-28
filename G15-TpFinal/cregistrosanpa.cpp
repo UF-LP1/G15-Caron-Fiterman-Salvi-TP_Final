@@ -76,6 +76,7 @@ const string cRegistrosANPA::get_EstadoProtesis() const{
     }
 
 }
+
 void cRegistrosANPA::set_EstadoProtesis(EstadoProtesis estado){
     this->estadoProtesis = estado;
     return;
@@ -108,21 +109,18 @@ void cRegistrosANPA::imprimir(){
 cRegistrosANPA::~cRegistrosANPA(){}
 
 bool cRegistrosANPA::operator==(const cRegistrosANPA &RegistroAComparar){
-    bool iguales = false;
+    if(&RegistroAComparar == nullptr){
+        throw new DatoEsNullptr;
+    }
 
-    if(this->DNIPaciente == RegistroAComparar.DNIPaciente &&
+    return (this->DNIPaciente == RegistroAComparar.DNIPaciente &&
        this->Hospital == RegistroAComparar.Hospital &&
        this->Medico == RegistroAComparar.Medico &&
        this->FechaSolicitud.toString() == RegistroAComparar.FechaSolicitud.toString() &&
        this->FechaEntrega.toString() == RegistroAComparar.FechaEntrega.toString() &&
        this->FechaEntregaEstimada.toString() == RegistroAComparar.FechaEntregaEstimada.toString() &&
        this->piezaOrtopedica == RegistroAComparar.piezaOrtopedica &&
-       this->estadoProtesis == RegistroAComparar.estadoProtesis){ //si son iguales todos los atributos
-
-        iguales = true;
-    }
-
-    return iguales;
+       this->estadoProtesis == RegistroAComparar.estadoProtesis);
 }
 
 

@@ -187,6 +187,22 @@ int main()
 
     /////////// PRUEBO FUNCIONES ///////////
 
+    Hospital1->imprimir();
+    Paciente1->imprimir();
+
+
+    cHospital hospaux("hola", "santa fe");
+    cHospital hospaux2("hola", "santa fe");
+    hospaux+(*Paciente1);
+    hospaux2+(*Paciente1);
+
+
+    if(hospaux == hospaux2){
+             cout<<"funciona!!"<<endl;
+    }
+
+    Protesis1->imprimir();
+    /*
     //funciones ANPA
     bool aux;
     try{
@@ -258,6 +274,8 @@ int main()
          cout<<"los registros no son iguales"<<endl;
     }
 
+    */
+
     /////////// BORRO MEM DINAMICA ///////////
 
 
@@ -295,4 +313,6 @@ int main()
     delete Fabricante2;
 
     return 0;
+
 }
+

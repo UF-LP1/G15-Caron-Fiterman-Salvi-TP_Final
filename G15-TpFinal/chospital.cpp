@@ -2,7 +2,11 @@
 #include "chospital.h"
 
 cHospital::cHospital(string Nombre, string direccion) : Nombre(Nombre), Direccion(direccion)
-{}
+{
+    this->ListaMedicos.clear();
+    this->ListaPacientes.clear();
+
+}
 
 const string cHospital::get_Nombre() const{
     return this->Nombre;
@@ -38,40 +42,31 @@ list<cPaciente*>::iterator cHospital::get_EndListaPacientes(){
     return this->ListaPacientes.end();
 }
 
-void cHospital::ListarMedicos() const{
-
-    list<cMedico*>::const_iterator it = ListaMedicos.begin();
-
-    while (it != ListaMedicos.end()) {
-        cout << *it <<endl; //usa la sobrecarga de << del medico
-        ++it;
-    } //recorro toda la lista de medicos
-
-    return;
-}
-
-void cHospital::ListarPacientes() const{
-
-    list<cPaciente*>::const_iterator it = ListaPacientes.begin();
-    while (it != ListaPacientes.end()) {
-        cout << *it <<endl; //usa la sobrecarga de << del paciente
-        ++it;
-    } //recorro toda la lista de pacientes
-
-    return;
-}
 
 const string cHospital::to_string() const{
+    list<cPaciente*>::const_iterator it = ListaPacientes.begin();
+    list<cMedico*>::const_iterator it2 = ListaMedicos.begin();
     stringstream salida;
 
     salida << "Nombre Fabricante: "<< this->get_Nombre() <<endl
-           << "Direccion: " << this->get_Direccion() <<endl;
-    return salida.str();
+           << "Direccion: " << this->get_Direccion() <<endl
+           << "Lista Pacientes: "<< endl;
+
+    while (it != ListaPacientes.end()) {
+        salida << **it <<endl; // Desreferencia el puntero y utiliza el operador << sobrecarga cPaciente
+        it++;
+    }  //recorro toda la lista de pacientes
+
+    salida<< "Lista Medicos: "<<endl;
+    while (it2 != ListaMedicos.end()) {
+        salida << **it2 <<endl; //usa la sobrecarga de << del medico
+        it2++;
+    } //recorro toda la lista de medicos
+
+   return salida.str();
 }
 void cHospital::imprimir(){
     cout << this->to_string() << endl;
-    this->ListarMedicos();
-    this->ListarPacientes();
 }
 
 
@@ -112,6 +107,18 @@ void cHospital::operator-(cPaciente &pacienteBorrar){
 
 }
 
+cPaciente& cHospital::operator[](unsigned int idx){
+    list<cPaciente*>::iterator it= this->ListaPacientes.begin();
+    int cont = 0;
+
+    while(cont<idx && it!= this->ListaPacientes.end()){
+        it++;
+        cont++;
+    }
+    return **it;
+}
+
+
 void cHospital::operator+(cMedico &medicoNuevo){
     list<cMedico*>::iterator it = this->ListaMedicos.begin();
     bool encontrado = false;
@@ -146,6 +153,18 @@ void cHospital::operator-(cMedico &medicoBorrar){
         this->ListaMedicos.erase(it);
 
     return;
+}
+
+cMedico& cHospital::getMedico(unsigned int idx){
+    list<cMedico*>::iterator it= this->ListaMedicos.begin();
+    int cont = 0;
+
+    while(cont<idx && it!= this->ListaMedicos.end()) {
+        it++;
+        cont++;
+    }
+
+    return **it;
 }
 
 bool cHospital::operator==(const cHospital &HospitalAComparar){

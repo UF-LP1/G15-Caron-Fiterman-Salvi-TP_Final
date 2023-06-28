@@ -14,4 +14,6 @@ void cQuirurgicas::set_material(string Material){
     return;
 }
 
+
+
 cQuirurgicas::~cQuirurgicas(){}

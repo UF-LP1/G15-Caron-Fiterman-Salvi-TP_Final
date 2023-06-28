@@ -11,6 +11,7 @@ class cFabricante
 {
     public:
         cFabricante(string nombre, string direccion, string numeroHabilitacion);
+        cFabricante();
         string get_nombre();
         string get_direccion();
         string get_NroHabilitacion();

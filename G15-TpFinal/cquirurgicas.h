@@ -2,6 +2,7 @@
 #define CQUIRURGICAS_H
 
 #include "cprotesis.h"
+class cPaciente;
 
 class cQuirurgicas : public cProtesis
 {

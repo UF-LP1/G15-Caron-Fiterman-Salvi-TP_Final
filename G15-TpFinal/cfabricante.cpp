@@ -4,6 +4,8 @@ cFabricante:: cFabricante(string nombre, string direccion, string numeroHabilita
 
 }
 
+cFabricante:: cFabricante(){}
+
 string cFabricante::get_nombre(){
     return this->nombre;
 }

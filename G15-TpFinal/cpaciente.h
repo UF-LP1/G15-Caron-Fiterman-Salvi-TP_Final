@@ -33,13 +33,14 @@ public:
 
     const QDate get_fechanac() const;
 
-   // string ListarAlergias() const;
+    const string& operator[](unsigned int idx);
     const string to_string() const;
     void imprimir();
 
     bool operator==(const cPaciente &PacienteAComparar);
 
-    friend ostream& operator<<(ostream& os, const string& PacienteImprimir);
+    friend ostream& operator<<(ostream& os, const cPaciente& paciente);
+
     void operator+(string &AlergiaNueva); //sobrecargas de alergias
     void operator-(string &AlergiaBorrar);
 
@@ -57,7 +58,6 @@ protected:
     cProtesis Protesis;
 
 };
-
 
 
 #endif // CPACIENTE_H

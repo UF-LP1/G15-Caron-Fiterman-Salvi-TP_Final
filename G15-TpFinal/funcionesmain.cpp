@@ -123,7 +123,6 @@ cRegistrosANPA FuncionesMain::crearRegistro(cProtesis &piezaOrtopedica){
 
     cRegistrosANPA *Registro1 = new cRegistrosANPA(ArrDNI[randDNI], ArrHospitales[randHos], ArrNombres[randMed], ArrFecha[randFecha1], ArrFecha[randFecha2], ArrFecha[randFecha3], piezaOrtopedica, estado);
 
-   // cRegistrosANPA(dni,hospital,medico,fecha,fecha,fecha,protesis, estado estadoProtesis)
     return *Registro1;
 }
 

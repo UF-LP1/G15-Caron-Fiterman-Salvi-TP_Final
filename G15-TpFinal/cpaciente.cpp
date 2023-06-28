@@ -77,26 +77,34 @@ const QDate cPaciente::get_fechanac() const{
 }
 
 
- string cPaciente::ListarAlergias() const{
-    list<string>::const_iterator it = Alergias.begin();
-    stringstream salidaLista;
+ const string& cPaciente::operator[](unsigned int idx) {
+    list<string>::const_iterator it = this->Alergias.begin();
+    unsigned int cont = 0;
 
-    while (it != Alergias.end()) {
-        salidaLista << *it << endl; //imprime la alergia
-        ++it;
-    } //recorro toda la lista
-
-    return salidaLista.str();
+    while (cont < idx && it != this->Alergias.end()) {
+        it++;
+        cont++;
+    }
+    return *it;
 }
+
 
 const string cPaciente::to_string() const{
     stringstream salida;
+    list<string>::const_iterator it = Alergias.begin();
+
     salida << cPersona::to_string()<<endl //usa el to_string de cPersona
            << "Fecha Nacimiento: "<< this->get_fechanac().toString().toStdString()<<endl
            << "Telefono: " << this->get_telefono()<<endl
            << "Medico:" << this->get_Medico()<<endl
-           << "Alergias: " << this->ListarAlergias()<<endl //lista todas las alergias
-           << "Hospital Atendido: " << this->get_hospitalatendido()<<endl
+           << "Alergias: " << endl;
+
+    while (it != Alergias.end()) {
+        salida << *it <<endl;
+        it++;
+    }
+
+    salida << "Hospital Atendido: " << this->get_hospitalatendido()<<endl
            << "Radio Miembro: " << this->get_radiomiembro()<<endl
            << "Permiso Protesis: "<< this->get_permisoprotesis() <<endl
            << "Protesis: " << this->Protesis.to_string()<<endl; //usa el to_string de protesis
@@ -111,9 +119,12 @@ void cPaciente::imprimir(){
 
 
 bool cPaciente::operator==(const cPaciente &PacienteAComparar){
-    bool iguales = false;
 
-    if(this->Nombre == PacienteAComparar.Nombre &&
+    if(&PacienteAComparar == nullptr){
+        throw new DatoEsNullptr;
+    }
+
+    return(this->Nombre == PacienteAComparar.Nombre &&
        this->Apellido == PacienteAComparar.Apellido &&
        this->DNI == PacienteAComparar.DNI &&
        this->FechaNac.toString() == PacienteAComparar.FechaNac.toString() &&
@@ -121,25 +132,26 @@ bool cPaciente::operator==(const cPaciente &PacienteAComparar){
        this->HospitalAtendido == PacienteAComparar.HospitalAtendido &&
        this->RadioMiembro == PacienteAComparar.RadioMiembro &&
        this->PermisoProtesis == PacienteAComparar.PermisoProtesis &&
-       this->Protesis == PacienteAComparar.Protesis &&//usa la sobrearga de == de cProtesis
-       this->ListarAlergias() == PacienteAComparar.ListarAlergias()
-       )
-    {
-        iguales = true;
-
-    }
-
-    return iguales;
+       this->Protesis == PacienteAComparar.Protesis &&
+       this->get_alergias() == PacienteAComparar.get_alergias());
 }
 
-ostream& operator<<(ostream& os, const cPaciente& PacienteImprimir){
-    os<< PacienteImprimir.to_string()<<endl;
+ostream& operator<<(ostream& os, const cPaciente& paciente) {
+    if(&paciente == nullptr){
+        throw new DatoEsNullptr;
+    }
+    os << paciente.to_string(); // usa función to_string() de cPaciente
     return os;
 }
 
 void cPaciente::operator+(string &AlergiaNueva){
+    if(&AlergiaNueva == nullptr){
+        throw new DatoEsNullptr;
+    }
+
     list<string>::iterator it = this->Alergias.begin();
     bool encontrado = false;
+
 
     while(it != this->Alergias.end()){
         if(AlergiaNueva == *it)
@@ -154,8 +166,13 @@ void cPaciente::operator+(string &AlergiaNueva){
 }
 
 void cPaciente::operator-(string &AlergiaBorrar){
+    if(&AlergiaBorrar == nullptr){
+        throw new DatoEsNullptr;
+    }
+
     list<string>::iterator it = this->Alergias.begin();
     bool encontrado = false;
+
 
     while(it != this->Alergias.end()){
         if(AlergiaBorrar == *it)

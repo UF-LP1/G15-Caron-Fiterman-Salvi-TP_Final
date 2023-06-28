@@ -26,17 +26,19 @@ class cANPA
         cPaciente BuscarPacXHospital(string DNIPaciente); //usa sobrecarga del ==
         cPaciente BuscarPacXProtesis(cProtesis protesisPaciente); //usa sobrecarga del ==
 
-
         const string to_string() const;
         void imprimir();
 
         void operator+(cRegistrosANPA &registroNuevo);
         void operator-(cRegistrosANPA &registroBorrar);
+        cRegistrosANPA& operator[](unsigned int idx);
 
         void operator+(cHospital &HospitalNuevo);
         void operator-(cHospital &HospitalBorrar);
+        cHospital& getHospital(unsigned int idx); // no deja sobrecargar dos veces el [] en la clase cANPA
 
         friend bool cFabricante::darRtaSobreProtesis();
+
 
         ~cANPA();
         //Imprimir un listado de pacientes y prótesis.
@@ -45,7 +47,6 @@ class cANPA
         const string direccion;
         list<cRegistrosANPA*> ListaRegistros;
         list<cHospital*> ListaHospitales;
-
 
 
 };

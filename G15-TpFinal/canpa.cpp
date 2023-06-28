@@ -6,7 +6,10 @@ cANPA::cANPA(string direccion, list<cRegistrosANPA*> listaRegistros, list<cHospi
     this->ListaHospitales = listaHospitales;
 }
 
-cANPA::cANPA(string direccion): direccion(direccion){}
+cANPA::cANPA(string direccion): direccion(direccion){
+    this->ListaRegistros.clear();
+    this->ListaHospitales.clear();
+}
 
 list<cRegistrosANPA*> cANPA::get_ListaRegistros() const{
     return this->ListaRegistros;
@@ -20,7 +23,8 @@ const string cANPA::get_direccion() const{
     return this->direccion;
 }
 
-bool cANPA::chequearStockProtesis(cProtesis &protesis){
+/*bool cANPA::chequearStockProtesis(cProtesis &protesis){
+
 
     TipoProtesis tipo = protesis.get_TipoProtesisTipo();
     bool hayStock = false;
@@ -96,19 +100,18 @@ bool cANPA::chequearStockProtesis(cProtesis &protesis){
     return hayStock;
 
 }
-
+*/
 
 bool cANPA::solicitar_protesis_fabricante(){
     bool estadoSolicitud= false;
-    cFabricante *fabricante = new cFabricante("Protesis101", "Av Santa Fe 2350", "235743463");
+    cFabricante fabricante;
 
-    estadoSolicitud = fabricante->darRtaSobreProtesis();
+    estadoSolicitud = fabricante.darRtaSobreProtesis();
 
-    delete fabricante; //libero memoria
     return estadoSolicitud;
 }
 
-void cANPA::Entregar_Protesis(cPaciente paciente, cProtesis &protesisPaciente){ //le entrega la protesis al paciente, usa la sobrecarga del = para asignarle la protesis
+/*void cANPA::Entregar_Protesis(cPaciente paciente, cProtesis &protesisPaciente){ //le entrega la protesis al paciente, usa la sobrecarga del = para asignarle la protesis
     list<cRegistrosANPA*>:: iterator it = ListaRegistros.begin();
 
     while (it != ListaRegistros.end()){
@@ -143,7 +146,7 @@ void cANPA::Entregar_Protesis(cPaciente paciente, cProtesis &protesisPaciente){ 
 
     return;
 
-}
+}*/
 
 void cANPA::AgregarRegistroPaciente(cRegistrosANPA pacienteNuevo){ //usa sobrecarga del ==, se usa en la sobrecarga del +
     list<cRegistrosANPA*>::iterator it = this->ListaRegistros.begin();
@@ -229,36 +232,10 @@ cPaciente cANPA::BuscarPacXProtesis(cProtesis protesisPaciente){
 }
 
 
-/*void cANPA::ListarRegistros() const{
-
-    list<cRegistrosANPA*>::const_iterator it = ListaRegistros.begin();
-    stringstream salidaLista;
-
-    while (it != ListaRegistros.end()) {
-        salidaLista << *it <<endl; //sobrecarga <<
-        it++;
-    }
-
-    return;
-}
-
-void cANPA::ListarHospitales() const{
-    list<cHospital*>::const_iterator it = ListaHospitales.begin();
-
-    while (it != ListaHospitales.end()) {
-        cout << *it <<endl; //sobrecarga <<
-        it++;
-    }
-
-    return;
-
-}*/
-
-
 const string cANPA::to_string() const{
     stringstream salida;
     salida << "Direccion ANPA:"<< this->direccion<<endl;
-
+    //FALTAN LISTAS REGISTROS Y HOSPITALES
     return salida.str();
 }
 
@@ -296,6 +273,17 @@ void cANPA::operator-(cRegistrosANPA &registroBorrar){
     return;
 }
 
+cRegistrosANPA& cANPA::operator[](unsigned int idx){
+    list<cRegistrosANPA*>::iterator it= this->ListaRegistros.begin();
+    unsigned int cont = 0;
+
+    while(cont<idx && it!= this->ListaRegistros.end()){
+        it++;
+        cont++;
+    }
+
+    return **it;
+}
 
 void cANPA::operator+(cHospital &HospitalNuevo){
     list<cHospital*>::iterator it = this->ListaHospitales.begin();
@@ -329,4 +317,16 @@ void cANPA::operator-(cHospital &HospitalBorrar){
 
     return;
 
+}
+
+cHospital& cANPA::getHospital(unsigned int idx){
+    list<cHospital*>::iterator it= this->ListaHospitales.begin();
+    unsigned int cont = 0;
+
+    while(cont<idx && it!= this->ListaHospitales.end()){
+        it++;
+        cont++;
+    }
+
+    return **it;
 }

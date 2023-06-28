@@ -33,9 +33,13 @@ class cHospital
 
         void operator+(cPaciente &pacienteNuevo);
         void operator-(cPaciente &pacienteBorrar);
+        cPaciente& operator[](unsigned int idx);
+
 
         void operator+(cMedico &medicoNuevo);
         void operator-(cMedico &medicoBorrar);
+        cMedico& getMedico(unsigned int idx); // no deja sobrecargar dos veces el [] en la clase
+
 
         bool operator==(const cHospital &HospitalAComparar);
 

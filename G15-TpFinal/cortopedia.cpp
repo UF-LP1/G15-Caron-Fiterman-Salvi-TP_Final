@@ -6,7 +6,10 @@ cOrtopedia::cOrtopedia(string nombre, string direccion, list<cProtesis*> ListaPr
 }
 
 cOrtopedia::cOrtopedia(string nombre, string direccion): Nombre(nombre), Direccion(direccion)
-{}
+{
+    this->ListadoProtesis.clear();
+}
+
 const string cOrtopedia::get_nombre(){
     return this->Nombre;
 }
@@ -21,6 +24,65 @@ const list <cProtesis*> cOrtopedia::get_ListaProtesis(){
 
 void cOrtopedia::set_ListaProtesis(list <cProtesis*> listaNueva){
     this->ListadoProtesis= listaNueva;
+    return;
+}
+
+
+
+const unsigned int cOrtopedia::get_StockSupIzqQ() const{
+    return this->StockSupIzqQ;
+}
+void cOrtopedia::set_StockSupIzqQ(unsigned int StockSupIzqQ){
+    this->StockSupIzqQ=StockSupIzqQ;
+    return;
+}
+const unsigned int cOrtopedia::get_StockSupDerQ() const{
+    return this->StockSupDerQ;
+}
+void cOrtopedia::set_StockSupDerQ(unsigned int StockSupDerQ){
+    this->StockSupDerQ=StockSupDerQ;
+    return;
+}
+const unsigned int cOrtopedia::get_StockInfIzqQ() const{
+    return this->StockInfIzqQ;
+}
+void cOrtopedia::set_StockInfIzqQ(unsigned int StockInfIzqQ){
+    this->StockInfIzqQ=StockInfIzqQ;
+    return;
+}
+const unsigned int cOrtopedia::get_StockInfDerQ() const{
+    return this->StockInfDerQ;
+}
+void cOrtopedia::set_StockInfDerQ(unsigned int StockInfDerQ){
+    this->StockInfDerQ=StockInfDerQ;
+    return;
+}
+const unsigned int cOrtopedia::get_StockSupIzqNQ() const{
+    return this->StockSupIzqNQ;
+}
+void cOrtopedia::set_StockSupIzqNQ(unsigned int StockSupIzqNQ){
+    this->StockSupIzqNQ=StockSupIzqNQ;
+    return;
+}
+const unsigned int cOrtopedia::get_StockSupDerNQ() const{
+    return this->StockSupDerNQ;
+}
+void cOrtopedia::set_StockSupDerNQ(unsigned int StockSupDerNQ){
+    this->StockSupDerNQ=StockSupDerNQ;
+    return;
+}
+const unsigned int cOrtopedia::get_StockInfIzqNQ() const{
+    return this->StockInfIzqNQ;
+}
+void cOrtopedia::set_StockInfIzqNQ(unsigned int StockInfIzqNQ){
+    this->StockInfIzqNQ=StockInfIzqNQ;
+    return;
+}
+const unsigned int cOrtopedia::get_StockInfDerNQ() const{
+    return this->StockInfDerNQ;
+}
+void cOrtopedia::set_StockInfDerNQ(unsigned int StockInfDerNQ){
+    this->StockInfDerNQ=StockInfDerNQ;
     return;
 }
 
@@ -62,33 +124,25 @@ void cOrtopedia::operator-(cProtesis &ProtesisBorrar){
 }
 
 
-const string cOrtopedia::ListarProtesis() const{
-    list<cProtesis*>::const_iterator it = ListadoProtesis.begin();
-    stringstream salidaLista;
-
-    while (it != ListadoProtesis.end()) {
-        salidaLista << *it <<endl; //sobrecarga <<
-        it++;
-    }
-
-    return salidaLista.str();
-
-}
-
 
 const string cOrtopedia:: to_string(){
+    list<cProtesis*>::const_iterator it = ListadoProtesis.begin();
     stringstream salida;
     salida << "Nombre Ortopedia: " << this->Nombre <<endl
            << "Direccion: " << this->Direccion <<endl
-           << "listado protesis: " << this->ListarProtesis()<<endl
-           << "Stock Protesis Quirurgicas Superiores Izquierdas: " << cOrtopedia::StockSupIzqQ <<endl
-           << "Stock Protesis Quirurgicas Superiores Derechas: " << cOrtopedia::StockSupDerQ<<endl
-           << "Stock Protesis Quirurgicas Inferiores Izquierdas: " << cOrtopedia::StockInfIzqQ<<endl
-           << "Stock Protesis Quirurgicas Inferiores Derechas: " << cOrtopedia::StockInfDerQ<<endl
-           << "Stock Protesis No Quirurgicas Superiores Izquierdas: " << cOrtopedia::StockSupIzqNQ <<endl
-           << "Stock Protesis No Quirurgicas Superiores Derechas: " << cOrtopedia::StockSupDerNQ<<endl
-           << "Stock Protesis No Quirurgicas Inferiores Izquierdas: " << cOrtopedia::StockInfIzqNQ<<endl
-           << "Stock Protesis No Quirurgicas Inferiores Derechas: " << cOrtopedia::StockInfDerNQ<<endl;
+           << "Stock Protesis Quirurgicas Superiores Izquierdas: " << this->StockSupIzqQ <<endl
+           << "Stock Protesis Quirurgicas Superiores Derechas: " << this->StockSupDerQ<<endl
+           << "Stock Protesis Quirurgicas Inferiores Izquierdas: " << this->StockInfIzqQ<<endl
+           << "Stock Protesis Quirurgicas Inferiores Derechas: " << this->StockInfDerQ<<endl
+           << "Stock Protesis No Quirurgicas Superiores Izquierdas: "<< this->StockSupIzqNQ <<endl
+           << "Stock Protesis No Quirurgicas Superiores Derechas: " << this->StockSupDerNQ<<endl
+           << "Stock Protesis No Quirurgicas Inferiores Izquierdas: " << this->StockInfIzqNQ<<endl
+           << "Stock Protesis No Quirurgicas Inferiores Derechas: " << this->StockInfDerNQ<<endl;
+
+    while (it != ListadoProtesis.end()) {
+        salida << **it <<endl;
+        it++;
+    }
 
     return salida.str();
 }
@@ -99,18 +153,3 @@ void cOrtopedia::imprimir(){
 }
 
 cOrtopedia::~cOrtopedia(){}
-
-//STATIC STOCK
-
-unsigned int cOrtopedia::StockSupIzqQ = 10;
-unsigned int cOrtopedia::StockSupDerQ = 18;
-unsigned int cOrtopedia::StockInfIzqQ = 23;
-unsigned int cOrtopedia::StockInfDerQ = 12;
-unsigned int cOrtopedia::StockSupIzqNQ = 2;
-unsigned int cOrtopedia::StockSupDerNQ = 1;
-unsigned int cOrtopedia::StockInfIzqNQ = 0;
-unsigned int cOrtopedia::StockInfDerNQ = 4;
-
-
-//para aumentar: cOrtopedia::StockInfDerNQ++;
-//para decrementar: cOrtopedia::StockInfDerNQ--;

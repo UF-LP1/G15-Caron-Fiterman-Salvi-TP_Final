@@ -95,16 +95,24 @@ void cProtesis::set_material(string Material){
 }
 
 bool cProtesis::operator==(const cProtesis &ProtesisAComparar)const{
+    if(&ProtesisAComparar == nullptr){
+        throw new DatoEsNullptr;
+    }
+
     return(this->Largo == ProtesisAComparar.Largo &&
      this->Radio == ProtesisAComparar.Radio &&
      this->fechaFabricacion.toString() == ProtesisAComparar.fechaFabricacion.toString() &&
      this->Fabricante == ProtesisAComparar.Fabricante &&
      this->get_tipoProtesis() == ProtesisAComparar.get_tipoProtesis() &&
-     this->Material == ProtesisAComparar.Material);
+     this->Material == ProtesisAComparar.get_material());
 }
 
 
 void cProtesis::operator=(const cProtesis& protesis){
+    if(&protesis == nullptr){
+        throw new DatoEsNullptr;
+    }
+
     this->Largo= protesis.Largo;
     this->Radio = protesis.Radio;
     this->fechaFabricacion = protesis.fechaFabricacion;
@@ -144,6 +152,9 @@ void cProtesis::imprimir(){
 cProtesis::~cProtesis(){}
 
 ostream& operator<<(ostream& os, const cProtesis& ProtesisImprimir){
+    if(&ProtesisImprimir == nullptr){
+        throw new DatoEsNullptr;
+    }
     os<< ProtesisImprimir.to_string()<<endl;
     return os;
 }

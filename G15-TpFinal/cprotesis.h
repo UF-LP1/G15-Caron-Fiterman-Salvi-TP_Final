@@ -6,6 +6,8 @@
 #include <QDate>
 #include <sstream>
 #include <customexceptions.h>
+class cPaciente;
+
 using namespace std;
 
 enum TipoProtesis {SuperiorIzquierda = 1, SuperiorDerecha, InferiorIzquierda, InferiorDerecha};
