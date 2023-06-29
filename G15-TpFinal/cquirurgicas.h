@@ -14,6 +14,8 @@ class cQuirurgicas : public cProtesis
         void set_material(string Material);
 
         void ajustarImplante(float radio, float largo);
+        void realizarMantenimiento() override;
+
         //usa el to_string e imprimir de cProtesis, como son iguales no los hicimos virtual
         ~cQuirurgicas();
 

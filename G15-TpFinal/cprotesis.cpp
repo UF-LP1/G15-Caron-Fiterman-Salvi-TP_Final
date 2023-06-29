@@ -132,6 +132,10 @@ void cProtesis::operator=(const cProtesis& protesis){
     return;
 }
 
+void cProtesis::realizarMantenimiento(){
+    return;
+}
+
 const string cProtesis::to_string()const{
     stringstream salida;
     salida << "Largo Protesis: "<< this->get_largo() <<endl

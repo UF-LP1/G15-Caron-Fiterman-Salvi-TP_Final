@@ -19,4 +19,10 @@ void cQuirurgicas::ajustarImplante(float radio, float largo){
     set_radio(radio);
 }
 
+void cQuirurgicas::realizarMantenimiento() {
+    ajustarImplante(this->Radio, this->Largo);//la "ajusta"
+    set_material(this->Material);//"renueva el material"
+    return;
+}
+
 cQuirurgicas::~cQuirurgicas(){}

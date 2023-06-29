@@ -26,5 +26,10 @@ const string cNoQuirurgicas::get_sujecion()const{
     return this->sujecion;
 }
 
+void cNoQuirurgicas::realizarMantenimiento() {
+    cambiarSujecion(this->sujecion);//"renueva la sujecion"
+    set_material(this->Material);//"renueva el material"
+    return;
+}
 
 cNoQuirurgicas::~cNoQuirurgicas(){}

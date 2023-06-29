@@ -13,6 +13,7 @@ class cNoQuirurgicas : public cProtesis
         const string get_material()const;
         void set_material(string Material);
 
+        void realizarMantenimiento() override;
         void cambiarSujecion(string nuevaSujecion); //es como un set
         const string get_sujecion()const;
 

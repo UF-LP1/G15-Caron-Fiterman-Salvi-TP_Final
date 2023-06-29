@@ -273,8 +273,8 @@ int main()
     Protesis2->imprimir();
     Protesis2->set_fabricante("Mejores Protesis del mundo");
     Protesis2->imprimir(); //tiene que haber cambiado el fabricante
-
-
+    Protesis3->realizarMantenimiento();
+    Protesis4->realizarMantenimiento();
 
     //Funciones paciente
     Paciente3->imprimir(); //usa el de la protesis tambien
