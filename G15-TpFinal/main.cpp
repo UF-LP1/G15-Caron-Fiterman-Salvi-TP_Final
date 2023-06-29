@@ -144,10 +144,10 @@ int main()
     //Reg 4
    // cRegistrosANPA *RegistroANPA4 = new cRegistrosANPA(FuncionesMain::crearRegistro(*Protesis4));
 
-    cRegistrosANPA *RegistroANPA1 = new cRegistrosANPA("83745129", "Hospital Favaloro","A8X2F6G4",  QDate(2022, 2, 13),QDate(2023, 6, 27), QDate(2022, 7, 11),*Protesis1, EstadoProtesis::Entregada);
-    cRegistrosANPA *RegistroANPA2 = new cRegistrosANPA("65829317", "Hospital Italiano","D9V4N7P2", QDate(2021, 10, 31),QDate(2022, 7, 15), QDate(2023, 4, 2),*Protesis1, EstadoProtesis::Entregada);
-    cRegistrosANPA *RegistroANPA3 = new cRegistrosANPA("91037462", "Hospital Italiano","F7U3T9W5", QDate(2022, 7, 15),QDate(2022, 7, 15), QDate(2022, 7, 11),*Protesis1, EstadoProtesis::Entregada);
-    cRegistrosANPA *RegistroANPA4 = new cRegistrosANPA("75392048", "Hospital Aleman","H1Z5W7R4", QDate(2021, 10, 31),QDate(2022, 7, 15), QDate(2023, 4, 2),*Protesis1, EstadoProtesis::Entregada);
+    cRegistrosANPA *RegistroANPA1 = new cRegistrosANPA("83745129", "Hospital Favaloro","A8X2F6G4",  QDate(2022, 2, 13),QDate(2015, 6, 27), QDate(2022, 7, 11),*Protesis1, EstadoProtesis::Solicitada);
+    cRegistrosANPA *RegistroANPA2 = new cRegistrosANPA("65829317", "Hospital Italiano","D9V4N7P2", QDate(2021, 10, 31),QDate(2012, 7, 13), QDate(2023, 4, 2),*Protesis1, EstadoProtesis::Entregada);
+    cRegistrosANPA *RegistroANPA3 = new cRegistrosANPA("91037462", "Hospital Italiano","F7U3T9W5", QDate(2022, 7, 15),QDate(2022, 1, 13), QDate(2022, 7, 11),*Protesis1, EstadoProtesis::Solicitada);
+    cRegistrosANPA *RegistroANPA4 = new cRegistrosANPA("75392048", "Hospital Aleman","H1Z5W7R4", QDate(2021, 10, 31),QDate(2021, 7, 15), QDate(2023, 4, 2),*Protesis1, EstadoProtesis::Entregada);
 
     if(RegistroANPA1==nullptr ||RegistroANPA2==nullptr || RegistroANPA3==nullptr || RegistroANPA4==nullptr){
              return 1;;
