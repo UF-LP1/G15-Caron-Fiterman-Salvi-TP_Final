@@ -14,6 +14,8 @@ class cHospital
 {
     public:
         cHospital(string Nombre, string direccion);
+        cHospital(string Nombre, string direccion, list <cMedico*> ListaMedicos, list <cPaciente*> ListaPacientes);
+
         const string get_Nombre() const;
         const string get_Direccion() const;
 

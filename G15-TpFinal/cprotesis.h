@@ -17,6 +17,7 @@ class cProtesis
     public:
         cProtesis(float largo, float radio, QDate fechaFabricacion, string fabricante, TipoProtesis infoProtesis, string material);
         cProtesis(const cProtesis &copia); //constructor por copia
+
         const float get_largo() const;
         void set_largo(float Largo);
 

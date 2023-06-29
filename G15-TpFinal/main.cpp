@@ -174,7 +174,7 @@ int main()
     /////////// CREO FABRICANTE ///////////
 
     //fabri 1
-     cFabricante *Fabricante1 = new cFabricante(FuncionesMain::crearfabricante());
+    cFabricante *Fabricante1 = new cFabricante(FuncionesMain::crearfabricante());
     if(Fabricante1==nullptr){
              return 1;;
     }
@@ -196,23 +196,28 @@ int main()
     hospaux+(*Paciente1);
     hospaux2+(*Paciente1);
 
+    try{
+        if(hospaux == hospaux2)
+           cout<<"funciona!!"<<endl;
 
-    if(hospaux == hospaux2){
-             cout<<"funciona!!"<<endl;
+    }catch(DatoEsNullptr *e){
+        cout<<e->what()<<endl;
+        delete e;
     }
 
+
     Protesis1->imprimir();
-    /*
+
     //funciones ANPA
     bool aux;
     try{
-        aux=ANPA->chequearStockProtesis(*Protesis3);
+        aux=ANPA->chequearStockProtesis(*Protesis3, *Ortopedia1);
         cout<<"Stock: "<<aux<<endl;
 
-        aux=ANPA->chequearStockProtesis(*Protesis4);
+        aux=ANPA->chequearStockProtesis(*Protesis4, *Ortopedia2);
         cout<<"Stock: "<<aux<<endl; //es un bool, imprime 0 o 1
 
-        ANPA->Entregar_Protesis(*Paciente2,*Protesis1); //si no tira exception esta ok
+        ANPA->Entregar_Protesis(*Paciente2,*Protesis1, *Ortopedia1); //si no tira exception esta ok
         ANPA->imprimir();
 
         cout<<"EN PAC 5"<<endl;
@@ -274,7 +279,14 @@ int main()
          cout<<"los registros no son iguales"<<endl;
     }
 
-    */
+    if(RegistroANPA1 == RegistroANPA1){
+         cout<<"los registros son iguales"<<endl;
+    }
+    else{
+         cout<<"los registros no son iguales"<<endl;
+    }
+
+
 
     /////////// BORRO MEM DINAMICA ///////////
 

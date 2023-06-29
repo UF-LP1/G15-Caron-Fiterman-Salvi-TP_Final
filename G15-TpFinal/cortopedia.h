@@ -7,8 +7,13 @@ using namespace std;
 class cOrtopedia
 {
     public:
-        cOrtopedia(string nombre, string direccion, list<cProtesis*> ListaProtesis);
-        cOrtopedia(string nombre, string direccion);
+        cOrtopedia(string nombre, string direccion, list<cProtesis*> ListaProtesis,unsigned int StockSupIzqQ, unsigned int StockSupDerQ,
+                   unsigned int StockInfIzqQ, unsigned int StockInfDerQ, unsigned int StockSupIzqNQ,
+                   unsigned int StockSupDerNQ,unsigned int StockInfIzqNQ, unsigned int StockInfDerNQ);
+
+        cOrtopedia(string nombre, string direccion,unsigned int StockSupIzqQ, unsigned int StockSupDerQ,
+                  unsigned int StockInfIzqQ, unsigned int StockInfDerQ, unsigned int StockSupIzqNQ,
+                  unsigned int StockSupDerNQ,unsigned int StockInfIzqNQ, unsigned int StockInfDerNQ);
         const string get_nombre();
         const string get_direccion();
         const list <cProtesis*> get_ListaProtesis();

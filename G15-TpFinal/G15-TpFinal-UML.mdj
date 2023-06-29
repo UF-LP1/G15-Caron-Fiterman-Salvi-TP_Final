@@ -137,13 +137,31 @@
 											"height": 13,
 											"text": "-direccion: const string",
 											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGJCEb9c1OuMJU=",
+											"_parent": {
+												"$ref": "AAAAAAGIcwR94fBH6BE="
+											},
+											"model": {
+												"$ref": "AAAAAAGJCEb9VlOrFv8="
+											},
+											"font": "Arial;13;0",
+											"left": 613,
+											"top": 173,
+											"width": 430.30126953125,
+											"height": 13,
+											"underline": true,
+											"text": "-CantidadHospitales: int",
+											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 608,
 									"top": 153,
 									"width": 440.30126953125,
-									"height": 23
+									"height": 38
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -166,7 +184,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 613,
-											"top": 181,
+											"top": 196,
 											"width": 430.30126953125,
 											"height": 13,
 											"text": "+get_ListaRegistros(): listaregistros",
@@ -183,7 +201,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 613,
-											"top": 196,
+											"top": 211,
 											"width": 430.30126953125,
 											"height": 13,
 											"text": "+get_ListaHospitales(): listahospitales",
@@ -200,7 +218,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 613,
-											"top": 211,
+											"top": 226,
 											"width": 430.30126953125,
 											"height": 13,
 											"text": "+get_direccion(): const string",
@@ -217,7 +235,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 613,
-											"top": 226,
+											"top": 241,
 											"width": 430.30126953125,
 											"height": 13,
 											"text": "+solicitar_protesis_fabricante(): bool",
@@ -234,7 +252,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 613,
-											"top": 241,
+											"top": 256,
 											"width": 430.30126953125,
 											"height": 13,
 											"text": "+chequearStockProtesis(cProtesis& protesis): bool",
@@ -251,7 +269,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 613,
-											"top": 256,
+											"top": 271,
 											"width": 430.30126953125,
 											"height": 13,
 											"text": "+Entregar_Protesis(cPaciente paciente, cProtesis &protesisPaciente): void",
@@ -268,7 +286,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 613,
-											"top": 271,
+											"top": 286,
 											"width": 430.30126953125,
 											"height": 13,
 											"text": "+AgregarRegistroPaciente(cRegistrosANPA pacienteNuevo)",
@@ -285,7 +303,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 613,
-											"top": 286,
+											"top": 301,
 											"width": 430.30126953125,
 											"height": 13,
 											"text": "+BuscarPacXHospital(string DNIPaciente): cPaciente",
@@ -302,7 +320,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 613,
-											"top": 301,
+											"top": 316,
 											"width": 430.30126953125,
 											"height": 13,
 											"text": "+BuscarPacXProtesis(cProtesis protesispaciente): cPaciente",
@@ -319,7 +337,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 613,
-											"top": 316,
+											"top": 331,
 											"width": 430.30126953125,
 											"height": 13,
 											"text": "+ListarRegistros(): const string",
@@ -336,7 +354,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 613,
-											"top": 331,
+											"top": 346,
 											"width": 430.30126953125,
 											"height": 13,
 											"text": "+ListarHospitales(): const string",
@@ -353,7 +371,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 613,
-											"top": 346,
+											"top": 361,
 											"width": 430.30126953125,
 											"height": 13,
 											"text": "+to_string(): const string",
@@ -370,7 +388,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 613,
-											"top": 361,
+											"top": 376,
 											"width": 430.30126953125,
 											"height": 13,
 											"text": "+imprimir(): void",
@@ -379,7 +397,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 608,
-									"top": 176,
+									"top": 191,
 									"width": 440.30126953125,
 									"height": 203
 								},
@@ -421,7 +439,7 @@
 							"left": 608,
 							"top": 128,
 							"width": 440.30126953125,
-							"height": 251,
+							"height": 266,
 							"nameCompartment": {
 								"$ref": "AAAAAAGIcwR94fBCt2M="
 							},
@@ -2531,7 +2549,7 @@
 											"top": 639,
 											"width": 243.166015625,
 											"height": 13,
-											"text": "+get_tipoprotesistipo(): const tipoprotesis",
+											"text": "+get_tipoProtesis(): const tipoprotesis",
 											"horizontalAlignment": 0
 										},
 										{
@@ -6130,7 +6148,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 783,
-									"top": 434,
+									"top": 441,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -6151,7 +6169,7 @@
 									"visible": null,
 									"font": "Arial;13;0",
 									"left": 768,
-									"top": 434,
+									"top": 441,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -6172,7 +6190,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 812,
-									"top": 435,
+									"top": 442,
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -6257,7 +6275,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 783,
-									"top": 397,
+									"top": 412,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 30,
@@ -6277,7 +6295,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 769,
-									"top": 400,
+									"top": 415,
 									"height": 13,
 									"alpha": -0.7853981633974483,
 									"distance": 40,
@@ -6296,7 +6314,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 807,
-									"top": 393,
+									"top": 408,
 									"width": 7.22998046875,
 									"height": 13,
 									"alpha": 0.5235987755982988,
@@ -6346,7 +6364,7 @@
 							"tail": {
 								"$ref": "AAAAAAGIcwSYDfBrSwk="
 							},
-							"points": "798:504;798:378",
+							"points": "798:504;798:393",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGIlyuvRyo1oQw="
@@ -7492,6 +7510,17 @@
 							"name": "direccion",
 							"visibility": "private",
 							"type": "const string"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGJCEb9VlOrFv8=",
+							"_parent": {
+								"$ref": "AAAAAAGIcwR93vA/WOo="
+							},
+							"name": "CantidadHospitales",
+							"visibility": "private",
+							"isStatic": true,
+							"type": "int"
 						}
 					],
 					"operations": [
@@ -9492,7 +9521,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGIcweAwPERSOc="
 							},
-							"name": "get_tipoprotesistipo",
+							"name": "get_tipoProtesis",
 							"parameters": [
 								{
 									"_type": "UMLParameter",

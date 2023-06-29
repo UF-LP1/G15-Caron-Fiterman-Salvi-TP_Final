@@ -138,7 +138,7 @@ const string cProtesis::to_string()const{
            << "Radio: "<<this->get_radio()<<endl
            << "Fecha Fabricacion: " << this->get_fechaFabricacion().toString().toStdString()<<endl
            << "Informacion Protesis: " << this->get_tipoProtesis()<<endl
-           << "Material Protesis: " << this->get_material()<<endl;
+           << "Material Protesis: " << this->Material<<endl;
 
     return salida.str();
 

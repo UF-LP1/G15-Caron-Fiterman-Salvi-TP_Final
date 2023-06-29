@@ -8,6 +8,12 @@ cHospital::cHospital(string Nombre, string direccion) : Nombre(Nombre), Direccio
 
 }
 
+cHospital:: cHospital(string Nombre, string direccion, list <cMedico*> ListaMedicos, list <cPaciente*> ListaPacientes): Nombre(Nombre), Direccion(direccion){
+    this->ListaMedicos = ListaMedicos;
+    this->ListaPacientes = ListaPacientes;
+}
+
+
 const string cHospital::get_Nombre() const{
     return this->Nombre;
 }
@@ -59,7 +65,7 @@ const string cHospital::to_string() const{
 
     salida<< "Lista Medicos: "<<endl;
     while (it2 != ListaMedicos.end()) {
-        salida << **it2 <<endl; //usa la sobrecarga de << del medico
+        salida << **it2 <<endl; //usa la sobrecarga de << del cMedico
         it2++;
     } //recorro toda la lista de medicos
 
@@ -71,6 +77,10 @@ void cHospital::imprimir(){
 
 
 void cHospital::operator+(cPaciente &pacienteNuevo){
+    if(&pacienteNuevo == nullptr){
+        throw new DatoEsNullptr;
+    }
+
     list<cPaciente*>::iterator it = this->ListaPacientes.begin();
     bool encontrado = false;
 
@@ -88,6 +98,10 @@ void cHospital::operator+(cPaciente &pacienteNuevo){
 }
 
 void cHospital::operator-(cPaciente &pacienteBorrar){
+    if(&pacienteBorrar == nullptr){
+        throw new DatoEsNullptr;
+    }
+
     list<cPaciente*>::iterator it= this->ListaPacientes.begin();
     bool encontrado = false;
 
@@ -120,6 +134,10 @@ cPaciente& cHospital::operator[](unsigned int idx){
 
 
 void cHospital::operator+(cMedico &medicoNuevo){
+    if(&medicoNuevo == nullptr){
+        throw new DatoEsNullptr;
+    }
+
     list<cMedico*>::iterator it = this->ListaMedicos.begin();
     bool encontrado = false;
 
@@ -137,6 +155,10 @@ void cHospital::operator+(cMedico &medicoNuevo){
 }
 
 void cHospital::operator-(cMedico &medicoBorrar){
+    if(&medicoBorrar == nullptr){
+        throw new DatoEsNullptr;
+    }
+
     list<cMedico*>::iterator it = this->ListaMedicos.begin();
     bool encontrado = false;
 
@@ -168,22 +190,24 @@ cMedico& cHospital::getMedico(unsigned int idx){
 }
 
 bool cHospital::operator==(const cHospital &HospitalAComparar){
-    bool iguales = false;
 
-    if(this->Nombre == HospitalAComparar.Nombre &&
-       this->Direccion == HospitalAComparar.Direccion &&
-       this->ListaMedicos == HospitalAComparar.ListaMedicos &&
-       this->ListaPacientes == HospitalAComparar.ListaPacientes
-       ){
-        iguales = true;
+    if(&HospitalAComparar == nullptr){
+        throw new DatoEsNullptr;
     }
 
-    return iguales;
+    return(this->Nombre == HospitalAComparar.Nombre &&
+       this->Direccion == HospitalAComparar.Direccion &&
+       this->ListaMedicos == HospitalAComparar.ListaMedicos &&
+       this->ListaPacientes == HospitalAComparar.ListaPacientes);
 }
 
 cHospital::~cHospital(){}
 
 ostream& operator<<(ostream& os, const cHospital& Hospital){
+    if(&Hospital == nullptr){
+        throw new DatoEsNullptr;
+    }
+
     os<< Hospital.to_string()<<endl;
     return os;
 }

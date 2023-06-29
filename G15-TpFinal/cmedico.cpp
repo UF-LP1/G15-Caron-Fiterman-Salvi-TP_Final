@@ -30,6 +30,10 @@ void cMedico::imprimir(){
 }
 
 bool cMedico::operator==(const cMedico &MedicoAComparar){
+    if(&MedicoAComparar == nullptr){
+        throw new DatoEsNullptr;
+    }
+
     bool iguales = false;
     if(this->Nombre == MedicoAComparar.Nombre &&
         this->Apellido == MedicoAComparar.Apellido &&
@@ -43,6 +47,10 @@ bool cMedico::operator==(const cMedico &MedicoAComparar){
 }
 
 ostream& operator<<(ostream& os, const cMedico& MedicoImprimir){
+    if(&MedicoImprimir == nullptr){
+            throw new DatoEsNullptr;
+    }
+
     os<< MedicoImprimir.to_string()<<endl;
     return os;
 }

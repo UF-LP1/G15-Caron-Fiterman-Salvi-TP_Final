@@ -23,8 +23,10 @@ const string cANPA::get_direccion() const{
     return this->direccion;
 }
 
-/*bool cANPA::chequearStockProtesis(cProtesis &protesis){
-
+bool cANPA::chequearStockProtesis(cProtesis &protesis, cOrtopedia ortopedia){
+    if(&protesis == nullptr){
+        throw new DatoEsNullptr;
+    }
 
     TipoProtesis tipo = protesis.get_TipoProtesisTipo();
     bool hayStock = false;
@@ -36,25 +38,25 @@ const string cANPA::get_direccion() const{
 
         switch (tipo) {
         case SuperiorIzquierda:
-            if (cOrtopedia::StockSupIzqNQ > 0) {
+            if (ortopedia.get_StockSupIzqNQ() > 0) {
                 hayStock = true;
             }
             break;
 
         case SuperiorDerecha:
-            if (cOrtopedia::StockSupDerNQ > 0) {
+            if (ortopedia.get_StockSupDerNQ() > 0) {
                 hayStock = true;
             }
             break;
 
         case InferiorIzquierda:
-            if (cOrtopedia::StockInfIzqNQ > 0) {
+            if (ortopedia.get_StockInfIzqNQ() > 0) {
                 hayStock = true;
             }
             break;
 
         case InferiorDerecha:
-            if (cOrtopedia::StockInfDerNQ > 0) {
+            if (ortopedia.get_StockInfDerNQ() > 0) {
                 hayStock = true;
             }
             break;
@@ -68,25 +70,25 @@ const string cANPA::get_direccion() const{
 
         switch (tipo) {
         case SuperiorIzquierda:
-            if (cOrtopedia::StockSupIzqQ > 0) {
+            if (ortopedia.get_StockSupIzqQ() > 0) {
                 hayStock = true;
             }
             break;
 
         case SuperiorDerecha:
-            if (cOrtopedia::StockSupDerQ > 0) {
+            if (ortopedia.get_StockSupDerQ() > 0) {
                 hayStock = true;
             }
             break;
 
         case InferiorIzquierda:
-            if (cOrtopedia::StockInfIzqQ > 0) {
+            if (ortopedia.get_StockInfIzqQ() > 0) {
                 hayStock = true;
             }
             break;
 
         case InferiorDerecha:
-            if (cOrtopedia::StockInfDerQ > 0) {
+            if (ortopedia.get_StockInfDerQ() > 0) {
                 hayStock = true;
             }
             break;
@@ -100,7 +102,7 @@ const string cANPA::get_direccion() const{
     return hayStock;
 
 }
-*/
+
 
 bool cANPA::solicitar_protesis_fabricante(){
     bool estadoSolicitud= false;
@@ -111,13 +113,17 @@ bool cANPA::solicitar_protesis_fabricante(){
     return estadoSolicitud;
 }
 
-/*void cANPA::Entregar_Protesis(cPaciente paciente, cProtesis &protesisPaciente){ //le entrega la protesis al paciente, usa la sobrecarga del = para asignarle la protesis
+void cANPA::Entregar_Protesis(cPaciente paciente, cProtesis &protesisPaciente, cOrtopedia ortopedia){ //le entrega la protesis al paciente, usa la sobrecarga del = para asignarle la protesis
+    if(&protesisPaciente == nullptr){
+        throw new DatoEsNullptr;
+    }
+
     list<cRegistrosANPA*>:: iterator it = ListaRegistros.begin();
 
     while (it != ListaRegistros.end()){
         if(paciente.get_permisoprotesis()){ //si el paciente tiene permiso para hacerse la protesis
             if(paciente.get_protesis() == protesisPaciente){ //si son la misma protesis
-                if(chequearStockProtesis(protesisPaciente)){//si hay stock de la protesis
+                if(chequearStockProtesis(protesisPaciente, ortopedia)){//si hay stock de la protesis
                     try{
                         paciente.set_protesis(protesisPaciente);
                         (*it)->set_FechaEntrega(QDate::currentDate()); //la fecha de entrega es la de hoy
@@ -146,7 +152,7 @@ bool cANPA::solicitar_protesis_fabricante(){
 
     return;
 
-}*/
+}
 
 void cANPA::AgregarRegistroPaciente(cRegistrosANPA pacienteNuevo){ //usa sobrecarga del ==, se usa en la sobrecarga del +
     list<cRegistrosANPA*>::iterator it = this->ListaRegistros.begin();
@@ -234,7 +240,21 @@ cPaciente cANPA::BuscarPacXProtesis(cProtesis protesisPaciente){
 
 const string cANPA::to_string() const{
     stringstream salida;
-    salida << "Direccion ANPA:"<< this->direccion<<endl;
+    list<cHospital*>::const_iterator it = ListaHospitales.begin();
+    list<cRegistrosANPA*>::const_iterator it2 = ListaRegistros.begin();
+    salida << "Direccion ANPA:"<< this->direccion<<endl
+           <<"Lista Hospitales: "<< endl;
+
+    while (it != ListaHospitales.end()) {
+       salida << **it <<endl; // Desreferencia el puntero y utiliza sobrecarga del operador <<
+       it++;
+    }
+
+    salida << "Lista Registros ANPA:"<< endl;
+    while (it2 != ListaRegistros.end()) {
+       salida << **it2 <<endl; // Desreferencia el puntero y utiliza sobrecarga del operador <<
+       it2++;
+    }
     //FALTAN LISTAS REGISTROS Y HOSPITALES
     return salida.str();
 }
@@ -249,12 +269,19 @@ cANPA::~cANPA(){}
 
 
 void cANPA::operator+(cRegistrosANPA &registroNuevo){
+    if(&registroNuevo == nullptr){
+       throw new DatoEsNullptr;
+    }
+
     this->AgregarRegistroPaciente(registroNuevo);
     return;
 }
 
 
 void cANPA::operator-(cRegistrosANPA &registroBorrar){
+    if(&registroBorrar == nullptr){
+       throw new DatoEsNullptr;
+    }
     list<cRegistrosANPA*>::iterator it= this->ListaRegistros.begin();
     bool encontrado = false;
 
@@ -286,6 +313,10 @@ cRegistrosANPA& cANPA::operator[](unsigned int idx){
 }
 
 void cANPA::operator+(cHospital &HospitalNuevo){
+    if(&HospitalNuevo == nullptr){
+        throw new DatoEsNullptr;
+    }
+
     list<cHospital*>::iterator it = this->ListaHospitales.begin();
     bool encontrado = false;
 
@@ -295,11 +326,20 @@ void cANPA::operator+(cHospital &HospitalNuevo){
         it++;
     }
 
-    if(encontrado == false) //si el hospital no esta en la lista previamente
+    if(encontrado == false){
         this->ListaHospitales.push_back(&HospitalNuevo);
+        cANPA::CantidadHospitales++;
+    }//si el hospital no esta en la lista previamente
+
+
 }
 
 void cANPA::operator-(cHospital &HospitalBorrar){
+    if(&HospitalBorrar == nullptr){
+        throw new DatoEsNullptr;
+    }
+
+
     list<cHospital*>::iterator it = this->ListaHospitales.begin();
     bool encontrado = false;
 
@@ -312,8 +352,11 @@ void cANPA::operator-(cHospital &HospitalBorrar){
         it++;
     }
 
-    if(encontrado == true)
+    if(encontrado == true){
         this->ListaHospitales.erase(it);
+        cANPA::CantidadHospitales--;
+    }
+
 
     return;
 
@@ -330,3 +373,5 @@ cHospital& cANPA::getHospital(unsigned int idx){
 
     return **it;
 }
+
+int cANPA::CantidadHospitales = 0;

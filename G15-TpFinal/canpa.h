@@ -17,10 +17,10 @@ class cANPA
         list<cRegistrosANPA*> get_ListaRegistros() const;
         list<cHospital*> get_ListaHospitales() const;
         const string get_direccion() const;
-        bool chequearStockProtesis(cProtesis& protesis);
+        bool chequearStockProtesis(cProtesis &protesis, cOrtopedia ortopedia);
         bool solicitar_protesis_fabricante(); //le pide al fabricante que haga la protesis
 
-        void Entregar_Protesis(cPaciente paciente, cProtesis &protesisPaciente);
+        void Entregar_Protesis(cPaciente paciente, cProtesis &protesisPaciente, cOrtopedia ortopedia);
         void AgregarRegistroPaciente(cRegistrosANPA pacienteNuevo); //usa sobrecarga del +
 
         cPaciente BuscarPacXHospital(string DNIPaciente); //usa sobrecarga del ==
@@ -47,6 +47,7 @@ class cANPA
         const string direccion;
         list<cRegistrosANPA*> ListaRegistros;
         list<cHospital*> ListaHospitales;
+        static int CantidadHospitales;
 
 
 };

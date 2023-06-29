@@ -130,7 +130,19 @@ cOrtopedia FuncionesMain::crearOrtopedia(){
     int randOrto=QRandomGenerator::global()->bounded(3);
     int randDire=QRandomGenerator::global()->bounded(10);
 
-    cOrtopedia* Ortopedia1=new cOrtopedia(ArrOrto[randOrto],ArrDire[randDire]);
+    unsigned int randStockSupIzqQ=QRandomGenerator::global()->bounded(10);
+    unsigned int randStockSupDerQ=QRandomGenerator::global()->bounded(10);
+    unsigned int randStockInfIzqQ=QRandomGenerator::global()->bounded(10);
+    unsigned int randStockInfDerQ=QRandomGenerator::global()->bounded(10);
+
+    unsigned int randStockSupIzqNQ=QRandomGenerator::global()->bounded(10);
+    unsigned int randStockSupDerNQ=QRandomGenerator::global()->bounded(10);
+    unsigned int randStockInfIzqNQ=QRandomGenerator::global()->bounded(10);
+    unsigned int randStockInfDerNQ=QRandomGenerator::global()->bounded(10);
+
+    cOrtopedia* Ortopedia1=new cOrtopedia(ArrOrto[randOrto],ArrDire[randDire] , randStockSupIzqQ, randStockSupDerQ,
+                                            randStockInfIzqQ, randStockInfDerQ, randStockSupIzqNQ,
+                                            randStockSupDerNQ, randStockInfIzqNQ, randStockInfDerNQ);
 
     return *Ortopedia1;
 }

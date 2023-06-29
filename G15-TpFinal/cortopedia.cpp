@@ -1,13 +1,33 @@
 #include "cortopedia.h"
 
-cOrtopedia::cOrtopedia(string nombre, string direccion, list<cProtesis*> ListaProtesis): Nombre(nombre), Direccion(direccion)
+cOrtopedia::cOrtopedia(string nombre, string direccion, list<cProtesis*> ListaProtesis,unsigned int StockSupIzqQ, unsigned int StockSupDerQ,
+                       unsigned int StockInfIzqQ, unsigned int StockInfDerQ, unsigned int StockSupIzqNQ,  unsigned int StockSupDerNQ,
+                       unsigned int StockInfIzqNQ, unsigned int StockInfDerNQ): Nombre(nombre), Direccion(direccion)
 {
     this->ListadoProtesis = ListaProtesis;
+    this->StockSupIzqQ = StockSupIzqQ;
+    this->StockSupDerQ = StockSupDerQ;
+    this->StockInfIzqQ = StockInfIzqQ;
+    this->StockInfDerQ = StockInfDerQ;
+    this->StockSupIzqNQ = StockSupIzqNQ;
+    this->StockSupDerNQ = StockSupDerNQ;
+    this->StockInfIzqNQ = StockInfIzqNQ;
+    this->StockInfDerNQ = StockInfDerNQ;
 }
 
-cOrtopedia::cOrtopedia(string nombre, string direccion): Nombre(nombre), Direccion(direccion)
+cOrtopedia::cOrtopedia(string nombre, string direccion,unsigned int StockSupIzqQ, unsigned int StockSupDerQ,
+                       unsigned int StockInfIzqQ, unsigned int StockInfDerQ, unsigned int StockSupIzqNQ,
+                       unsigned int StockSupDerNQ,unsigned int StockInfIzqNQ, unsigned int StockInfDerNQ): Nombre(nombre), Direccion(direccion)
 {
     this->ListadoProtesis.clear();
+    this->StockSupIzqQ = StockSupIzqQ;
+    this->StockSupDerQ = StockSupDerQ;
+    this->StockInfIzqQ = StockInfIzqQ;
+    this->StockInfDerQ = StockInfDerQ;
+    this->StockSupIzqNQ = StockSupIzqNQ;
+    this->StockSupDerNQ = StockSupDerNQ;
+    this->StockInfIzqNQ = StockInfIzqNQ;
+    this->StockInfDerNQ = StockInfDerNQ;
 }
 
 const string cOrtopedia::get_nombre(){
@@ -87,6 +107,10 @@ void cOrtopedia::set_StockInfDerNQ(unsigned int StockInfDerNQ){
 }
 
 void cOrtopedia::operator+(cProtesis &ProtesisNueva){
+    if(&ProtesisNueva == nullptr){
+        throw new DatoEsNullptr;
+    }
+
     list<cProtesis*>::iterator it = this->ListadoProtesis.begin();
     bool encontrado = false;
 
@@ -104,6 +128,10 @@ void cOrtopedia::operator+(cProtesis &ProtesisNueva){
 }
 
 void cOrtopedia::operator-(cProtesis &ProtesisBorrar){
+    if(&ProtesisBorrar == nullptr){
+        throw new DatoEsNullptr;
+    }
+
     list<cProtesis*>::iterator it = this->ListadoProtesis.begin();
     bool encontrado = false;
 
