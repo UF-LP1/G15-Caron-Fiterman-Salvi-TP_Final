@@ -3439,12 +3439,12 @@
 											"model": {
 												"$ref": "AAAAAAGIk6zEVqRegl0="
 											},
-											"font": "Arial;13;0",
+											"font": "Arial;13;2",
 											"left": 725,
 											"top": 1224,
 											"width": 178.09619140625,
 											"height": 13,
-											"text": "+virtual to_string(): const string",
+											"text": "+to_string(): const string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -3456,12 +3456,12 @@
 											"model": {
 												"$ref": "AAAAAAGIk6zk5aRn2Mc="
 											},
-											"font": "Arial;13;0",
+											"font": "Arial;13;2",
 											"left": 725,
 											"top": 1239,
 											"width": 178.09619140625,
 											"height": 13,
-											"text": "+virtual imprimir(): void",
+											"text": "+imprimir(): void",
 											"horizontalAlignment": 0
 										}
 									],
@@ -10160,7 +10160,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGIcwkai/GdyOA="
 							},
-							"name": "virtual to_string",
+							"name": "to_string",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -10171,7 +10171,8 @@
 									"type": "const string",
 									"direction": "return"
 								}
-							]
+							],
+							"isAbstract": true
 						},
 						{
 							"_type": "UMLOperation",
@@ -10179,7 +10180,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGIcwkai/GdyOA="
 							},
-							"name": "virtual imprimir",
+							"name": "imprimir",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -10190,7 +10191,8 @@
 									"type": "void",
 									"direction": "return"
 								}
-							]
+							],
+							"isAbstract": true
 						}
 					]
 				},
