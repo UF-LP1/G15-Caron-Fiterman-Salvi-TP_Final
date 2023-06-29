@@ -3,7 +3,7 @@
 cPaciente::cPaciente(string nombre, string apellido, string dni, QDate fechaNac, string telefono, string Medico, list <string> alergias, string HospitAlatentido, float RadioMiembro, bool PermisoProtesis, cProtesis Protesis)
     : cPersona(nombre,apellido,dni), FechaNac(fechaNac), Protesis(Protesis){
     this->Telefono = telefono;
-    this->Medico = Medico;
+    this->MatriculaMedico = Medico;
     this->Alergias = alergias;
     this->HospitalAtendido = HospitAlatentido;
     this->RadioMiembro = RadioMiembro;
@@ -19,11 +19,11 @@ const string cPaciente::get_telefono()const{
 }
 
 void cPaciente::set_Medico(string Medico){
-    this->Medico = Medico;
+    this->MatriculaMedico = Medico;
     return;
 }
 const string cPaciente::get_Medico()const{
-    return this->Medico;
+    return this->MatriculaMedico;
 }
 
 void cPaciente::set_alergias(list<string> alergias){

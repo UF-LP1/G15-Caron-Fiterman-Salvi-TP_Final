@@ -47,6 +47,10 @@ public:
 
     static string ArrFabri[3];
 
+    static string ArrEspecializacion[5];
+
+    static string ArrSujecion[5];
+
     static cPaciente crearPaciente(cProtesis& Protesis);
 
     static cNoQuirurgicas crearProtesisNQ();
@@ -61,7 +65,6 @@ public:
     static cOrtopedia crearOrtopedia();
 
     static cFabricante crearfabricante();
-
 
 };
 

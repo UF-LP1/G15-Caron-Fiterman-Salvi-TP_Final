@@ -27,9 +27,6 @@ class cHospital
         list<cPaciente*>::iterator get_BeginListaPacientes();
         list<cPaciente*>::iterator get_EndListaPacientes();
 
-        //void ListarMedicos() const;
-        //void ListarPacientes() const;
-
         const string to_string() const;
         void imprimir();
 

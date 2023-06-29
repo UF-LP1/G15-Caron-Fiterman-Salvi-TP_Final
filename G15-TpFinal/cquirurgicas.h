@@ -13,6 +13,7 @@ class cQuirurgicas : public cProtesis
         const string get_material()const;
         void set_material(string Material);
 
+        void ajustarImplante(float radio, float largo);
         //usa el to_string e imprimir de cProtesis, como son iguales no los hicimos virtual
         ~cQuirurgicas();
 

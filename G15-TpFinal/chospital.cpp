@@ -201,6 +201,7 @@ bool cHospital::operator==(const cHospital &HospitalAComparar){
        this->ListaPacientes == HospitalAComparar.ListaPacientes);
 }
 
+
 cHospital::~cHospital(){}
 
 ostream& operator<<(ostream& os, const cHospital& Hospital){

@@ -50,7 +50,7 @@ public:
 protected:
     const QDate FechaNac;
     string Telefono;
-    string Medico;
+    string MatriculaMedico;
     list <string> Alergias;
     string HospitalAtendido;
     float RadioMiembro; // 0 si no tiene nada amputado

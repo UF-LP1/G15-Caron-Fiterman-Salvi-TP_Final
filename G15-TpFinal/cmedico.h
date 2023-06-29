@@ -6,9 +6,12 @@
 class cMedico:public cPersona
 {
 public:
-    cMedico(string nombre,string apellido, string dni,string matricula);
+    cMedico(string nombre,string apellido, string dni,string matricula, string especializacion);
+
 
     const string get_matricula() const;
+    const string get_Especializacion() const;
+    void set_Especializacion(string especializacion);
 
     void dar_permiso_protesis(cPaciente paciente);
 
@@ -23,6 +26,7 @@ public:
 
 protected:
     const string Matricula;
+    string Especializacion;
 };
 
 

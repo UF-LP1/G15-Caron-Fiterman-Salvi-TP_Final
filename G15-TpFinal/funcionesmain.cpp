@@ -28,6 +28,8 @@ QDate FuncionesMain::ArrFecha[10] = {
 string FuncionesMain:: ArrTelefono[10]= {"+1 555-123-4567", "+44 20 5555 6789", "+61 2 5555 1234", "+33 1 5555 9876", "+49 30 5555 4321", "+52 55 5555 7890", "+39 06 5555 2468", "+91 11 5555 1357", "+27 11 5555 8023", "+81 3 5555 5709"};
 string FuncionesMain:: ArrOrto[3]= {"Ortopedia Nueva Vida", "Ortopedia Camina Hacia el Futuro", "Centro Ortopedico Privado"};
 string FuncionesMain:: ArrFabri[3]= {"Meditech Solutions", "BioPro OrthoTech", "Innovex Medical Devices"};
+string FuncionesMain:: ArrEspecializacion[5]{ "Anatomía Patológica","Traumatologo","Cardiologo","Pediatria","Cirugia"};
+string FuncionesMain:: ArrSujecion[5]{"Correas de Velcro", "Sistemas de Encaje", "Sistemas de Vacío", "Sistemas de Pin", "Sistemas de Suspensión por Vacío"};
 
 cPaciente FuncionesMain::crearPaciente(cProtesis &Protesis){
     int randNombre= QRandomGenerator::global()->bounded(10);
@@ -61,11 +63,12 @@ cNoQuirurgicas FuncionesMain:: crearProtesisNQ(){
     int randFabricante=QRandomGenerator::global()->bounded(3);
     int randTipoProte=QRandomGenerator::global()->bounded(5);
     int randMaterial=QRandomGenerator::global()->bounded(6);
+    int randSujecion=QRandomGenerator::global()->bounded(5);
 
     TipoProtesis tipoProtesis = static_cast<TipoProtesis>(randTipoProte);
 
 
-    cNoQuirurgicas *Protesis=new cNoQuirurgicas(ArrLargo[randLargo],ArrRadio[randRadio], QDate(QDate::currentDate()), ArrFabri[randFabricante], tipoProtesis, ArrMateriales[randMaterial]);
+    cNoQuirurgicas *Protesis=new cNoQuirurgicas(ArrLargo[randLargo],ArrRadio[randRadio], QDate(QDate::currentDate()), ArrFabri[randFabricante], tipoProtesis, ArrMateriales[randMaterial], ArrSujecion[randSujecion]);
 
     return *Protesis;
 }
@@ -104,8 +107,10 @@ cMedico FuncionesMain::crearMedico(){
     int randApe= QRandomGenerator::global()->bounded(10);
     int randDNI= QRandomGenerator::global()->bounded(10);
     int randMatricula= QRandomGenerator::global()->bounded(10);
+    int randEsp= QRandomGenerator::global()->bounded(5);
 
-    cMedico *Medico1 = new cMedico(ArrNombres[randNombre],ArrApellido[randApe], ArrDNI[randDNI],ArrMatricula[randMatricula]);
+
+    cMedico *Medico1 = new cMedico(ArrNombres[randNombre],ArrApellido[randApe], ArrDNI[randDNI],ArrMatricula[randMatricula], ArrEspecializacion[randEsp]);
 
     return *Medico1;
 

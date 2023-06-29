@@ -43,8 +43,8 @@ class cProtesis
         friend ostream& operator<<(ostream& os, const cProtesis& ProtesisImprimir);
 
 
-        const string to_string() const;
-        void imprimir();
+        virtual const string to_string() const;
+        virtual void imprimir();
 
         virtual ~cProtesis();
 

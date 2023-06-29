@@ -14,6 +14,9 @@ void cQuirurgicas::set_material(string Material){
     return;
 }
 
-
+void cQuirurgicas::ajustarImplante(float radio, float largo){
+    set_largo(largo);
+    set_radio(radio);
+}
 
 cQuirurgicas::~cQuirurgicas(){}
