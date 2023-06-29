@@ -96,32 +96,40 @@ int main()
         if(Hospital1==nullptr){
              return 1;;
         }
+    try{
+        *Hospital1+(*Paciente1); //agrego los pac a la lista
+        *Hospital1+(*Paciente3);
+        *Hospital1+(*Paciente4);
 
-    *Hospital1+(*Paciente1); //agrego los pac a la lista
-    *Hospital1+(*Paciente3);
-    *Hospital1+(*Paciente4);
-
-    *Hospital1+(*Medico1); //agrego los med a la lista
-    *Hospital1+(*Medico2);
-    *Hospital1+(*Medico4);
+        *Hospital1+(*Medico1); //agrego los med a la lista
+        *Hospital1+(*Medico2);
+        *Hospital1+(*Medico4);
+    }catch(DatoEsNullptr *e){
+        cout<<e->what()<<endl;
+        delete e;
+    }
 
     //Hosp 2
     cHospital *Hospital2 = new cHospital(FuncionesMain::crearHospital());
     if(Hospital2==nullptr){
              return 1;;
     }
+    try{
+        *Hospital2+(*Paciente1);
+        *Hospital2+(*Paciente3);
+        *Hospital2+(*Paciente2);
+        *Hospital2+(*Paciente3); //no lo deberia agregar porque ya esta en la lista
+        *Hospital2+(*Paciente4);
 
-    *Hospital2+(*Paciente1);
-    *Hospital2+(*Paciente3);
-    *Hospital2+(*Paciente2);
-    *Hospital2+(*Paciente3); //no lo deberia agregar porque ya esta en la lista
-    *Hospital2+(*Paciente4);
+        *Hospital1+(*Medico1);
+        *Hospital1+(*Medico3);
+        *Hospital1+(*Medico1); //no lo deberia agregar porque ya esta en la lista
+        *Hospital1+(*Medico4);
 
-    *Hospital1+(*Medico1);
-    *Hospital1+(*Medico3);
-    *Hospital1+(*Medico1); //no lo deberia agregar porque ya esta en la lista
-    *Hospital1+(*Medico4);
-
+    }catch(DatoEsNullptr *e){
+        cout<<e->what()<<endl;
+        delete e;
+    }
      /////////// CREO REGISTROS ANPA ///////////
 
     //Reg 1
@@ -151,13 +159,19 @@ int main()
              return 1;;
     }
 
-    *ANPA+(*RegistroANPA1); //agrego todos los registros
-    *ANPA+(*RegistroANPA2);
-    *ANPA+(*RegistroANPA3);
-    *ANPA+(*RegistroANPA4);
+    try{
+        *ANPA+(*RegistroANPA1); //agrego todos los registros
+        *ANPA+(*RegistroANPA2);
+        *ANPA+(*RegistroANPA3);
+        *ANPA+(*RegistroANPA4);
 
-    *ANPA+(*Hospital1); //agrego todos los hospitales
-    *ANPA+(*Hospital2);
+        *ANPA+(*Hospital1); //agrego todos los hospitales
+        *ANPA+(*Hospital2);
+
+    }catch(DatoEsNullptr *e){
+             cout<<e->what()<<endl;
+             delete e;
+    }
 
     /////////// CREO ORTOPEDIAS ///////////
 
@@ -187,27 +201,6 @@ int main()
 
     /////////// PRUEBO FUNCIONES ///////////
 
-    Hospital1->imprimir();
-    Paciente1->imprimir();
-
-
-    cHospital hospaux("hola", "santa fe");
-    cHospital hospaux2("hola", "santa fe");
-    hospaux+(*Paciente1);
-    hospaux2+(*Paciente1);
-
-    try{
-        if(hospaux == hospaux2)
-           cout<<"funciona!!"<<endl;
-
-    }catch(DatoEsNullptr *e){
-        cout<<e->what()<<endl;
-        delete e;
-    }
-
-
-    Protesis1->imprimir();
-
     //funciones ANPA
     bool aux;
     try{
@@ -233,6 +226,8 @@ int main()
         delete e;
     }
 
+    ANPA->imprimir();
+
 
     //funciones medico
     Medico1->dar_permiso_protesis(*Paciente2);
@@ -245,14 +240,27 @@ int main()
     cout<< "rta protesis:"<<aux<<endl;
 
     //funciones hospital
+    Hospital1->imprimir(); //tiene el medico 4
     *Hospital1-(*Medico4); //elimino el medico4 de la lista de medicos en hosp
+    Hospital1->imprimir(); //ya no tiene el medico 4
+
+    *Hospital1-(*Medico4); //el medico ya deberia estar eliminado de la lista asi que no borra nada
     *Hospital1-(*Paciente2); //idem pero para paciente
-        if(Hospital1==Hospital2){
-            cout<<"hospitales son iguales"<<endl;
-        }
-        else{
-            cout<<"hospitales no iguales"<<endl;
-        }
+    Hospital1->imprimir(); //ya no deberia estar el paciente2
+
+    if(Hospital1==Hospital2){
+        cout<<"hospitales son iguales"<<endl;
+    }
+   else{
+        cout<<"hospitales no iguales"<<endl;
+    }
+
+    if(Hospital2==Hospital2){
+        cout<<"hospitales son iguales"<<endl;
+    }
+    else{
+        cout<<"hospitales no iguales"<<endl;
+    }
 
     //funciones protesis
         try{
@@ -262,13 +270,15 @@ int main()
              delete e;
         }
 
-        Protesis1->imprimir();
-
+    Protesis2->imprimir();
+    Protesis2->set_fabricante("Mejores Protesis del mundo");
+    Protesis2->imprimir(); //tiene que haber cambiado el fabricante
 
 
 
     //Funciones paciente
     Paciente3->imprimir(); //usa el de la protesis tambien
+
 
 
     //funciones RegANPA
