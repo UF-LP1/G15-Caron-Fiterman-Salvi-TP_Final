@@ -47,7 +47,7 @@ public:
     ~cPaciente();
 
 
-protected:
+private:
     const QDate FechaNac;
     string Telefono;
     string MatriculaMedico;

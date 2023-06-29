@@ -24,7 +24,7 @@ public:
     ~cMedico();
 
 
-protected:
+private:
     const string Matricula;
     string Especializacion;
 };
