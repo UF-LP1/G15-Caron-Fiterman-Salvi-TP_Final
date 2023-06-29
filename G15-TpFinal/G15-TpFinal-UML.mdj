@@ -2578,7 +2578,7 @@
 											"model": {
 												"$ref": "AAAAAAGIk5jxPaP6lLA="
 											},
-											"font": "Arial;13;0",
+											"font": "Arial;13;2",
 											"left": 1717,
 											"top": 669,
 											"width": 243.166015625,
@@ -2595,7 +2595,7 @@
 											"model": {
 												"$ref": "AAAAAAGIk5jT+KPv0f8="
 											},
-											"font": "Arial;13;0",
+											"font": "Arial;13;2",
 											"left": 1717,
 											"top": 684,
 											"width": 243.166015625,
@@ -9670,7 +9670,8 @@
 									"type": "const string",
 									"direction": "return"
 								}
-							]
+							],
+							"isAbstract": true
 						},
 						{
 							"_type": "UMLOperation",
@@ -9698,7 +9699,8 @@
 									"type": "void",
 									"direction": "return"
 								}
-							]
+							],
+							"isAbstract": true
 						},
 						{
 							"_type": "UMLOperation",
